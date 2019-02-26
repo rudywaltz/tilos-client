@@ -18,7 +18,7 @@ npm i
 npm run dev
 ```
 
-The client opening at [localhost:3000](http://localhost:3000)
+You can access the application on the following URL [localhost:3000](http://localhost:3000)
 
 ## Testing
 ```bash
