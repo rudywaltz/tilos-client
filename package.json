@@ -2,6 +2,7 @@
   "name": "tilos-client",
   "description": "new client to tilos website",
   "version": "0.0.1",
+  "license": "MIT",
   "engines": {
     "node": "10.15.1"
   },
