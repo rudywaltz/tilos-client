@@ -12,7 +12,7 @@ nvm use
 npm i
 ```
 
-## Delevoping
+## Develop
 
 ```bash
 npm run dev
@@ -20,7 +20,7 @@ npm run dev
 
 You can access the application on the following URL [localhost:3000](http://localhost:3000)
 
-## Testing
+## Test
 ```bash
 npm run test
 ```
