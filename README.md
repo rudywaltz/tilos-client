@@ -1,5 +1,7 @@
 # sapper-template
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rudywaltz/tilos-client.svg)](https://greenkeeper.io/)
+
 The default [Sapper](https://github.com/sveltejs/sapper) template, with branches for Rollup and webpack. To clone it and get started:
 
 ```bash
