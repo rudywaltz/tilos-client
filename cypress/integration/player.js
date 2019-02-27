@@ -5,6 +5,7 @@ const expectPlayingAudio = (elem, assert = true) => {
     const audible = el[0].duration > 0 && !el[0].paused && !el[0].muted;
     expect(audible).to.eq(assert);
   })
+}
 
 
 describe('player', () => {
