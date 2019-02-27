@@ -1,7 +1,8 @@
 <div id="player" class="player">
-  <audio src={ $song.url } controls bind:duration=duration bind:paused></audio>
+  <audio src={ $song.url } controls bind:duration=duration bind:paused bind:currentTime=time></audio>
   <h3 class="player__title">{ $song.url ? $song.url : 'No sound selected' }</h3>
   <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
+  <div class="player__current">{ $song.url ? format(time) : format() }</div>
   <button type="button" class="player__play" on:click='set({paused: !paused})'>{ paused ? 'Play' : 'Pause' }</button>
 </div>
 
@@ -19,7 +20,7 @@
       }
     },
     data() {
-      return { duration: 0, paused: true }
+      return { duration: 0, time: 0, paused: true }
     }
   };
 </script>

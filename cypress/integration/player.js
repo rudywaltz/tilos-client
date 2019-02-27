@@ -31,6 +31,11 @@ describe('player', () => {
         .get('#player .player__duration')
         .contains('--:--:--')
     });
+    it('default current time', () => {
+      cy
+        .get('#player .player__current')
+        .contains('--:--:--')
+    });
   })
 
   it('should be render', () => {
@@ -64,5 +69,14 @@ describe('player', () => {
       .click()
       .click()
       expectPlayingAudio(cy.get('audio'), false);
+  });
+
+  it('render current time', () => {
+    cy.get('#player .player__play')
+      .click()
+    cy.get('#player .player__current')
+    .contains('00:00:01')
+    cy.get('#player .player__current')
+    .contains('00:00:02')
   });
 });
