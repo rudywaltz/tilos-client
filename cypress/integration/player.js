@@ -38,7 +38,7 @@ describe('player', () => {
         .contains('No sound selected')
     });
 
-    it.skip('default duration', () => {
+    it('default duration', () => {
       cy
         .get('#player .player__duration')
         .contains('--:--:--')

@@ -1,12 +1,12 @@
 <div id="player" class="player">
   <audio src={ $song.url } controls bind:duration=duration></audio>
   <h3 class="player__title">{ $song.url ? $song.url : 'No sound selected' }</h3>
-  <div class="player__duration">{ format(duration) }</div>
+  <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
 </div>
 
 
 <script>
-    const pad = num => num < 10 ? '0' + num : num;
+  const pad = num => num < 10 ? '0' + num : num;
   export default {
     helpers: {
       format: time => {
