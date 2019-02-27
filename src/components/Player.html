@@ -1,0 +1,24 @@
+<div id="player" class="player">
+  <audio src={ $song.url } controls bind:duration=duration></audio>
+  <h3 class="player__title">{ $song.url ? $song.url : 'No sound selected' }</h3>
+  <div class="player__duration">{ format(duration) }</div>
+</div>
+
+
+<script>
+    const pad = num => num < 10 ? '0' + num : num;
+  export default {
+    helpers: {
+      format: time => {
+        if (isNaN(time)) return '--:--:--';
+        const hours = Math.floor(time / (60 * 60))
+        const minutes = Math.floor((time / 60) % 60);
+        const seconds = Math.ceil((time % 60));
+        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+      }
+    },
+    data() {
+      return { duration: 0 }
+    }
+  };
+</script>

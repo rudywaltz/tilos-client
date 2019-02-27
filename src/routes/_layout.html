@@ -4,6 +4,7 @@
   <svelte:component this={child.component} {...child.props}/>
 </main>
 
+<Player></Player>
 <style>
   main {
     position: relative;
@@ -18,7 +19,8 @@
 <script>
   export default {
     components: {
-      Nav: '../components/Nav.html'
+      Nav: '../components/Nav.html',
+      Player: '../components/Player.html'
     }
   };
 </script>
