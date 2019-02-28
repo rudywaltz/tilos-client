@@ -6,7 +6,9 @@ sapper.start({
   target: document.querySelector('#tilos-client'),
   store: data => {
     const store = new Store(data);
-    window.store = store;
+    if(data.development) {
+      window.store = store;
+    }
     return store;
   }
 });
