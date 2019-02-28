@@ -60,7 +60,7 @@ describe('player', () => {
 
   it('play sound', () => {
     cy.get('#player .player__play')
-      .click()
+      .click();
     expectPlayingAudio(cy.get('audio'), true);
   });
 
@@ -71,12 +71,26 @@ describe('player', () => {
       expectPlayingAudio(cy.get('audio'), false);
   });
 
-  it('render current time', () => {
+  it('has progressbar', () => {
+    cy.get('#player .progress .progress__bar')
+  });
+
+  it('render current time', () => { // TODO: more accurate test
     cy.get('#player .player__play')
       .click()
     cy.get('#player .player__current')
     .contains('00:00:01')
     cy.get('#player .player__current')
     .contains('00:00:02')
+    cy.get('.progress__bar')
+      .should( $div => {
+         expect($div[0].style.width).to.eq('0.3%');
+      })
+  });
+
+  it.skip('render current time2', () => { // TODO
+    cy.get('audio').should($element => {
+      $element[0].currentTime = 100;
+    })
   });
 });

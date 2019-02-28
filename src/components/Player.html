@@ -4,6 +4,9 @@
   <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
   <div class="player__current">{ $song.url ? format(time) : format() }</div>
   <button type="button" class="player__play" on:click='set({paused: !paused})'>{ paused ? 'Play' : 'Pause' }</button>
+  <div class="progress">
+    <div class="progress__bar" style="width:{ percent }%"></div>
+  </div>
 </div>
 
 
@@ -19,8 +22,25 @@
         return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
       }
     },
+    computed: {
+      percent: ({ time, duration }) => (time / duration * 100).toFixed(2) || 0
+    },
     data() {
       return { duration: 0, time: 0, paused: true }
     }
   };
 </script>
+
+<style>
+  .progress {
+    width: 200px;
+    background: #aaa;
+    height: 50px;
+  }
+
+  .progress__bar {
+    background: #444;
+    height: 50px;
+    width: 0;
+  }
+</style>
