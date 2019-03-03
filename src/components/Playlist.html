@@ -1,0 +1,21 @@
+<h2>Playlist</h2>
+<ul class="playlist">
+  {#if $playlist.url}
+    <li class="song">
+      <h3 class="song__title">{ $playlist.title }</h3>
+      <span class="song__duration"> { format($playlist.duration) }</span>
+    </li>
+  {:else}
+    <li>Choose one song</li>
+  {/if}
+</ul>
+
+<script>
+  import { format } from '../helpers';
+
+  export default {
+    helpers: {
+      format
+    }
+  }
+</script>

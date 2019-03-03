@@ -4,6 +4,7 @@
   <svelte:component this={child.component} {...child.props}/>
 </main>
 
+<Playlist></Playlist>
 <Player></Player>
 <style>
   *,
@@ -22,7 +23,8 @@
   export default {
     components: {
       Nav: '../components/Nav.html',
-      Player: '../components/Player.html'
+      Player: '../components/Player.html',
+      Playlist: '../components/Playlist.html'
     }
   };
 </script>
