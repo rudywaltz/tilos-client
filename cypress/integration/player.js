@@ -1,5 +1,3 @@
-const getStore = () => cy.window().its('store')
-
 describe('player', () => {
   beforeEach(() => {
     cy.visit('/')
@@ -7,9 +5,7 @@ describe('player', () => {
 
   context('without song', () => {
     beforeEach(() => {
-      getStore().then(store => {
-        store.set({ song: {} })
-      })
+      cy.setStorage('song', {})
     })
 
     it('default title', () => {
