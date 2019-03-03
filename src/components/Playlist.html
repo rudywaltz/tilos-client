@@ -1,4 +1,5 @@
 <h2>Playlist</h2>
+<button type="button" class="playlist__clear" on:click="clearStore()">Clear</button>
 <ul class="playlist">
   {#each $playlist as song}
     <li class="song">
@@ -16,6 +17,12 @@
   export default {
     helpers: {
       format
+    },
+
+    methods: {
+      clearStore: function() {
+        this.store.set({ playlist: [] });
+      }
     }
   }
 </script>

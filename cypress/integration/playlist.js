@@ -57,4 +57,19 @@ describe('player', () => {
     })
   })
 
+  it('clear playlist', () => {
+    cy.get('.playlist__clear')
+      .click();
+
+    cy
+      .get('.playlist')
+      .contains('Choose one song');
+
+      cy.window()
+        .its('store')
+        .then(store => {
+          const { playlist } = store.get();
+          expect(playlist).to.be.empty;
+        })
+  })
 });
