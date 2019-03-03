@@ -18,6 +18,11 @@ polka() // You can also use Express
           development: dev,
           song: {
             url: '/jezusesajelzoraketa.mp3'
+          },
+          playlist: {
+            title: 'Jézus és a jelzőrakéta',
+            url: '/jezusesajelzoraketa.mp3',
+            duration: 346
           }
         })
       }
