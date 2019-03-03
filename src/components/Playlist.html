@@ -1,13 +1,13 @@
 <h2>Playlist</h2>
 <ul class="playlist">
-  {#if $playlist.url}
+  {#each $playlist as song}
     <li class="song">
-      <h3 class="song__title">{ $playlist.title }</h3>
-      <span class="song__duration"> { format($playlist.duration) }</span>
+      <h3 class="song__title">{ song.title }</h3>
+      <span class="song__duration"> { format(song.duration) }</span>
     </li>
   {:else}
     <li>Choose one song</li>
-  {/if}
+    {/each}
 </ul>
 
 <script>
