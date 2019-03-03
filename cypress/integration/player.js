@@ -1,13 +1,5 @@
 const getStore = () => cy.window().its('store')
 
-const expectPlayingAudio = (elem, assert = true) => {
-  elem.should(el => {
-    const audible = el[0].duration > 0 && !el[0].paused && !el[0].muted;
-    expect(audible).to.eq(assert);
-  })
-}
-
-
 describe('player', () => {
   beforeEach(() => {
     cy.visit('/')
@@ -42,10 +34,6 @@ describe('player', () => {
     cy.get('#player');
   });
 
-  it('audio', () => {
-    cy.get('#player audio');
-  });
-
   it('render song url', () => {
     cy
       .get('#player .player__title')
@@ -61,14 +49,14 @@ describe('player', () => {
   it('play sound', () => {
     cy.get('#player .player__play')
       .click();
-    expectPlayingAudio(cy.get('audio'), true);
+      cy.get('#player .player__play').contains('Pause')
   });
 
   it('stop sound', () => {
     cy.get('#player .player__play')
       .click()
       .click()
-      expectPlayingAudio(cy.get('audio'), false);
+    cy.get('#player .player__play').contains('Play')
   });
 
   it('has progressbar', () => {
@@ -84,7 +72,7 @@ describe('player', () => {
     .contains('00:00:02')
     cy.get('.progress__bar')
       .should( $div => {
-         expect($div[0].style.width).to.eq('0.3%');
+         expect($div[0].style.width).to.be.greaterThan('0.30%');
       })
   });
 

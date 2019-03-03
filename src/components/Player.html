@@ -1,9 +1,8 @@
 <div id="player" class="player">
-  <audio src={ $song.url } controls bind:duration=duration bind:paused bind:currentTime=time></audio>
-  <h3 class="player__title">{ $song.url ? $song.url : 'No sound selected' }</h3>
+    <h3 class="player__title">{ $song.url ? $song.url : 'No sound selected' }</h3>
   <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
   <div class="player__current">{ $song.url ? format(time) : format() }</div>
-  <button type="button" class="player__play" on:click='set({paused: !paused})'>{ paused ? 'Play' : 'Pause' }</button>
+  <button type="button" class="player__play" on:click='toggleSound()'>{ playing ? 'Pause' : 'Play' }</button>
   <div class="progress">
     <div class="progress__bar" style="width:{ percent }%"></div>
   </div>
@@ -11,6 +10,8 @@
 
 
 <script>
+  import { Howl } from 'howler';
+
   const pad = num => num < 10 ? '0' + num : num;
   export default {
     helpers: {
@@ -26,7 +27,57 @@
       percent: ({ time, duration }) => (time / duration * 100).toFixed(2) || 0
     },
     data() {
-      return { duration: 0, time: 0, paused: true }
+      return {
+        duration: 0,
+        time: 0,
+        paused: true,
+        playing: false,
+        Howl
+      }
+    },
+    oncreate() {
+      this.currentSound =new Howl({
+        src: [this.store.get().song.url],
+        xhrWithCredentials: true,
+        preload: true,
+        html5: true,
+        pool: 0
+      });
+
+      this.currentSound.once('load', () => {
+        this.set({duration: this.currentSound.duration()});
+      });
+    },
+
+    methods: {
+      toggleSound: function() {
+        const { playing } = this.get();
+        if(playing) {
+          this.stopSound();
+        } else {
+          this.playSound()
+        }
+      },
+      playSound: function() {
+        this.currentSound.play();
+        const interval = setInterval(() => {
+          const playing = this.currentSound.playing();
+          this.set({ playing });
+
+          if(!playing) {
+            this.set({time: 0 });
+            clearInterval(interval);
+          } else {
+            this.set({duration: this.currentSound.duration()});
+            this.set({time: this.currentSound.seek()});
+          }
+        }, 200);
+      },
+      stopSound: function() {
+        this.currentSound.stop();
+        // this.currentSound.unload();
+        this.set({playing: this.currentSound.playing()});
+      }
     }
   };
 </script>
