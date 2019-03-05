@@ -73,7 +73,7 @@ describe('player', () => {
         })
   })
 
-  it.only('clear playlist', () => {
+  it('remove one song', () => {
     cy.setStorage('playlist', [{
       title: 'Jézus és a jelzőrakéta',
       url: '/jezusesajelzoraketa.mp3',
@@ -88,15 +88,14 @@ describe('player', () => {
     cy.get(':nth-child(2) > .song__clear')
       .click();
 
-    cy
-      .get('.playlist')
-      .should('.not.contain', 'Lorem ipsum')
+    // cy
+    //   .get('.playlist li').not.contains('Lorem ispum');
 
       cy.window()
         .its('store')
         .then(store => {
           const { playlist } = store.get();
-          expect(playlist).to.eq([{
+          expect(playlist).to.deep.equal([{
             title: 'Jézus és a jelzőrakéta',
             url: '/jezusesajelzoraketa.mp3',
             duration: (60 * 60) + (15 * 60) + 13
