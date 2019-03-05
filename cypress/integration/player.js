@@ -19,10 +19,10 @@ describe('player', () => {
         .get('#player .player__duration')
         .contains('--:--:--')
     });
-    it('default current time', () => {
-      cy
-        .get('#player .player__current')
-        .contains('--:--:--')
+
+    it('buttons disabled', () => {
+      cy.get('#player .player__play').should('be.disabled');
+      cy.get('#player .player__seek').should('be.disabled');
     });
   })
 
@@ -67,23 +67,25 @@ describe('player', () => {
       cy.get('#player .progress .progress__bar')
     });
 
-    it('render current time', () => { // TODO: more accurate test
+    it('render current time', () => {
       cy.get('#player .player__play')
         .click()
       cy.get('#player .player__current')
-      .contains('00:00:01')
+        .contains('00:00:01')
+    });
+
+    it('progressbar display current position', () => {
+      cy.get('#player .player__play')
+        .click()
+      cy.get('#player .player__seek')
+        .click()
       cy.get('#player .player__current')
-      .contains('00:00:02')
+        .contains('00:01:02')
       cy.get('.progress__bar')
         .should( $div => {
-          expect($div[0].style.width).to.be.greaterThan('0.30%');
+          expect($div[0].style.width).to.be.greaterThan('10%');
         })
     });
 
-    it.skip('render current time2', () => { // TODO
-      cy.get('audio').should($element => {
-        $element[0].currentTime = 100;
-      })
-    });
   });
 });
