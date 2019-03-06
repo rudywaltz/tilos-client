@@ -27,25 +27,50 @@
         duration: 0,
         time: 0,
         paused: true,
-        playing: false,
-        Howl
+        playing: false
       }
     },
     oncreate() {
-      this.currentSound =new Howl({
-        src: [this.store.get().song.url],
-        xhrWithCredentials: true,
-        preload: true,
-        html5: false,
-        pool: 0,
-        onend: () => {
-          console.log('end of song');
+      const stateListener = this.store.on('state', ({ changed, current, previous }) => {
+        const isCurrentSongEmpty = Object.keys(current.song).length === 0;
+        if(isCurrentSongEmpty && changed.playlist && current.playlist[0]) {
+          this.store.set({song: current.playlist[0]});
+           current.playlist.shift();
+          this.store.set({ playlist: current.playlist });
+        }
+
+        if(changed.song && !isCurrentSongEmpty) {
+          this.currentSound =new Howl({
+            src: [this.store.get().song.url],
+            xhrWithCredentials: true,
+            preload: true,
+            html5: false,
+            pool: 0,
+            onend: () => {
+              const { playlist } = this.store.get();
+              if(playlist.length) {
+                this.store.set({ song: playlist[0] })
+                playlist.shift();
+                this.store.set({ playlist });
+              }
+            },
+            onload: () => {
+              this.set({duration: this.currentSound.duration()});
+            }
+          });
         }
       });
+      this.on('destroy', stateListener.cancel);
 
-      this.currentSound.once('load', () => {
-        this.set({duration: this.currentSound.duration()});
-      });
+
+      const { song, playlist } = this.store.get();
+      const isCurrentSongEmpty = Object.keys(song).length === 0;
+
+      if(isCurrentSongEmpty && playlist && playlist[0]) {
+          this.store.set({song: playlist[0]});
+           playlist.shift();
+          this.store.set({ playlist });
+      }
     },
 
     methods: {
