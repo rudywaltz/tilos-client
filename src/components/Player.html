@@ -31,12 +31,21 @@
       }
     },
     oncreate() {
+      const loadNewSong = (song, playlist) => {
+        const isCurrentSongEmpty = Object.keys(song).length === 0;
+        if (!isCurrentSongEmpty || !playlist.length) {
+          return;
+        }
+
+        this.store.set({ song: playlist[0] })
+        playlist.shift();
+        this.store.set({ playlist });
+      }
+
       const stateListener = this.store.on('state', ({ changed, current, previous }) => {
         const isCurrentSongEmpty = Object.keys(current.song).length === 0;
-        if(isCurrentSongEmpty && changed.playlist && current.playlist[0]) {
-          this.store.set({song: current.playlist[0]});
-           current.playlist.shift();
-          this.store.set({ playlist: current.playlist });
+        if(changed.playlist) {
+          loadNewSong(current.song, current.playlist);
         }
 
         if(changed.song && !isCurrentSongEmpty) {
@@ -48,11 +57,7 @@
             pool: 0,
             onend: () => {
               const { playlist } = this.store.get();
-              if(playlist.length) {
-                this.store.set({ song: playlist[0] })
-                playlist.shift();
-                this.store.set({ playlist });
-              }
+              loadNewSong({}, playlist);
             },
             onload: () => {
               this.set({duration: this.currentSound.duration()});
@@ -62,15 +67,8 @@
       });
       this.on('destroy', stateListener.cancel);
 
-
       const { song, playlist } = this.store.get();
-      const isCurrentSongEmpty = Object.keys(song).length === 0;
-
-      if(isCurrentSongEmpty && playlist && playlist[0]) {
-          this.store.set({song: playlist[0]});
-           playlist.shift();
-          this.store.set({ playlist });
-      }
+      loadNewSong(song, playlist);
     },
 
     methods: {
@@ -99,7 +97,6 @@
       },
       stopSound: function() {
         this.currentSound.stop();
-        // this.currentSound.unload();
         this.set({playing: this.currentSound.playing()});
       },
       seekSound: function() {
