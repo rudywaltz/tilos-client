@@ -41,7 +41,7 @@ describe('player', () => {
     it('render song url', () => {
       cy
         .get('#player .player__title')
-        .contains('/jezusesajelzoraketa.mp3')
+        .contains('Jézus és a jelzőrakéta')
     });
 
     it('render song duration', () => {
