@@ -62,6 +62,10 @@
             },
             onload: () => {
               this.set({duration: this.currentSound.duration()});
+              const { playing } = this.get();
+              if (playing) {
+                this.playSound();
+              }
             }
           });
         }
@@ -75,27 +79,25 @@
     methods: {
       toggleSound: function() {
         const { playing } = this.get();
-        if(playing) {
-          this.stopSound();
-        } else {
-          this.playSound()
-        }
+        playing ? this.stopSound() : this.playSound();
       },
+
       playSound: function() {
         this.currentSound.play();
         const interval = setInterval(() => {
           const playing = this.currentSound.playing();
           this.set({ playing });
 
-          if(!playing) {
-            this.set({time: 0 });
-            clearInterval(interval);
-          } else {
+          if(playing) {
             this.set({duration: this.currentSound.duration()});
             this.set({time: this.currentSound.seek()});
+          } else {
+            this.set({time: 0 });
+            clearInterval(interval);
           }
         }, 200);
       },
+
       stopSound: function() {
         this.currentSound.stop();
         this.set({playing: this.currentSound.playing()});

@@ -87,5 +87,25 @@ describe('player', () => {
         })
     });
 
+    it('play next sound continously', () => {
+      cy.setStorage('song', {});
+      cy.setStorage('playlist', [{
+        title: 'Jézus és a jelzőrakéta',
+        url: '/jezusesajelzoraketa.mp3'
+      }, {
+        title: 'Jézus és a jelzőrakéta111111',
+        url: '/jezusesajelzoraketa.mp3'
+      }])
+      cy.get('#player .player__play')
+        .click()
+      cy.get('#player .player__seek')
+        .click()
+        .click()
+        .click()
+        .click()
+        .click()
+        .click()
+      cy.get('.player__title').contains('Jézus és a jelzőrakéta111111')
+    });
   });
 });

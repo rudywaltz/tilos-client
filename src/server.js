@@ -19,15 +19,8 @@ polka() // You can also use Express
       store: request => {
         return new Store({
           development: dev,
-          song: {
-            title: 'Jézus és a jelzőrakéta',
-            url: '/jezusesajelzoraketa.mp3'
-          },
-          playlist: [{
-            title: 'Jézus és a jelzőrakéta',
-            url: '/jezusesajelzoraketa.mp3',
-            duration: 346
-          }]
+          song: {},
+          playlist: []
         })
       }
     })
