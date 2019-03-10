@@ -4,7 +4,6 @@ import compression from 'compression';
 import * as sapper from '../__sapper__/server.js';
 import { Store } from 'svelte/store.js';
 
-
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 

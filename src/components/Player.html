@@ -33,8 +33,7 @@
     },
     oncreate() {
       const loadNewSong = (song, playlist) => {
-        const isCurrentSongEmpty = Object.keys(song).length === 0;
-        if (!isCurrentSongEmpty || !playlist.length) {
+        if (Object.keys(song).length !== 0 || !playlist.length) {
           return;
         }
 
@@ -45,11 +44,11 @@
 
       const stateListener = this.store.on('state', ({ changed, current, previous }) => {
         const isCurrentSongEmpty = Object.keys(current.song).length === 0;
-        if(changed.playlist) {
+        if (changed.playlist) {
           loadNewSong(current.song, current.playlist);
         }
 
-        if(changed.song && !isCurrentSongEmpty) {
+        if (changed.song && !isCurrentSongEmpty) {
           this.currentSound =new Howl({
             src: [this.store.get().song.url],
             xhrWithCredentials: true,
@@ -70,10 +69,10 @@
           });
         }
       });
-      this.on('destroy', stateListener.cancel);
+    this.on('destroy', stateListener.cancel);
 
-      const { song, playlist } = this.store.get();
-      loadNewSong(song, playlist);
+    const { song, playlist } = this.store.get();
+    loadNewSong(song, playlist);
     },
 
     methods: {
@@ -88,7 +87,7 @@
           const playing = this.currentSound.playing();
           this.set({ playing });
 
-          if(playing) {
+          if (playing) {
             this.set({duration: this.currentSound.duration()});
             this.set({time: this.currentSound.seek()});
           } else {
