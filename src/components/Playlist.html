@@ -1,5 +1,5 @@
 <h2>Playlist</h2>
-<button type="button" class="playlist__clear" on:click="removeSongs()">Clear</button>
+<button type="button" class="playlist__clear" on:click="removeAllSongs()">Clear</button>
 <ul class="playlist">
   {#each $playlist as song}
     <li class="song">
@@ -21,7 +21,7 @@
     },
 
     methods: {
-      removeSongs: function() {
+      removeAllSongs: function() {
         this.store.set({ playlist: [] });
       },
       removeSong: function(songUrl) {
