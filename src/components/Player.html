@@ -1,6 +1,7 @@
 <h2>Player</h2>
 <div id="player" class="player">
-    <h3 class="player__title">{ $song.url ? $song.url : 'No sound selected' }</h3>
+    <h3 class="player__title">{ $song.url ? $song.title : 'No sound selected' }</h3>
+    <h3 class="player__url">{ $song.url ? $song.url : 'No sound selected' }</h3>
   <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
   <div class="player__current">{ $song.url ? format(time) : format() }</div>
   <button type="button" class="player__play" on:click=toggleSound() disabled={!duration}>{ playing ? 'Pause' : 'Play' }</button>
