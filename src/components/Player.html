@@ -4,7 +4,7 @@
     <h3 class="player__url">{ $song.url ? $song.url : 'No sound selected' }</h3>
   <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
   <div class="player__current">{ $song.url ? format(time) : format() }</div>
-  <button type="button" class="player__play" on:click=toggleSound() disabled={!duration}>{ playing ? 'Pause' : 'Play' }</button>
+  <button type="button" class="player__play" on:click=toggleSound() disabled={!duration}>{ playing ? 'Stop' : 'Play' }</button>
   <button type="button" on:click=seekSound() disabled={!duration} class="player__seek">Seeek</button>
   <div class="progress">
     <div class="progress__bar" style="width:{ percent }%"></div>
@@ -28,18 +28,43 @@
         duration: 0,
         time: 0,
         paused: true,
-        playing: false
+        playing: false,
+        clearInterval: false
       }
     },
     oncreate() {
-      const loadNewSong = (song, playlist) => {
-        if (Object.keys(song).length !== 0 || !playlist.length) {
+      const createCurrentSong = () => {
+        const playing = this.get().playing;
+        return new Howl({
+            src: [this.store.get().song.url],
+            xhrWithCredentials: true,
+            preload: true,
+            html5: false,
+            pool: 0,
+            onload: () => {
+              this.set({duration: this.currentSound.duration()});
+
+              if (playing) {
+                this.playSound();
+              }
+            },
+            onend: () => {
+              this.set({ clearInterval: true });
+              const { playlist } = this.store.get();
+              loadNewSong({}, playlist);
+            }
+          });
+      }
+
+      const loadNewSong = (song = {}, playlist = []) => {
+        if (Object.keys(song).length || !playlist.length) {
           return;
         }
 
         this.store.set({ song: playlist[0] })
         playlist.shift();
         this.store.set({ playlist });
+        this.currentSound = createCurrentSong();
       }
 
       const stateListener = this.store.on('state', ({ changed, current, previous }) => {
@@ -49,24 +74,7 @@
         }
 
         if (changed.song && !isCurrentSongEmpty) {
-          this.currentSound =new Howl({
-            src: [this.store.get().song.url],
-            xhrWithCredentials: true,
-            preload: true,
-            html5: false,
-            pool: 0,
-            onend: () => {
-              const { playlist } = this.store.get();
-              loadNewSong({}, playlist);
-            },
-            onload: () => {
-              this.set({duration: this.currentSound.duration()});
-              const { playing } = this.get();
-              if (playing) {
-                this.playSound();
-              }
-            }
-          });
+          this.currentSound = createCurrentSong();
         }
       });
     this.on('destroy', stateListener.cancel);
@@ -77,32 +85,30 @@
 
     methods: {
       toggleSound: function() {
-        const { playing } = this.get();
-        playing ? this.stopSound() : this.playSound();
+         this.get().playing ? this.stopSound() : this.playSound();
       },
 
       playSound: function() {
         this.currentSound.play();
-        const interval = setInterval(() => {
-          const playing = this.currentSound.playing();
-          this.set({ playing });
+        this.set({ playing: true });
+        this.set({ clearInterval: false });
 
-          if (playing) {
-            this.set({duration: this.currentSound.duration()});
-            this.set({time: this.currentSound.seek()});
-          } else {
+        const interval = setInterval(() => {
+          if (this.get().clearInterval) {
             this.set({time: 0 });
             clearInterval(interval);
+          } else {
+            this.set({time: this.currentSound.seek()});
           }
         }, 200);
       },
 
       stopSound: function() {
         this.currentSound.stop();
-        this.set({playing: this.currentSound.playing()});
+        this.set({ playing: false });
       },
       seekSound: function() {
-        this.currentSound.seek(this.currentSound.seek() + 60);
+        this.currentSound.seek(this.currentSound.seek() + 30);
       }
     }
   };

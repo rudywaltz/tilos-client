@@ -83,9 +83,9 @@ describe('playlist', () => {
         duration: (60 * 60) + (15 * 60) + 13
       },
       {
-        title: 'Lorem ipsum',
-        url: '/aaaa.mp3',
-        duration: (2 * 60 * 60) + (4 * 60) + 9
+        title: 'Gongs',
+        url: '/gongs.mp3',
+        duration: 22
       }]);
 
       cy.get(':nth-child(2) > .song__clear')
