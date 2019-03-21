@@ -5,7 +5,10 @@
   <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
   <div class="player__current">{ $song.url ? format(time) : format() }</div>
   <button type="button" class="player__play" on:click=toggleSound() disabled={!duration}>{ playing ? 'Stop' : 'Play' }</button>
-  <button type="button" on:click=seekSound() disabled={!duration} class="player__seek">Seeek</button>
+  <button type="button" on:click=seekSound() disabled={ !duration } class="player__seek">Seeek</button>
+  <div class="volume" id="volume" on:click=setVolume(event) on:mousemove=setVolume(event)>
+    <div class="volume__bar" style="width: { volume * 100 }%"></div>
+  </div>
   <div class="progress">
     <div class="progress__bar" style="width:{ percent }%"></div>
   </div>
@@ -14,7 +17,7 @@
 
 <script>
   import { format } from '../helpers';
-  import { Howl } from 'howler';
+  import { Howl, Howler } from 'howler';
 
   export default {
     helpers: {
@@ -27,12 +30,13 @@
       return {
         duration: 0,
         time: 0,
-        paused: true,
         playing: false,
-        clearInterval: false
+        pollingSong: false,
+        volume: .5
       }
     },
     oncreate() {
+      Howler.volume(this.get().volume);
       const createCurrentSong = () => {
         const playing = this.get().playing;
         return new Howl({
@@ -49,7 +53,7 @@
               }
             },
             onend: () => {
-              this.set({ clearInterval: true });
+              this.set({ pollingSong: true });
               const { playlist } = this.store.get();
               loadNewSong({}, playlist);
             }
@@ -69,14 +73,20 @@
 
       const stateListener = this.store.on('state', ({ changed, current, previous }) => {
         const isCurrentSongEmpty = Object.keys(current.song).length === 0;
+
         if (changed.playlist) {
           loadNewSong(current.song, current.playlist);
+        }
+
+        if(changed.song && isCurrentSongEmpty && this.currentSound) {
+          // this.currentSound.unload();
         }
 
         if (changed.song && !isCurrentSongEmpty) {
           this.currentSound = createCurrentSong();
         }
       });
+
     this.on('destroy', stateListener.cancel);
 
     const { song, playlist } = this.store.get();
@@ -91,12 +101,12 @@
       playSound: function() {
         this.currentSound.play();
         this.set({ playing: true });
-        this.set({ clearInterval: false });
+        this.set({ pollingSong: false });
 
-        const interval = setInterval(() => {
-          if (this.get().clearInterval) {
+        const pollingSongData = setInterval(() => {
+          if (this.get().pollingSong) {
             this.set({time: 0 });
-            clearInterval(interval);
+            clearInterval(pollingSongData);
           } else {
             this.set({time: this.currentSound.seek()});
           }
@@ -107,18 +117,32 @@
         this.currentSound.stop();
         this.set({ playing: false });
       },
+
       seekSound: function() {
         this.currentSound.seek(this.currentSound.seek() + 30);
+      },
+
+      setVolume: function(event) {
+        console.log(event.type, event.buttons)
+        if (event.type === 'mousemove' && event.buttons !== 1) {
+          return;
+        }
+        const target = document.querySelector('#volume').getBoundingClientRect();
+        const position = event.pageX - target.left;
+        const volume  = position / target.width;
+        this.set({ volume });
+        Howler.volume(volume);
       }
     }
+
   };
 </script>
 
 <style>
   .progress {
-    width: 200px;
     background: #aaa;
     height: 50px;
+    width: 200px;
   }
 
   .progress__bar {
@@ -126,4 +150,17 @@
     height: 50px;
     width: 0;
   }
+
+  .volume {
+    background: #ddd;
+    height: 20px;
+    margin-bottom: 10px;
+    width: 200px;
+  }
+
+  .volume__bar {
+    height: 20px;
+    background: steelblue;
+  }
+
 </style>

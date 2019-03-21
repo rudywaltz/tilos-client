@@ -110,5 +110,31 @@ describe('player', () => {
       cy.get('#player .player__current')
         .contains('00:00:01')
     });
+
+    it('render current volume', () => {
+      cy.get('.volume .volume__bar')
+        .should( $div => {
+          expect($div[0].style.width).to.eq('50%');
+        })
+    });
+
+    it('should change the volume base cursor position', () => {
+      cy.get('.volume')
+        .click(150, 10)
+      cy.get('.volume .volume__bar')
+        .should( $div => {
+          expect($div[0].style.width).to.eq('75%');
+        })
+    });
+
+    it('should constantly change if mouse move', () => {
+      cy.get('.volume')
+        .trigger('mousedown', 'center', 'center')
+        .trigger('mousemove', 50, 10, { buttons: 1 })
+      cy.get('.volume .volume__bar')
+        .should( $div => {
+          expect($div[0].style.width).to.eq('25%');
+        })
+    });
   });
 });

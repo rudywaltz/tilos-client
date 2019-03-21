@@ -91,9 +91,6 @@ describe('playlist', () => {
       cy.get(':nth-child(2) > .song__clear')
         .click();
 
-      // cy
-      //   .get('.playlist li').not.contains('Lorem ispum');
-
         cy.window()
           .its('store')
           .then(store => {
