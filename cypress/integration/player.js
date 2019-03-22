@@ -90,15 +90,16 @@ describe('player', () => {
     it('play next sound continously', () => {
       cy.setStorage('song', {});
       cy.setStorage('playlist', [{
-        title: 'Gongs',
-        url: '/gongs.mp3',
-        duration: 22
-      },
-      {
-        title: 'Jézus és a jelzőrakéta',
-        url: '/jezusesajelzoraketa.mp3',
-        duration: (60 * 60) + (15 * 60) + 13
-      }]);
+          title: 'Gongs',
+          url: '/gongs.mp3',
+          duration: 22
+        },
+        {
+          title: 'Jézus és a jelzőrakéta',
+          url: '/jezusesajelzoraketa.mp3',
+          duration: (60 * 60) + (15 * 60) + 13
+        }]
+      );
 
       cy.get('#player .player__play')
         .click()
@@ -110,6 +111,42 @@ describe('player', () => {
       cy.get('#player .player__current')
         .contains('00:00:01')
     });
+
+    it('should change the track position base cursor position', () => {
+      cy.get('#player .player__play')
+        .click()
+      cy.get('.progress')
+        .click(150, 10)
+      cy.get('.progress .progress__bar')
+        .should( $div => {
+          expect($div[0].style.width).to.greaterThan('75%');
+          expect($div[0].style.width).to.lessThan('76%');
+        })
+    });
+
+    it('should constantly change the track position if mouse move', () => {
+      cy.get('#player .player__play')
+        .click()
+      cy.get('.progress')
+        .trigger('mousedown', 'center', 'center')
+        .trigger('mousemove', 50, 10, { buttons: 1 })
+      cy.get('.progress .progress__bar')
+        .should( $div => {
+          expect($div[0].style.width).to.lessThan('25.5%');
+          expect($div[0].style.width).to.greaterThan('24%');
+        })
+    });
+
+    it.skip('should not seeking if track not playing', () => {
+      cy.get('.progress')
+        .click(150, 10)
+      cy.get('#player .player__play')
+        .click()
+      cy.get('.progress .progress__bar')
+        .should( $div => {
+          expect($div[0].style.width).to.lessThan('1%');
+        })
+    })
 
     it('render current volume', () => {
       cy.get('.volume .volume__bar')
@@ -127,7 +164,7 @@ describe('player', () => {
         })
     });
 
-    it('should constantly change if mouse move', () => {
+    it('should constantly change the volume if mouse move', () => {
       cy.get('.volume')
         .trigger('mousedown', 'center', 'center')
         .trigger('mousemove', 50, 10, { buttons: 1 })

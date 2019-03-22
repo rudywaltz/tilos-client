@@ -9,7 +9,7 @@
   <div class="volume" id="volume" on:click=setVolume(event) on:mousemove=setVolume(event)>
     <div class="volume__bar" style="width: { volume * 100 }%"></div>
   </div>
-  <div class="progress">
+  <div class="progress" on:click=seekWithBar(event)  on:mousemove=seekWithBar(event)>
     <div class="progress__bar" style="width:{ percent }%"></div>
   </div>
 </div>
@@ -123,15 +123,26 @@
       },
 
       setVolume: function(event) {
-        console.log(event.type, event.buttons)
         if (event.type === 'mousemove' && event.buttons !== 1) {
           return;
         }
-        const target = document.querySelector('#volume').getBoundingClientRect();
+        const target = event.target.getBoundingClientRect();
+        const position = event.clientX - target.left;
+        const rate  = position / target.width;
+        this.set({ volume: rate });
+        Howler.volume(rate);
+      },
+
+      seekWithBar: function(event) {
+        if (event.type === 'mousemove' && event.buttons !== 1 || !this.get().playing) {
+          return;
+        }
+
+        const target = event.target.getBoundingClientRect();
         const position = event.pageX - target.left;
-        const volume  = position / target.width;
-        this.set({ volume });
-        Howler.volume(volume);
+
+        const rate  = position / target.width;
+        this.currentSound.seek(rate * this.get().duration);
       }
     }
 
@@ -148,6 +159,7 @@
   .progress__bar {
     background: #444;
     height: 50px;
+    pointer-events: none;
     width: 0;
   }
 
@@ -160,6 +172,7 @@
 
   .volume__bar {
     height: 20px;
+    pointer-events: none;
     background: steelblue;
   }
 
