@@ -55,7 +55,11 @@
             onend: () => {
               this.set({ pollingSong: true });
               const { playlist } = this.store.get();
-              loadNewSong({}, playlist);
+              if (playlist.length) {
+                loadNewSong({}, playlist);
+              } else {
+                this.store.set({song: {}});
+              }
             }
           });
       }

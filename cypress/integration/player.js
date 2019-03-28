@@ -63,6 +63,26 @@ describe('player', () => {
       cy.get('#player .player__play').contains('Play')
     });
 
+
+    it('should remove the last sound after end', () => {
+      cy.setStorage('song', {
+        title: 'Gongs',
+        url: '/gongs.mp3'
+      });
+
+      cy.get('#player .player__play')
+        .click();
+      cy.get('#player .player__seek')
+        .click();
+
+      cy
+        .get('.player__title')
+        .contains('No sound selected');
+      cy
+        .get('#player .player__duration')
+        .contains('--:--:--');
+    });
+
     it('has progressbar', () => {
       cy.get('#player .progress .progress__bar')
     });
