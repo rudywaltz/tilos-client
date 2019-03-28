@@ -91,6 +91,7 @@
 
     const { song, playlist } = this.store.get();
     loadNewSong(song, playlist);
+    this.currentSound = createCurrentSong();
     },
 
     methods: {
