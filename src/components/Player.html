@@ -14,6 +14,8 @@
   </div>
 </div>
 
+<button on:click="clearAll()">Clear all</button>
+<svelte:window on:beforeunload=setCurrentData()/>
 
 <script>
   import { format } from '../helpers';
@@ -47,6 +49,11 @@
             pool: 0,
             onload: () => {
               this.set({duration: this.currentSound.duration()});
+              const time = this.store.get().song.time;
+              if(time) {
+                this.currentSound.seek(time);
+                this.set({ time })
+              }
 
               if (playing) {
                 this.playSound();
@@ -148,7 +155,28 @@
 
         const rate  = position / target.width;
         this.currentSound.seek(rate * this.get().duration);
+      },
+
+      setCurrentData: function() {
+        const { song } = this.store.get();
+        if (!Object.keys(song).length) {
+          localStorage.removeItem('tilosStoreSong');
+          return;
+        }
+
+        const fullSong = {
+          ...song,
+          time: this.get().time
+        }
+        localStorage.setItem('tilosStoreSong', JSON.stringify(fullSong));
+      },
+
+      clearAll() {
+        console.log('clearAll');
+        this.store.set({song: {}, playlist: []});
+        localStorage.clear();
       }
+
     }
 
   };

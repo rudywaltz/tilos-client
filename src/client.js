@@ -4,11 +4,24 @@ import { Store } from 'svelte/store.js';
 
 sapper.start({
   target: document.querySelector('#tilos-client'),
-  store: data => {
-    const store = new Store(data);
-    if(data.development) {
+  store: dataFromServer => {
+    const song =  JSON.parse(localStorage.getItem('tilosStoreSong'))
+      || dataFromServer.song;
+    const playlist = JSON.parse(localStorage.getItem('tilosStorePlaylist'))
+      || dataFromServer.playlist;
+
+    const userSetup = {
+      ...dataFromServer,
+      song,
+      playlist
+    };
+
+    const store = new Store(userSetup);
+
+    if (dataFromServer.development) {
       window.store = store;
     }
+
     return store;
   }
 });

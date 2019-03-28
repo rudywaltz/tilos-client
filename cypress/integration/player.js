@@ -1,6 +1,7 @@
 describe('player', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.clearLocalStorage()
   });
 
   context('without song', () => {
@@ -38,7 +39,7 @@ describe('player', () => {
       cy.get('#player');
     });
 
-    it('render song url', () => {
+    it('render song title', () => {
       cy
         .get('#player .player__title')
         .contains('Jézus és a jelzőrakéta')
@@ -83,6 +84,8 @@ describe('player', () => {
         .contains('--:--:--');
     });
 
+
+
     it('has progressbar', () => {
       cy.get('#player .progress .progress__bar')
     });
@@ -93,6 +96,45 @@ describe('player', () => {
       cy.get('#player .player__current')
         .contains('00:00:01')
     });
+
+    it('should save current time to localstorage', () => {
+      cy.get('#player .player__play')
+        .click();
+      cy.wait(200);
+      cy.reload().should(()=> {
+        const savedData = JSON.parse(localStorage.getItem('tilosStoreSong'))
+        expect(savedData.time).to.be.greaterThan(.1);
+      });
+    });
+
+    it('should not save empty data in localStorage', () => {
+      cy.setStorage('song', {
+        title: 'Gongs',
+        url: '/gongs.mp3'
+      });
+
+      cy.get('#player .player__play')
+        .click();
+      cy.get('#player .player__seek')
+        .click();
+      cy.reload().should(()=> {
+        expect(localStorage.getItem('tilosStoreSong')).to.be.null;
+      });
+    });
+
+
+    it('should set back to the current song', () => {
+      cy.get('#player .player__play')
+        .click();
+      cy.wait(500);
+      cy.get('#player .player__current')
+      .contains('00:00:01')
+      cy.get('.progress__bar')
+      .should( $div => {
+        expect($div[0].style.width).to.be.greaterThan('0.1%');
+      });
+    });
+
 
     it('progressbar display current position', () => {
       cy.get('#player .player__play')

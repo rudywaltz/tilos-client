@@ -11,7 +11,7 @@
     <li>Choose one song</li>
     {/each}
 </ul>
-
+<svelte:window on:beforeunload=setCurrentData()/>
 <script>
   import { format } from '../helpers';
 
@@ -28,6 +28,15 @@
         const originalPlaylist = this.store.get().playlist;
         const playlist = originalPlaylist.filter(song => song.url !== songUrl);
         this.store.set({ playlist });
+      },
+
+      setCurrentData: function() { // TODO: tests
+        const { playlist } = this.store.get();
+        if (!playlist.length) {
+          localStorage.removeItem('tilosStorePlaylist');
+          return;
+        }
+        localStorage.setItem('tilosStorePlaylist', JSON.stringify(playlist));
       }
     }
   }
