@@ -164,10 +164,7 @@
           return;
         }
 
-        const fullSong = {
-          ...song,
-          time: this.get().time
-        }
+        const fullSong = Object.assign({}, song, {time: this.get().time})
         localStorage.setItem('tilosStoreSong', JSON.stringify(fullSong));
       },
 

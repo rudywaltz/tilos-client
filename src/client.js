@@ -10,11 +10,7 @@ sapper.start({
     const playlist = JSON.parse(localStorage.getItem('tilosStorePlaylist'))
       || dataFromServer.playlist;
 
-    const userSetup = {
-      ...dataFromServer,
-      song,
-      playlist
-    };
+    const userSetup = Object.assign({}, dataFromServer, { song, playlist });
 
     const store = new Store(userSetup);
 
