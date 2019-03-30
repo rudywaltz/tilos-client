@@ -170,6 +170,8 @@ describe('player', () => {
 
       cy.get('.player__title')
         .contains('Jézus és a jelzőrakéta')
+      cy.get('#player .player__play')
+        .contains('Stop')
       cy.get('#player .player__current')
         .contains('00:00:01')
     });
