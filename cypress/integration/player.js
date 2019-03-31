@@ -29,6 +29,7 @@ describe('player', () => {
 
   context('with song', () => {
     beforeEach(() => {
+      cy.clearLocalStorage();
       cy.setStorage('song', {
         title: 'Jézus és a jelzőrakéta',
         url: '/jezusesajelzoraketa.mp3'
@@ -173,7 +174,7 @@ describe('player', () => {
       cy.get('#player .player__play')
         .contains('Stop')
       cy.get('#player .player__current')
-        .contains('00:00:02')
+        .contains('00:00:01')
     });
 
     it('should change the track position base cursor position', () => {
