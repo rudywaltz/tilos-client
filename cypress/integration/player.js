@@ -36,6 +36,33 @@ describe('player', () => {
       })
     })
 
+  it('play next sound continously', () => {
+    cy.setStorage('song', {});
+    cy.setStorage('playlist', [{
+        title: 'Gongs',
+        url: '/gongs.mp3',
+        duration: 22
+      },
+      {
+        title: 'Jézus és a jelzőrakéta',
+        url: '/jezusesajelzoraketa.mp3',
+        duration: (60 * 60) + (15 * 60) + 13
+      }]
+    );
+
+    cy.get('#player .player__play')
+      .click()
+    cy.get('#player .player__seek')
+      .click()
+
+    cy.get('.player__title')
+      .contains('Jézus és a jelzőrakéta')
+    cy.get('#player .player__play')
+      .contains('Stop')
+    cy.get('#player .player__current')
+      .contains('00:00:01')
+  });
+
     it('should be render', () => {
       cy.get('#player');
     });
@@ -148,33 +175,6 @@ describe('player', () => {
         .should( $div => {
           expect($div[0].style.width).to.be.greaterThan('5%');
         })
-    });
-
-    it('play next sound continously', () => {
-      cy.setStorage('song', {});
-      cy.setStorage('playlist', [{
-          title: 'Gongs',
-          url: '/gongs.mp3',
-          duration: 22
-        },
-        {
-          title: 'Jézus és a jelzőrakéta',
-          url: '/jezusesajelzoraketa.mp3',
-          duration: (60 * 60) + (15 * 60) + 13
-        }]
-      );
-
-      cy.get('#player .player__play')
-        .click()
-      cy.get('#player .player__seek')
-        .click()
-
-      cy.get('.player__title')
-        .contains('Jézus és a jelzőrakéta')
-      cy.get('#player .player__play')
-        .contains('Stop')
-      cy.get('#player .player__current')
-        .contains('00:00:01')
     });
 
     it('should change the track position base cursor position', () => {
