@@ -173,7 +173,7 @@ describe('player', () => {
       cy.get('#player .player__play')
         .contains('Stop')
       cy.get('#player .player__current')
-        .contains('00:00:01')
+        .contains('00:00:02')
     });
 
     it('should change the track position base cursor position', () => {
