@@ -33,7 +33,7 @@
         duration: 0,
         time: 0,
         playing: false,
-        pollingSong: false,
+        clearPollingSong: false,
         volume: .5
       }
     },
@@ -60,7 +60,7 @@
               }
             },
             onend: () => {
-              this.set({ pollingSong: true });
+              this.set({ clearPollingSong: true });
               const { playlist } = this.store.get();
               if (playlist.length) {
                 loadNewSong({}, playlist);
@@ -113,15 +113,16 @@
       playSound: function() {
         this.currentSound.play();
         this.set({ playing: true });
-        this.set({ pollingSong: false });
+        this.set({ clearPollingSong: false });
 
         const pollingSongData = setInterval(() => {
-          if (this.get().pollingSong) {
+          if (this.get().clearPollingSong) {
             this.set({time: 0 });
             clearInterval(pollingSongData);
-          } else {
-            this.set({time: this.currentSound.seek()});
+            return;
           }
+
+          this.set({time: this.currentSound.seek()});
         }, 200);
       },
 
