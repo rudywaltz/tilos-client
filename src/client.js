@@ -1,4 +1,10 @@
 import * as sapper from '@sapper/app';
+import { playlist, song } from './components/stores';
+import useLocalStorage from './use-local-storage.js';
+
+
+useLocalStorage(song, 'tilosStoreSong');
+useLocalStorage(playlist, 'tilosStorePlaylist');
 
 sapper.start({
 	target: document.querySelector('#tilos-client')
