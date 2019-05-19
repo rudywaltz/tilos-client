@@ -1,12 +1,10 @@
-<nav>
-  <ul>
-    <li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-    <li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
-  </ul>
-</nav>
+
+<script>
+	export let segment;
+</script>
 
 <style>
-  nav {
+ nav {
     border-bottom: 1px solid rgba(170,30,30,0.1);
     font-weight: 300;
     padding: 0 1em;
@@ -50,3 +48,10 @@
     display: block;
   }
 </style>
+
+<nav>
+	<ul>
+		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
+		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
+	</ul>
+</nav>
