@@ -10,7 +10,7 @@
     $playlist = $playlist.filter(song => song.url !== songUrl);
   };
 
-  function setCurrentData() { // TODO: tests
+  const setCurrentData = () => { // TODO: tests
     if (!$playlist.length) {
       localStorage.removeItem('tilosStorePlaylist');
       return;

@@ -2,12 +2,7 @@
   import { onMount } from 'svelte';
   import { format } from '../helpers';
   import { Howl, Howler } from 'howler';
-  import { playlist } from './stores';
-
-  let song = {
-    // title: 'placeholderTitle',
-    // url: '/jezusesajelzoraketa.mp3'
-  };
+  import { playlist, song } from './stores';
 
   let duration =  0;
   let time = 0;
@@ -16,6 +11,8 @@
   let volume = .5;
   let isPlaylistVisible = false;
   let currentSound = null;
+
+  console.log($song);
 
   $: percent = (time / duration * 100).toFixed(2) || 0;
 
@@ -44,7 +41,7 @@
 
     // const { song, playlist } = this.store.get();
     loadNewSong();
-    // this.currentSound = createCurrentSong();
+    currentSound = createCurrentSong();
     // },
     });
 
@@ -52,14 +49,14 @@
     const createCurrentSong = () => {
         const playing1 = playing;
         return new Howl({
-          src: [song.url],
+          src: [$song.url],
           xhrWithCredentials: true,
           preload: true,
           html5: false,
           pool: 0,
           onload: () => {
             duration = currentSound.duration()
-            const time = song.time;
+            time = $song.time;
             if(time) {
               currentSound.seek(time);
             }
@@ -70,11 +67,9 @@
           },
           onend: () => {
             clearPollingSong = true;
-            song = {};
+            $song = {};
             if ($playlist.length) {
               loadNewSong();
-            } else {
-              song = {};
             }
           }
         });
@@ -82,11 +77,11 @@
 
 
      const loadNewSong = () => {
-        if (Object.keys(song).length || !$playlist.length) {
+        if (Object.keys($song).length || !$playlist.length) {
           return;
         }
 
-        song = $playlist[0];
+        $song = $playlist[0];
         $playlist.shift();
         $playlist = $playlist; //TODO: nicer solution
         currentSound = createCurrentSong();
@@ -141,19 +136,19 @@
       };
 
       const setCurrentData = () => {
-        if (!Object.keys(song).length) {
+        if (!Object.keys($song).length) {
           localStorage.removeItem('tilosStoreSong');
           return;
         }
 
-        const fullSong = Object.assign({}, song, { time })
+        const fullSong = Object.assign({}, $song, { time })
         localStorage.setItem('tilosStoreSong', JSON.stringify(fullSong));
       };
 
       const togglePlaylist = () => isPlaylistVisible = !isPlaylistVisible;
 
       const clearAll = () => {
-        song = {};
+        $song = {};
         $playlist = [];
         localStorage.clear();
       }
@@ -255,13 +250,13 @@
       <button type="button" class="player__button player__seek" on:click={seekSound} disabled={ !duration }>Seeek</button>
     </div>
     <div class="player__song">
-      <div class="player__title">{ song.url ? song.title : 'No sound selected' }</div>
+      <div class="player__title">{ $song.url ? $song.title : 'No sound selected' }</div>
       <div class="player__prog">
-        <div class="player__current">{ song.url ? format(time) : format() }</div>
+        <div class="player__current">{ $song.url ? format(time) : format() }</div>
         <div class="progress" on:click={seekWithBar}  on:mousemove={seekWithBar}>
           <div class="progress__bar" style="width:{ percent }%"></div>
         </div>
-        <div class="player__duration">{ song.url ? format(duration) : format() }</div>
+        <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
       </div>
     </div>
     <div class="player__song_control">
