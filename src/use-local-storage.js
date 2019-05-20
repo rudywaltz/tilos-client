@@ -1,12 +1,16 @@
-export default function useLocalStorage(store, key) {
+export const loadFromLocalStorage = (store, key) => {
 	const currentValue = localStorage.getItem(key);
-
 	if (currentValue) {
 		store.set(JSON.parse(currentValue));
 	}
+}
 
+export const saveToLocalStorage = (store, key) => {
 	store.subscribe(value => {
-		console.log('store', value);
-		// localStorage.setItem(key, JSON.stringify(value));
+		if (value.length) {
+			localStorage.setItem(key, JSON.stringify(value));
+		} else {
+      localStorage.removeItem(key); // TODO: need?
+		}
 	});
 }

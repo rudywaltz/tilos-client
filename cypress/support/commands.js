@@ -10,8 +10,9 @@
 
 Cypress.Commands.add("setStorage", (key, value) => {
   cy.window()
-    .its('store')
-    .then(store => {
-      store.set({ [key]: value })
-  })
+    .its('localStorage')
+    .then(localStorage => {
+      console.log('bello')
+      localStorage.setItem(key, JSON.stringify(value))
+    });
 })

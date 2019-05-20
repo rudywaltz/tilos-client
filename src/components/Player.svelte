@@ -12,37 +12,12 @@
   let isPlaylistVisible = false;
   let currentSound = null;
 
-  console.log($song);
-
   $: percent = (time / duration * 100).toFixed(2) || 0;
 
     onMount(() => {
       Howler.volume(volume);
-
-      // currentSound = createCurrentSong();
-
-    //   const stateListener = this.store.on('state', ({ changed, current, previous }) => {
-    //     const isCurrentSongEmpty = Object.keys(current.song).length === 0;
-
-    //     if (changed.playlist) {
-    //       loadNewSong(current.song, current.playlist);
-    //     }
-
-    //     if(changed.song && isCurrentSongEmpty && this.currentSound) {
-    //       // this.currentSound.unload();
-    //     }
-
-    //     if (changed.song && !isCurrentSongEmpty) {
-    //       this.currentSound = createCurrentSong();
-    //     }
-    //   });
-
-    // this.on('destroy', stateListener.cancel);
-
-    // const { song, playlist } = this.store.get();
-    loadNewSong();
-    currentSound = createCurrentSong();
-    // },
+      loadNewSong();
+      currentSound = createCurrentSong();
     });
 
 
@@ -55,8 +30,9 @@
           html5: false,
           pool: 0,
           onload: () => {
-            duration = currentSound.duration()
+            duration = currentSound.duration();
             time = $song.time;
+
             if(time) {
               currentSound.seek(time);
             }
@@ -108,7 +84,7 @@
 
       const stopSound = () => {
         currentSound.stop();
-         playing =  false;
+        playing =  false;
       };
 
       const seekSound = () => currentSound.seek(currentSound.seek() + 30);
@@ -117,6 +93,7 @@
         if (event.type === 'mousemove' && event.buttons !== 1) {
           return;
         }
+
         const target = event.target.getBoundingClientRect();
         const position =  target.bottom - event.clientY;
         volume  = position / target.height;
@@ -130,6 +107,7 @@
 
         const target = event.target.getBoundingClientRect();
         const position = event.pageX - target.left;
+        console.log('posi', position)
 
         const rate  = position / target.width;
         currentSound.seek(rate * duration);
