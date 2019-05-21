@@ -176,10 +176,10 @@ describe('player', () => {
         .click(650, 10)
       cy.get('.progress .progress__bar')
         .should( $div => {
-          expect($div[0].style.width).to.greaterThan('75%');
-          // expect($div[0].style.width).to.greaterThan('50%');
-          expect($div[0].style.width).to.lessThan('76%');
-          // expect($div[0].style.width).to.lessThan('86%');
+          // expect($div[0].style.width).to.greaterThan('75%');
+          expect($div[0].style.width).to.greaterThan('50%');
+          // expect($div[0].style.width).to.lessThan('76%');
+          expect($div[0].style.width).to.lessThan('86%');
         })
     });
 
@@ -191,10 +191,10 @@ describe('player', () => {
         .trigger('mousemove', 210, 10, { buttons: 1 })
       cy.get('.progress .progress__bar')
         .should( $div => {
-          expect($div[0].style.width).to.lessThan('25.5%');
-          // expect($div[0].style.width).to.lessThan('45.5%');
-          expect($div[0].style.width).to.greaterThan('24%');
-          // expect($div[0].style.width).to.greaterThan('14%');
+          // expect($div[0].style.width).to.lessThan('25.5%');
+          expect($div[0].style.width).to.lessThan('45.5%');
+          // expect($div[0].style.width).to.greaterThan('24%');
+          expect($div[0].style.width).to.greaterThan('14%');
         })
     });
 
