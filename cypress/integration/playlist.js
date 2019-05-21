@@ -1,17 +1,17 @@
 const getStore = () => cy.window().its('store')
 
 describe('playlist', () => {
-  beforeEach(() => {
-    cy.visit('/')
-  });
 
-  context('without song', () => {
-    beforeEach(() => {
-      cy.setStorage('playlist', [])
-    })
-
+  context('without playlist', () => {
 
     it('default', () => {
+      cy.visit('/', {
+        onBeforeLoad: (contentWindow) => {
+          contentWindow.localStorage.clear();
+          contentWindow.localStorage.setItem('tilosStorePlaylist', JSON.stringify([]))
+        }
+      })
+      cy.get('.player__toggle_playlist').click()
       cy
         .get('.playlist')
         .contains('Choose one song')
@@ -20,15 +20,23 @@ describe('playlist', () => {
 
   context('with song', () => {
     beforeEach(() => {
-      cy.setStorage('song', {
-        title: 'Default Song',
-        url: '/jezusesajelzoraketa.mp3'
+      cy.visit('/', {
+        onBeforeLoad: (contentWindow) => {
+          contentWindow.localStorage.clear();
+          contentWindow.localStorage.setItem('tilosStoreSong', JSON.stringify({
+            title: 'Default Song',
+            url: '/jezusesajelzoraketa.mp3'
+          }))
+
+          contentWindow.localStorage.setItem('tilosStorePlaylist', JSON.stringify([{
+            title: 'Jézus és a jelzőrakéta',
+            url: '/jezusesajelzoraketa.mp3',
+            duration: (60 * 60) + (15 * 60) + 13
+          }]))
+        }
       })
-      cy.setStorage('playlist', [{
-        title: 'Jézus és a jelzőrakéta',
-        url: '/jezusesajelzoraketa.mp3',
-        duration: (60 * 60) + (15 * 60) + 13
-      }])
+
+      cy.get('.player__toggle_playlist').click();
     })
 
     it('title', () => {
@@ -43,23 +51,6 @@ describe('playlist', () => {
         .contains('01:15:13')
     })
 
-    it('multiple title', () => {
-      cy.setStorage('playlist', [{
-        title: 'Jézus és a jelzőrakéta',
-        url: '/jezusesajelzoraketa.mp3',
-        duration: (60 * 60) + (15 * 60) + 13
-      },
-      {
-        title: 'Lorem ipsum',
-        url: '/aaaa.mp3',
-        duration: (2 * 60 * 60) + (4 * 60) + 9
-      }
-    ])
-
-      cy.get('ul .song__title:nth-child(1)')
-        .contains('Lorem ipsum')
-    })
-
     it('clear playlist', () => {
       cy.get('.playlist__clear')
         .click();
@@ -67,40 +58,50 @@ describe('playlist', () => {
       cy
         .get('.playlist')
         .contains('Choose one song');
+    })
+  })
 
-        cy.window()
-          .its('store')
-          .then(store => {
-            const { playlist } = store.get();
-            expect(playlist).to.be.empty;
-          })
+  describe('multiple title', () => {
+    beforeEach(()=> {
+      cy.visit('/', {
+        onBeforeLoad: (contentWindow) => {
+          contentWindow.localStorage.clear();
+          contentWindow.localStorage.setItem('tilosStoreSong', JSON.stringify({
+            title: 'Default Song',
+            url: '/jezusesajelzoraketa.mp3'
+          }))
+
+          contentWindow.localStorage.setItem('tilosStorePlaylist', JSON.stringify([{
+            title: 'Jézus és a jelzőrakéta',
+            url: '/jezusesajelzoraketa.mp3',
+            duration: (60 * 60) + (15 * 60) + 13
+          },
+          {
+            title: 'Lorem ipsum',
+            url: '/aaaa.mp3',
+            duration: (2 * 60 * 60) + (4 * 60) + 9
+          }
+        ]))
+        }
+      })
+
+      cy.get('.player__toggle_playlist').click();
     })
 
+    it('render data', () => {
+      cy.get('ul .song__title:nth-child(1)')
+        .contains('Lorem ipsum')
+    })
+
+
     it('remove one song', () => {
-      cy.setStorage('playlist', [{
-        title: 'Jézus és a jelzőrakéta',
-        url: '/jezusesajelzoraketa.mp3',
-        duration: (60 * 60) + (15 * 60) + 13
-      },
-      {
-        title: 'Gongs',
-        url: '/gongs.mp3',
-        duration: 22
-      }]);
-
-      cy.get(':nth-child(2) > .song__clear')
-        .click();
-
-        cy.window()
-          .its('store')
-          .then(store => {
-            const { playlist } = store.get();
-            expect(playlist).to.deep.equal([{
-              title: 'Jézus és a jelzőrakéta',
-              url: '/jezusesajelzoraketa.mp3',
-              duration: (60 * 60) + (15 * 60) + 13
-            }]);
-          })
+      cy.get(':nth-child(2) > .song__clear').click().should(() => {
+        expect(JSON.parse(localStorage.getItem('tilosStorePlaylist'))).to.deep.equal([{
+          title: 'Jézus és a jelzőrakéta',
+          url: '/jezusesajelzoraketa.mp3',
+          duration: (60 * 60) + (15 * 60) + 13
+        }]);
+      });
     })
   })
 });

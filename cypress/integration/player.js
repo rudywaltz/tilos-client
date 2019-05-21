@@ -53,33 +53,6 @@ describe('player', () => {
       })
     })
 
-    it.skip('play next sound continously', () => {
-      cy.setStorage('tilosStorePlaylist', [{
-          title: 'Gongs',
-          url: '/gongs.mp3',
-          duration: 22
-        },
-        {
-          title: 'Jézus és a jelzőrakéta',
-          url: '/jezusesajelzoraketa.mp3',
-          duration: (60 * 60) + (15 * 60) + 13
-        }]
-      );
-      cy.visit('/')
-
-      cy.get('#player .player__play')
-        .click()
-      cy.get('#player .player__seek')
-        .click()
-
-      cy.get('.player__title')
-        .contains('Jézus és a jelzőrakéta')
-      cy.get('#player .player__play')
-        .contains('Stop')
-      cy.get('#player .player__current')
-        .contains('00:00:01')
-    });
-
     it('should be render', () => {
       cy.get('#player');
       cy.get('#player .player__play').should('be.not.disabled');
@@ -117,12 +90,15 @@ describe('player', () => {
       cy.get('#player .player__play').contains('Play')
     });
 
-    it.skip('should remove the last sound after end', () => {
-      cy.setStorage('song', {
-        title: 'Gongs',
-        url: '/gongs.mp3'
-      });
-
+    it('should remove the last sound after end', () => {
+      cy.visit('/', {
+        onBeforeLoad: (contentWindow) => {
+          contentWindow.localStorage.setItem('tilosStoreSong', JSON.stringify({
+            title: 'Gongs',
+            url: '/gongs.mp3'
+          }))
+        }
+      })
       cy.get('#player .player__play')
         .click();
       cy.get('#player .player__seek')
@@ -147,11 +123,15 @@ describe('player', () => {
       });
     });
 
-    it.skip('should not save empty data in localStorage', () => {
-      cy.setStorage('tilosStoreSong', {
-        title: 'Gongs',
-        url: '/gongs.mp3'
-      });
+    it('should not save empty data in localStorage', () => {
+      cy.visit('/', {
+        onBeforeLoad: (contentWindow) => {
+          contentWindow.localStorage.setItem('tilosStoreSong', JSON.stringify({
+            title: 'Gongs',
+            url: '/gongs.mp3'
+          }))
+        }
+      })
 
       cy.get('#player .player__play')
         .click();
@@ -193,11 +173,13 @@ describe('player', () => {
       cy.get('#player .player__play')
         .click()
       cy.get('.progress')
-        .click(625, 10)
+        .click(650, 10)
       cy.get('.progress .progress__bar')
         .should( $div => {
           expect($div[0].style.width).to.greaterThan('75%');
+          // expect($div[0].style.width).to.greaterThan('50%');
           expect($div[0].style.width).to.lessThan('76%');
+          // expect($div[0].style.width).to.lessThan('86%');
         })
     });
 
@@ -210,11 +192,13 @@ describe('player', () => {
       cy.get('.progress .progress__bar')
         .should( $div => {
           expect($div[0].style.width).to.lessThan('25.5%');
+          // expect($div[0].style.width).to.lessThan('45.5%');
           expect($div[0].style.width).to.greaterThan('24%');
+          // expect($div[0].style.width).to.greaterThan('14%');
         })
     });
 
-    it.skip('should not seeking if track not playing', () => {
+    it('should not seeking if track not playing', () => {
       cy.get('.progress')
         .click(150, 10)
       cy.get('#player .player__play')
@@ -251,5 +235,43 @@ describe('player', () => {
           expect($div[0].style.width).to.eq('25%');
         })
     });
+  });
+
+  describe('with playlist', ()=> {
+    beforeEach(() => {
+      cy.clearLocalStorage();
+      cy.visit('/', {
+        onBeforeLoad: (contentWindow) => {
+          contentWindow.localStorage.clear();
+          contentWindow.localStorage.setItem('tilosStorePlaylist', JSON.stringify([
+            {
+              title: 'Gongs',
+              url: '/gongs.mp3',
+              duration: 22
+            },
+            {
+              title: 'Jézus és a jelzőrakéta',
+              url: '/jezusesajelzoraketa.mp3',
+              duration: (60 * 60) + (15 * 60) + 13
+            }
+          ]))
+        }
+      })
+    })
+
+    it('play next sound continously', () => {
+      cy.get('#player .player__play')
+        .click()
+      cy.get('#player .player__seek')
+        .click()
+
+      cy.get('.player__title')
+        .contains('Jézus és a jelzőrakéta')
+      cy.get('#player .player__play')
+        .contains('Stop')
+      cy.get('#player .player__current')
+        .contains('00:00:01')
+    });
+
   });
 });
