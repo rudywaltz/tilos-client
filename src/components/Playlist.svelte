@@ -6,7 +6,7 @@
     $playlist = [];
   };
 
-  const  removeSong = songUrl => () => {
+  const  removeSong = songUrl => {
     $playlist = $playlist.filter(song => song.url !== songUrl);
   };
 
@@ -40,14 +40,14 @@
 
 <button type="button" class="playlist__clear" on:click="{removeAllSongs}">Clear</button>
 <ul class="playlist">
-{#each $playlist as song}
+  {#each $playlist as song (song.url)}
     <li class="song" draggable="true">
       <h3 class="song__title">{ song.title }</h3> { song.url }
       <span class="song__duration"> { format(song.duration) }</span>
-      <button type="button" class="song__clear" on:click="{removeSong(song.url)}">Clear</button>
+      <button type="button" class="song__clear" on:click="{e => removeSong(song.url)}">Clear</button>
     </li>
   {:else}
     <li>Choose one song</li>
-    {/each}
+  {/each}
 </ul>
 <svelte:window on:beforeunload={setCurrentData}/>

@@ -103,5 +103,13 @@ describe('playlist', () => {
         }]);
       });
     })
+
+    it('removing song button working multiple time', () => {
+      cy.get(':nth-child(1) > .song__clear').click();
+      cy.get(':nth-child(1) > .song__clear').click();
+      cy
+      .get('.playlist')
+      .contains('Choose one song')
+    })
   })
 });
