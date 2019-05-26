@@ -4,9 +4,9 @@ describe('Tilos-client-app', () => {
       cy.visit('/')
     });
 
-    it('navigates to /about', () => {
-      cy.get('nav a').contains('about').click();
-      cy.url().should('include', '/about');
+    it('navigates to /archive', () => {
+      cy.get('nav a').contains('Archívum').click();
+      cy.url().should('include', '/archive');
     });
   })
 });
