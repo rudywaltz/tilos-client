@@ -36,4 +36,11 @@ describe('episode', () => {
     cy.get('.playlist')
       .contains('Choose one song')
   })
+
+  it('should hide similar artist', () => {
+    cy.get('.archive > :nth-child(3) .episode__hide_artist').click()
+    cy.get('.archive').should($page => {
+      expect($page).to.not.contain('Tilos Hírek');
+    });
+  })
 });

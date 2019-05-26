@@ -27,6 +27,7 @@
   episodes.forEach(episode => {
     newEpisodes.push({
       name: episode.show.name,
+      showId: episode.show.id,
       text: episode.text ? episode.text.title : '------',
       mp3: episode.m3uUrl.slice(0, -3) + 'mp3',
       duration: (episode.realTo - episode.realFrom) / 1000

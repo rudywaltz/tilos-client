@@ -1,13 +1,14 @@
 <script>
   import { format } from '../helpers';
-  import { playlist } from './stores';
+  import { playlist, hiddenShows } from './stores';
   export let name;
   export let mp3;
   export let duration;
   export let text;
-
+  export let showId;
 
   $: isInPlaylist = !!$playlist.find(song => song.url === mp3);
+  $: hide = $hiddenShows.indexOf(showId) > -1;
 
   const playlistToggle = () => {
     if (isInPlaylist) {
@@ -19,6 +20,10 @@
         duration: duration
       }];
     }
+  }
+
+  const hideArtist = () => {
+    $hiddenShows = [...$hiddenShows, showId];
   }
 </script>
 
@@ -41,10 +46,15 @@
   }
 </style>
 
-<div class="episode archive__item">
-  <h2 class="episode__title">{name}</h2>
-  <time class="episode__duration">{format(duration)}</time>
-  <p class="episode__diary">{text}</p>
-  <code class="episode__link">{mp3}</code>
-  <button type="submit" on:click={playlistToggle} class="episode__add_playlist">{isInPlaylist ? 'Remove from Playlist' : 'Add to Playlist'}</button>
-</div>
+{#if !hide}
+  <div class="episode archive__item">
+    <h2 class="episode__title">{name}</h2>
+    <time class="episode__duration">{format(duration)}</time>
+    <p class="episode__diary">{text}</p>
+    <code class="episode__link">{mp3}</code>
+    <br>
+    <button type="button" on:click={playlistToggle} class="episode__add_playlist">{isInPlaylist ? 'Remove from Playlist' : 'Add to Playlist'}</button>
+    <br>
+    <button type="button" on:click={hideArtist} class="episode__hide_artist">Hide this Artist</button>
+  </div>
+{/if}
