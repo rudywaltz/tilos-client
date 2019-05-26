@@ -16,18 +16,24 @@ describe('episode', () => {
       .contains('// 28 ▶︎ Soundhunter & Darth Peter & Magematix');
     cy.get('.archive > :nth-child(2) .episode__link')
       .contains('https://archive.tilos.hu/mp3/tilos-20180510-025954-045930.mp3');
+    cy.get('.archive > :nth-child(2) .episode__add_playlist')
+      .contains('Add to Playlist');
   })
 
   it('should add to playlist', () => {
     cy.get('.archive > :nth-child(1) .episode__add_playlist').click()
     cy.get('.player__toggle_playlist').click()
-    cy
-     .get('.playlist .song__title')
+    cy.get('.playlist .song__title')
       .contains('Hotel North Pole')
   })
 
-  it('should the add playlist button disabled if it is already in playlist', () => {
-    cy.get('.archive > :nth-child(1) .episode__add_playlist').click()
-    cy.get('.archive > :nth-child(1) .episode__add_playlist').should('be.disabled');
+  it('should remove from playlist if was there before', () => {
+    cy.get('.archive > :nth-child(1) .episode__add_playlist').click();
+    cy.get('.archive > :nth-child(1) .episode__add_playlist')
+      .contains('Remove from Playlist');
+    cy.get('.archive > :nth-child(1) .episode__add_playlist').click();
+    cy.get('.player__toggle_playlist').click()
+    cy.get('.playlist')
+      .contains('Choose one song')
   })
 });

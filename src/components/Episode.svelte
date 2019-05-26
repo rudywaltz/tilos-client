@@ -7,14 +7,18 @@
   export let text;
 
 
-  $: disabled = !!$playlist.find(song => song.url === mp3);
+  $: isInPlaylist = !!$playlist.find(song => song.url === mp3);
 
-  const addToPlaylist = () => {
-    $playlist = [...$playlist, {
-      title: name,
-      url: mp3,
-      duration: duration
-    }];
+  const playlistToggle = () => {
+    if (isInPlaylist) {
+      $playlist = $playlist.filter(song => song.url !== mp3);
+    } else {
+      $playlist = [...$playlist, {
+        title: name,
+        url: mp3,
+        duration: duration
+      }];
+    }
   }
 </script>
 
@@ -42,5 +46,5 @@
   <time class="episode__duration">{format(duration)}</time>
   <p class="episode__diary">{text}</p>
   <code class="episode__link">{mp3}</code>
-  <button type="submit" on:click={addToPlaylist} class="episode__add_playlist" {disabled}>Add to playlist</button>
+  <button type="submit" on:click={playlistToggle} class="episode__add_playlist">{isInPlaylist ? 'Remove from Playlist' : 'Add to Playlist'}</button>
 </div>
