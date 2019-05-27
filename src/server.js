@@ -6,25 +6,13 @@ import * as sapper from '@sapper/server';
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-polka() // You can also use Express
+polka()
 	.use(
 		compression({ threshold: 0 }),
 		sirv('static', { dev }),
 		sapper.middleware({
 			session: (req, res) => ({
 				development: dev,
-				song: {},
-      //     playlist: [],
-				playlist: [{
-					title: 'Gongs',
-					url: '/gongs.mp3',
-					duration: 22
-				},
-				{
-					title: 'Jézus és a jelzőrakéta',
-					url: '/jezusesajelzoraketa.mp3',
-					duration: (60 * 60) + (15 * 60) + 13
-				}]
 			})
 	}))
 	.listen(PORT, err => {
