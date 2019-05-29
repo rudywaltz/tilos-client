@@ -21,6 +21,7 @@ describe('episode', () => {
   })
 
   it('should add to playlist', () => {
+    cy.get('.archive > :nth-child(2) .episode__add_playlist').click()
     cy.get('.archive > :nth-child(1) .episode__add_playlist').click()
     cy.get('.player__toggle_playlist').click()
     cy.get('.playlist .song__title')

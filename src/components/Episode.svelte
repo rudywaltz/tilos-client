@@ -1,17 +1,21 @@
 <script>
   import { format } from '../helpers';
-  import { playlist, hiddenShows } from './stores';
+  import { playlist, song, hiddenShows } from './stores';
   export let name;
   export let mp3;
   export let duration;
   export let text;
   export let showId;
 
-  $: isInPlaylist = !!$playlist.find(song => song.url === mp3); // TODO or song?
+  $: isInPlaylist = !!$playlist.find(song => song.url === mp3) || $song.url === mp3; // TODO or song?
   $: hide = $hiddenShows.indexOf(showId) > -1;
 
   const playlistToggle = () => {
     if (isInPlaylist) {
+      if ($song.url === mp3) {
+        $song = {};
+      }
+
       $playlist = $playlist.filter(song => song.url !== mp3);
       return;
     }
