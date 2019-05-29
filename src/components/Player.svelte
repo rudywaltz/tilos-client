@@ -14,122 +14,130 @@
 
   $: percent = (time / duration * 100).toFixed(2) || 0;
 
-    onMount(() => {
-      Howler.volume(volume);
-      loadNewSong();
-      currentSound = createCurrentSong();
-    });
+  playlist.subscribe(value =>  {
+    console.log('subscribe', value)
+    if (Object.keys($song).length || !value.length) return;
+
+    $song =  value.shift();
+    playlist.set(value);
+    currentSound = createCurrentSong();
+  });
+
+  onMount(() => {
+    Howler.volume(volume);
+    loadNewSong();
+    currentSound = createCurrentSong();
+  });
 
 
-    const createCurrentSong = () => {
-        const playing1 = playing;
-        return new Howl({
-          src: [$song.url],
-          xhrWithCredentials: true,
-          preload: true,
-          html5: false,
-          pool: 0,
-          onload: () => {
-            duration = currentSound.duration();
-            time = $song.time;
+  const createCurrentSong = () => {
+    const playing1 = playing;
+    return new Howl({
+      src: [$song.url],
+      xhrWithCredentials: true,
+      preload: true,
+      html5: false,
+      pool: 0,
+      onload: () => {
+        duration = currentSound.duration();
+        time = $song.time;
 
-            if(time) {
-              currentSound.seek(time);
-            }
-
-            if (playing1) {
-              playSound();
-            }
-          },
-          onend: () => {
-            clearPollingSong = true;
-            $song = {};
-            if ($playlist.length) {
-              loadNewSong();
-            }
-          }
-        });
-      };
-
-
-     const loadNewSong = () => {
-        if (Object.keys($song).length || !$playlist.length) {
-          return;
+        if(time) {
+          currentSound.seek(time);
         }
 
-        $song = $playlist[0];
-        $playlist.shift();
-        $playlist = $playlist; //TODO: nicer solution
-        currentSound = createCurrentSong();
-      }
-
-
-      const toggleSound = () => playing ? stopSound() : playSound();
-
-      const playSound = () => {
-        currentSound.play();
-        playing = true;
-        clearPollingSong = false ;
-
-        const pollingSongData = setInterval(() => {
-          if (clearPollingSong) {
-            time = 0;
-            clearInterval(pollingSongData);
-            return;
-          }
-
-          time = currentSound.seek();
-        }, 200);
-      };
-
-      const stopSound = () => {
-        currentSound.stop();
-        playing =  false;
-      };
-
-      const seekSound = () => currentSound.seek(currentSound.seek() + 30);
-
-      const setVolume = event => {
-        if (event.type === 'mousemove' && event.buttons !== 1) {
-          return;
+        if (playing1) {
+          playSound();
         }
-
-        const target = event.target.getBoundingClientRect();
-        const position =  target.bottom - event.clientY;
-        volume  = position / target.height;
-        Howler.volume(volume);
-      };
-
-      const seekWithBar = event => {
-        if (event.type === 'mousemove' && event.buttons !== 1 || !playing) {
-          return;
-        }
-
-        const target = event.target.getBoundingClientRect();
-        const position = event.pageX - target.left;
-        console.log('posi', position)
-
-        const rate  = position / target.width;
-        currentSound.seek(rate * duration);
-      };
-
-      const setCurrentData = () => {
-        if (!Object.keys($song).length) {
-          localStorage.removeItem('tilosStoreSong');
-          return;
-        }
-
-        const fullSong = Object.assign({}, $song, { time })
-        localStorage.setItem('tilosStoreSong', JSON.stringify(fullSong));
-      };
-
-      const togglePlaylist = () => isPlaylistVisible = !isPlaylistVisible;
-
-      const clearAll = () => {
+      },
+      onend: () => {
+        clearPollingSong = true;
         $song = {};
-        $playlist = [];
-        localStorage.clear();
+        if ($playlist.length) {
+          loadNewSong();
+        }
       }
+    });
+  };
+
+
+  const loadNewSong = () => {
+    if (Object.keys($song).length || !$playlist.length) {
+      return;
+    }
+
+    $song = $playlist.shift();
+    $playlist = $playlist; //TODO: nicer solution
+    currentSound = createCurrentSong();
+  }
+
+
+  const toggleSound = () => playing ? stopSound() : playSound();
+
+  const playSound = () => {
+    currentSound.play();
+    playing = true;
+    clearPollingSong = false ;
+
+    const pollingSongData = setInterval(() => {
+      if (clearPollingSong) {
+        time = 0;
+        clearInterval(pollingSongData);
+        return;
+      }
+
+      time = currentSound.seek();
+    }, 200);
+  };
+
+  const stopSound = () => {
+    currentSound.stop();
+    playing =  false;
+  };
+
+  const seekSound = () => currentSound.seek(currentSound.seek() + 30);
+
+  const setVolume = event => {
+    if (event.type === 'mousemove' && event.buttons !== 1) {
+      return;
+    }
+
+    const target = event.target.getBoundingClientRect();
+    const position =  target.bottom - event.clientY;
+    volume  = position / target.height;
+    Howler.volume(volume);
+  };
+
+  const seekWithBar = event => {
+    if (event.type === 'mousemove' && event.buttons !== 1 || !playing) {
+      return;
+    }
+
+    const target = event.target.getBoundingClientRect();
+    const position = event.pageX - target.left;
+    console.log('posi', position)
+
+    const rate  = position / target.width;
+    currentSound.seek(rate * duration);
+  };
+
+  const setCurrentData = () => {
+    if (!Object.keys($song).length) {
+      localStorage.removeItem('tilosStoreSong');
+      return;
+    }
+
+    const fullSong = Object.assign({}, $song, { time })
+    localStorage.setItem('tilosStoreSong', JSON.stringify(fullSong));
+  };
+
+  const togglePlaylist = () => isPlaylistVisible = !isPlaylistVisible;
+
+  const clearAll = () => {
+    $song = {};
+    $playlist = [];
+    localStorage.clear();
+  }
 
 </script>
 
