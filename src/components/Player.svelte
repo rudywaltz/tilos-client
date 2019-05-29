@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { format } from '../helpers';
   import { Howl, Howler } from 'howler';
   import { playlist, song } from './stores';
@@ -11,23 +11,25 @@
   let volume = .5;
   let isPlaylistVisible = false;
   let currentSound = null;
+  let unsubscribe = () => { };
 
   $: percent = (time / duration * 100).toFixed(2) || 0;
 
-  playlist.subscribe(value =>  {
-    console.log('subscribe', value)
-    if (Object.keys($song).length || !value.length) return;
-
-    $song =  value.shift();
-    playlist.set(value);
-    currentSound = createCurrentSong();
-  });
-
   onMount(() => {
+    unsubscribe = playlist.subscribe(value =>  {
+      if (Object.keys($song).length || !value.length) return;
+
+      $song =  value.shift();
+      playlist.set(value);
+    });
+
     Howler.volume(volume);
     loadNewSong();
     currentSound = createCurrentSong();
   });
+
+  onDestroy(unsubscribe);
+
 
 
   const createCurrentSong = () => {

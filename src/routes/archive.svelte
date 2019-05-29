@@ -21,7 +21,6 @@
   import Episode from '../components/Episode.svelte';
   import { format } from '../helpers';
   export let episodes;
-  // console.log(episodes);
   let newEpisodes = [];
 
   episodes.forEach(episode => {
