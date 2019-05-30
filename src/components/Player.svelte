@@ -30,8 +30,6 @@
 
   onDestroy(unsubscribe);
 
-
-
   const createCurrentSong = () => {
     const playing1 = playing;
     return new Howl({
@@ -117,7 +115,6 @@
 
     const target = event.target.getBoundingClientRect();
     const position = event.pageX - target.left;
-    console.log('posi', position)
 
     const rate  = position / target.width;
     currentSound.seek(rate * duration);

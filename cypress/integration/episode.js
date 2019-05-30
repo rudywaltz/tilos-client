@@ -32,6 +32,9 @@ describe('episode', () => {
     cy.get('.archive > :nth-child(1) .episode__add_playlist').click();
     cy.get('.archive > :nth-child(1) .episode__add_playlist')
       .contains('Remove from Playlist');
+    cy.get('.archive > :nth-child(2) .episode__add_playlist').click();
+    cy.get('.archive > :nth-child(2) .episode__add_playlist')
+      .contains('Remove from Playlist');
     cy.get('.archive > :nth-child(1) .episode__add_playlist').click();
     cy.get('.player__toggle_playlist').click()
     cy.get('.playlist')
@@ -43,5 +46,30 @@ describe('episode', () => {
     cy.get('.archive').should($page => {
       expect($page).to.not.contain('Tilos Hírek');
     });
+  })
+
+  it('should store hidden show list in localstorage', () => {
+    cy.get('.archive > :nth-child(3) .episode__hide_artist').click().should(() => {
+      expect(JSON.parse(localStorage.getItem('tilosStorehiddenShows')))
+        .to.deep.equal(['5480cee86dab254449a7cc7c']);
+    });
+  })
+
+  describe('localstorage', () => {
+    beforeEach(()=> {
+      cy.visit('/archive', {
+        onBeforeLoad: (contentWindow) => {
+          contentWindow.localStorage.clear();
+          contentWindow.localStorage
+            .setItem('tilosStorehiddenShows', JSON.stringify(['5480cee86dab254449a7cc7c']))
+        }
+      })
+    })
+
+    it('load data', () => {
+      cy.get('.archive').should($page => {
+        expect($page).to.not.contain('Tilos Hírek');
+      });
+    })
   })
 });

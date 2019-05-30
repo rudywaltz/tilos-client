@@ -7,7 +7,7 @@
   export let text;
   export let showId;
 
-  $: isInPlaylist = !!$playlist.find(song => song.url === mp3) || $song.url === mp3; // TODO or song?
+  $: isInPlaylist = !!$playlist.find(song => song.url === mp3) || $song.url === mp3;
   $: hide = $hiddenShows.indexOf(showId) > -1;
 
   const playlistToggle = () => {
