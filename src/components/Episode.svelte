@@ -1,6 +1,7 @@
 <script>
   import { format } from '../helpers';
   import { playlist, song, hiddenShows } from './stores';
+  import { fade } from 'svelte/transition';
   export let name;
   export let mp3;
   export let duration;
@@ -52,7 +53,7 @@
 </style>
 
 {#if !hide}
-  <div class="episode archive__item">
+  <div class="episode archive__item" transition:fade>
     <h2 class="episode__title">{name}</h2>
     <time class="episode__duration">{format(duration)}</time>
     <p class="episode__diary">{text}</p>
