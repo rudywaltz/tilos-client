@@ -1,0 +1,1793 @@
+[{
+  "id": "56d3f22fb08c15676d82c6ac",
+  "name": "10TeLeT!",
+  "alias": "10TeLeT!",
+  "definition": "GYöReMiX! kalandozàsai mùltban és jelenben a Hiphop kultùra mezsgyéjén.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc36",
+  "name": "3. utas",
+  "alias": "3-utas",
+  "definition": "A Tilos Rádió tudományos, fantasztikus szemléletmagazinja.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc2c",
+  "name": "7térítő",
+  "alias": "7terito",
+  "definition": "A 7térítő a Tilos Rádió hétfő reggeli közéleti típusú kibeszélő műsora. Vé Ügynök, dr. bzmg, DubSmile és Melyik Feri a házban",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "579deec660543f70f16a77b4",
+  "name": "A megtervezett valóság",
+  "alias": "megtervezett-valosag",
+  "definition": "dizájn, divat, popkultúra.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc70",
+  "name": "A műsor aminek még nincs címe",
+  "alias": "a-musor-aminek-meg-nincs-cime",
+  "definition": "fikciós közéleti hírműsor",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc44",
+  "name": "A Sas Leszállt",
+  "alias": "a-sas-leszallt",
+  "definition": "kedd reggeli közélet, mikrofon- und sanzonbizottság",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc8c",
+  "name": "A szlovák kapcsolat",
+  "alias": "szlovak",
+  "definition": "szlovákokról, nem csak szlovákoknak",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc13",
+  "name": "Ablak-A-Dubra",
+  "alias": "ablak-a-dubra",
+  "definition": "A Chi DJ-k mixműsora.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc16",
+  "name": "Airbag",
+  "alias": "airbag",
+  "definition": "Két, olykor két és fél órás, olykor még hosszabban történő kalandozás a mély hangok dzsungelében..",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc25",
+  "name": "Alap - indiai klasszikus zene",
+  "alias": "alap",
+  "definition": "Az emberiség legrégebbi, töretlen zenei tradícióját bemutató rádióműsor.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc4b",
+  "name": "Alkotás útja ",
+  "alias": "alkotas-utja",
+  "definition": "Hallgatóbarát kortárs-kulturális élőbeszéd-demonstráció",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbf4",
+  "name": "Allnightbreakz Radio Show",
+  "alias": "allnightbreakz-radio-show",
+  "definition": "VidaG & VidaL zenei barangolasa a funktol a breakbeaten keresztul egeszen a drum and bassig.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc60",
+  "name": "Alma a pályától",
+  "alias": "alma-a-palyatol",
+  "definition": "itt mindenki sportoló",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc5d",
+  "name": "AROMA",
+  "alias": "aroma",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc68",
+  "name": "Az írás megmarad",
+  "alias": "az-iras-megmarad",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbd0",
+  "name": "Banditarádió",
+  "alias": "banditaradio",
+  "definition": "Megrakjuk neki Nyélen  a Tiloson",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbe4",
+  "name": "BangBang",
+  "alias": "bangbang",
+  "definition": "Füttymélypont. 2003 óta.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc1d",
+  "name": "BASSHEAVY",
+  "alias": "bassheavy",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "58efb8fa9d7c44476716ac3b",
+  "name": "BEAT SAFARI",
+  "alias": "beat-safari",
+  "definition": "DRUM&BASS / NEUROFUNK Műsor A Beat Safari Csapatával!",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc5a",
+  "name": "Betüleves",
+  "alias": "betuleves",
+  "definition": "Sunday afternoon cleaning up music for the body and soul",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc43",
+  "name": "Bioritmus",
+  "alias": "bioritmus",
+  "definition": "megfogalmazhatatlan tematika, hol filmrészlet, hol hip-hop, hol roots reggae",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc66",
+  "name": "Bizar Bazár",
+  "alias": "bizar-bazar",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbf5",
+  "name": "Bossa bom dia",
+  "alias": "bossa-bom-dia",
+  "definition": "Eklektikus zenei müsor Tomanek tálalásában. Bossa nova, jazz, funk és afrobeat előnyben.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc35",
+  "name": "Brasilmania",
+  "alias": "brasilmania",
+  "definition": "Brasilmania (korszerű brazil tánczene)  ",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbe2",
+  "name": "Break Out Breeze",
+  "alias": "break-out-breeze",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc69",
+  "name": "Broken Bliss",
+  "alias": "broken-bliss",
+  "definition": "glitch / breakbeat / dnb",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc45",
+  "name": "Budabeats",
+  "alias": "budabeats",
+  "definition": "freestyle csemege",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5636734fe4b0c191282429c5",
+  "name": "Budapest Eklektik",
+  "alias": "eklektik",
+  "definition": "A műsorban Budapest zenei életének eklektikus világára koncentrálunk minden hétfő este 9-től 10-ig a Tilos rádióban. TUNE IN! FM90.3 / www.tilos.hu",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbf0",
+  "name": "Budbudas",
+  "alias": "budbudas",
+  "definition": "mindenféle zene",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbff",
+  "name": "Burek Forever",
+  "alias": "burek-forever",
+  "definition": "Радио емисија на српскохрватском језику",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc8a",
+  "name": "butASzerda",
+  "alias": "butaszerda",
+  "definition": "tompaeszű, ostoba, botor műsor",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc62",
+  "name": "Bádogdob",
+  "alias": "badogdob",
+  "definition": "Közéleti és jogi tényfeltáró műsor, 16:45-től",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc41",
+  "name": "Búgócsiga",
+  "alias": "bugocsiga",
+  "definition": "Soul-funk-eklektikus hétzáró Peg Top Djs-szett nyomokban hangszeres kísérletekkel.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5790805d60543f70f16a77aa",
+  "name": "Capybara",
+  "alias": "capybara",
+  "definition": "Szuburbánus baleária, természetközeli new age/ambient, low budget disco/funk/soul, house és techno hajnali textúrákkal, international contemporary, AOR/mellow pop.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5cacef396c2672e1830697d5",
+  "name": "Chief Rocka",
+  "alias": "chief_rocka",
+  "definition": "Soul, funk, jazz, hiphop, disco és house.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc42",
+  "name": "Civil Estek",
+  "alias": "civil-estek",
+  "definition": "Civil estek a Környezettudatos Társadalomért Alapítvány szervezésében",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc96",
+  "name": "civilizáció",
+  "alias": "civilizacio",
+  "definition": "A civilizáció célja, hogy egy újabb ablakot nyisson a civil szervezeteknek és az aktuális projektjeiknek. Ugyan a Tilosban rendszeresen sok civil kezdeményezésről esik szó, azt látjuk, hogy gyakran értékes projektek maradnak a háttérben, amikre egy kis médiatámogatással nagyobb figyelmet lehet irányítani. A műsorral tudatosan szeretnénk több teret adni ezeknek a projekteknek, hogy minél több hallgatóhoz jussanak el, amivel tovább szeretnénk erősíteni a hallgatóink civil öntudatát és hozzájárulni a civil szervezetek együttműködéséhez.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbef",
+  "name": "Cratesoul Radio Show / A barázdán is csomót!",
+  "alias": "cratesoul-radio-show-a-barazdan-is-csomot",
+  "definition": "Keyser és Shuriken eklektikus zenei műsora",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc0e",
+  "name": "Csipetke",
+  "alias": "csipetke",
+  "definition": "",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc12",
+  "name": "Csodálatos Mandarin",
+  "alias": "csodalatos-mandarin",
+  "definition": "kínai nyelvű műsor中文节目",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbfa",
+  "name": "Csonkamagyarország",
+  "alias": "csonkamagyarorszag",
+  "definition": "A rádió komplex, brutális, ezoterikus wellness-fitness magazinja",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc10",
+  "name": "Cökxpôn Ambient",
+  "alias": "cokxpon",
+  "definition": "zenei, beszélgetős műsor",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "56e935740ace0e994cb519fa",
+  "name": "Davoria",
+  "alias": "davoria",
+  "definition": null,
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc18",
+  "name": "Dawn Tempo",
+  "alias": "dawn-tempo",
+  "definition": "hajnali merengős zenék idősebbeknek és halandóknak",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc50",
+  "name": "Deep in Dawn",
+  "alias": "deep-in-dawn",
+  "definition": "http://sprlsdid.tumblr.com",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc32",
+  "name": "deKULT",
+  "alias": "dekult",
+  "definition": "A Tilos Rádió designról és építészetről szóló műsora",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc49",
+  "name": "Delicatessen Radio Show",
+  "alias": "delicatessen",
+  "definition": "elektromos zene különben",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbfc",
+  "name": "Diszkóvágás",
+  "alias": "diszkovagas",
+  "definition": "tudományos igényű diszkózene-történeti magazin műsor",
+  "type": "MUSIC",
+  "status": "PLANNED"
+}, {
+  "id": "5480cee86dab254449a7cbde",
+  "name": "Drágám, hol a vacsorám?",
+  "alias": "dragam-hol-a-vacsoram",
+  "definition": "Női jogi aktivisták kéthetenkénti beszélgetős műsora",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "56d3f64ab08c15676d82c6ad",
+  "name": "Dub Székház",
+  "alias": "dubszekhaz",
+  "definition": "Az elektronikus zenén innen és túl.",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc3e",
+  "name": "DUB Vibration",
+  "alias": "dub-vibration",
+  "definition": "Roots Reggae és Dub ritkaságok",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc8f",
+  "name": "Dzsungel könyve",
+  "alias": "dzsungel-konyve",
+  "definition": "Drum and bass, jungle kedden 10-től.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc1a",
+  "name": "Délibáb",
+  "alias": "delibab",
+  "definition": "Délibáb 2004-ben indult láthatatlan küldetésére Marco Cadenaval, Zsarnai Gáborral és Salman Ádámmal. ",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc77",
+  "name": "Egyetemi Rádió",
+  "alias": "egyetemi-radio",
+  "definition": "Felsőoktatási közéleti magazin",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc54",
+  "name": "Electrocat",
+  "alias": "electrocat",
+  "definition": "ELECTROnic CATegories, a techno mainstreamtől távol álló műfajai.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "580e47ce9d7c44476716ac24",
+  "name": "Elevated Radio",
+  "alias": "elevated-radio",
+  "definition": "future beats, hip-hop, trap, soul, jazz",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc33",
+  "name": "Elveszett Gyerekek Városa",
+  "alias": "elveszett-gyerekek-varosa",
+  "definition": "La Cité des enfants perdus",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc39",
+  "name": "Elveszett Jelentés",
+  "alias": "elveszett-jelentes",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbd6",
+  "name": "Eredeti helyzet",
+  "alias": "eredeti-helyzet",
+  "definition": "Buharov és Cserhalmi Sára akusztikai válogatása",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc48",
+  "name": "Erizo meséi",
+  "alias": "erizo-mesei",
+  "definition": "délutáni melange és liftzene",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5bec45bf6c2644c7267e5990",
+  "name": "Erőmű",
+  "alias": "eromu",
+  "definition": "A Tilos Rádió környezet- és klímavédelmi műsora. Az Energiaklub munkatársaival, vendégeivel. Még nem késő, ne hallgass!",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc30",
+  "name": "Estudio Calle",
+  "alias": "la-revancha",
+  "definition": "revista cultural latina",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5532c0478de2d6716a25d6ae",
+  "name": "Euphonic Moments",
+  "alias": "euphonic",
+  "definition": "Vasárnap reggeli kellemes hangú pillanatok kéthetente. Deep House- Tech House- Dub Techno.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5af68e8f6a60904998a7ed14",
+  "name": "Expat",
+  "alias": "expat",
+  "definition": "Szabadfogású beszélgetés Budapesten élő expatokkal, angolul. / A show about interesting folks from around the world who happen to be in Budapest",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5902d0369d7c44476716ac42",
+  "name": "Extázis és agónia",
+  "alias": "extazis",
+  "definition": "Fejezetek a független zenei szcéna, a post-punk és a new wave (1978-90) történetéből.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc59",
+  "name": "Ez a műsor",
+  "alias": "ez-a-musor",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc61",
+  "name": "Felkelők",
+  "alias": "felkelok",
+  "definition": "zenés műsor",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc57",
+  "name": "Felkelők",
+  "alias": "felkelok-659",
+  "definition": "Minden héten más",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc0a",
+  "name": "Filter",
+  "alias": "filter",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbda",
+  "name": "Filó",
+  "alias": "filo",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5c645ac46c2644c7267e599a",
+  "name": "Fleo",
+  "alias": "fleo",
+  "definition": "",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc55",
+  "name": "Framework",
+  "alias": "framework",
+  "definition": "\"fonográfia\"/környezeti felvételek, kontextuális és dekontextualizált  hangtevékenység",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc63",
+  "name": "Francia Hangja",
+  "alias": "francia-hangja",
+  "definition": "émission de radio en français",
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5480cee86dab254449a7cbd8",
+  "name": "Free Cinema",
+  "alias": "free-cinema",
+  "definition": "minden, ami film",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "58f069b79d7c44476716ac3f",
+  "name": "Freedom Run",
+  "alias": "freedom-run",
+  "definition": "A kedvenc hajnali sztóner műsorod.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc7f",
+  "name": "frindli",
+  "alias": "frindli",
+  "definition": "Reggeli brainstorming startupokról, ötletekről, vállalkozásokról, designról és kreativitásról minden páros hét péntek reggelén, negyed 8-tól 8 óráig a Tilos rádión.",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbe7",
+  "name": "Full Vocal",
+  "alias": "full-vocal",
+  "definition": "könnyű zene",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc6e",
+  "name": "Fúzió Rádió",
+  "alias": "fuzio-radio",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "PLANNED"
+}, {
+  "id": "5790876f60543f70f16a77ac",
+  "name": "Goaszendvics",
+  "alias": "goaszendvics",
+  "definition": "A legendás szombat éjszakai psytrance fitness magazin újra dübörög! Mottó: lesz egy kis csúszás!",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc06",
+  "name": "GoFree",
+  "alias": "gofree",
+  "definition": "Bakelit alapú zeneszolgáltatás a swingtől a jazzig, a bluestól a hip-hop-ig.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc87",
+  "name": "Gondolatbátorság",
+  "alias": "gondolatbatorsag",
+  "definition": "Emberi jogászokkal, slammerekkel és más gyanús egyedekkel (gyakran angolul), hogy helyére kerüljön a \"gyűlöletbeszéd\".",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbf6",
+  "name": "Gorezone",
+  "alias": "gorezone",
+  "definition": "",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc2b",
+  "name": "Gripazess",
+  "alias": "gripazess",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "58db59009d7c44476716ac38",
+  "name": "Gyökérkezelés",
+  "alias": "gyokerkezeles",
+  "definition": "...avagy Művész a Fogász szemüvegével. Ebben a műsorban minden vendégnek ki kell nyitnia a száját. Le kell mennünk a gyökerekig.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5cbf385f6c2672e1830697d7",
+  "name": "Hajnali Hasadás",
+  "alias": "hajnali_hasadas",
+  "definition": "Közéleti beszélgető adás.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbd1",
+  "name": "HalAdó - Rabol a balin",
+  "alias": "halado-rabol-a-balin",
+  "definition": "horgászműsor",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc6c",
+  "name": "Hamis az Á (Moly Zen)",
+  "alias": "hamis-az-a-moly-zen",
+  "definition": "szétszedjük a zenét, megnézzük milyen belülről",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc1c",
+  "name": "Happy Accident",
+  "alias": "garazsmenet",
+  "definition": "Electro beatz!",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc03",
+  "name": "Haza és haladás",
+  "alias": "haza-es-haladas",
+  "definition": "1996-ban alapította Bojtár B. Endre, Czabán György, Pálos György és Végső Zoltán.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc7b",
+  "name": "Helyettes Reggeli",
+  "alias": "helyettes-reggeli-695",
+  "definition": "",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc71",
+  "name": "Helyettes reggeli",
+  "alias": "helyettes-reggeli",
+  "definition": "A nyelvüket nem nyalásra használó ízforradalmárok beszélgetős műsora a hazai és a nemzetközi gasztronómia értékes képviselőivel.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc52",
+  "name": "hetiBeton",
+  "alias": "hetibeton",
+  "definition": "",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc1e",
+  "name": "HiFi Budapest / HiFi Japan / HiFi Thai",
+  "alias": "hi-fi-budapest",
+  "definition": "DJ La Fuente, Dj Solid, DJ Cooper, DJ Zed hetente jelentkező zenés mixműsora az ebéd utáni büfihez 2001-óta.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc07",
+  "name": "Honthy és Hanna",
+  "alias": "honthy-es-hanna",
+  "definition": "A jó érzésű magyarok műsora.",
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5bcf7a836a60904998a7ed22",
+  "name": "Hordós Józsi az Űrben",
+  "alias": "hordos",
+  "definition": "közgázos kollégisták flesselnek mindennapi dolgokon",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbe6",
+  "name": "Hotel North Pole",
+  "alias": "hotel-north-pole",
+  "definition": "külföldi, jellemzően germán technomagazin",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbe1",
+  "name": "Icecream",
+  "alias": "icecream",
+  "definition": "English Show",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc73",
+  "name": "Idegen Szív",
+  "alias": "idegen-sziv",
+  "definition": "Kívülről-belülről ismernek minket, mint a leminősített rossz pénzt. ",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbe3",
+  "name": "Irodalmi lépegető",
+  "alias": "irodalmi-lepegeto",
+  "definition": "zenés irodalmi müsor - szöveg és zene recsegö bakelitekröl vasárnap délutánra",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "55894d7fe4b0f33923dd7084",
+  "name": "Jack Dugó",
+  "alias": "jackdugo",
+  "definition": "Sound + Tech",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc84",
+  "name": "Jazz-Jedi",
+  "alias": "jazz-jedik",
+  "definition": "jó",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc92",
+  "name": "Joe-Z Zone",
+  "alias": "joe-z-zone",
+  "definition": "kéthetente jelentkező rádióműsor a hiphop és a reggae-dancehall szerelmeseinek",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "564429bae4b0b219cffed769",
+  "name": "juicecoolers",
+  "alias": "juicecoolers",
+  "definition": "Régi és új underground műfajok találkozása ,színes előremutató elektronikus hangzás ,esetenként érdemes vendégekkel.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5b39205b6a60904998a7ed1c",
+  "name": "Jövőkór",
+  "alias": "jovokor",
+  "definition": "Disztópia-figyelés, technológia, kapitalizmus, scifi, kritika, elektronika és underground",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc1f",
+  "name": "Jövőzene",
+  "alias": "jovozene",
+  "definition": "A Tilos egyik legrégebbi zenei műsora. Alapítója: Palotai Zsolt",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "57739cfb60543f70f16a77a7",
+  "name": "K3",
+  "alias": "k3",
+  "definition": "Közélet, kapcsolatok, kultúra",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc1b",
+  "name": "Karaván",
+  "alias": "karavan",
+  "definition": "világzenei körutazás",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "548e99008de22a36cbc8feab",
+  "name": "Kedd Esti Drogműsor",
+  "alias": "keddidrog",
+  "definition": "a tilos drogpolitikai esztrádműsora",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbdc",
+  "name": "Keleti Pályaudvar",
+  "alias": "keleti-palyaudvar",
+  "definition": "Sémi-hámi zenék",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc31",
+  "name": "Kelta karó",
+  "alias": "kelta-karo",
+  "definition": "hangzó irodalom zenei burokban",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc6f",
+  "name": "kicsinyített fagyizó",
+  "alias": "kicsinyitett-fagyizo",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "PLANNED"
+}, {
+  "id": "5480cee86dab254449a7cc0d",
+  "name": "Kolorlokál",
+  "alias": "kolorlokal",
+  "definition": "Reggeli kibeszélő-show",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc6b",
+  "name": "Kontúr ",
+  "alias": "kontur",
+  "definition": "Társadalomkritika, emberi jogok, szociális kérdések, közéleti témák.",
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5480cee86dab254449a7cbd9",
+  "name": "Kovács Ádám Hangpostája",
+  "alias": "kovacs-adam-hangpostaja",
+  "definition": "gazdasági témák vitaformában érthetően",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc0b",
+  "name": "Kristálykert",
+  "alias": "kristalykert",
+  "definition": "Szerda hajnali kulturális esztrádzenés szórakoztató műsor",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc27",
+  "name": "Káoszkapitány kalandjai a szemlélődés ösvényén",
+  "alias": "kaoszkapitany-kalandjai",
+  "definition": "intereklektikus, zaj, hang",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc88",
+  "name": "Kékcédula",
+  "alias": "kekcedula",
+  "definition": "politikai elemzőműsor",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "56c70977b08c15676d82c6a9",
+  "name": "Közeli Állatok",
+  "alias": "kozeli-allatok",
+  "definition": "Okoskodás a világ érdekességeiről a Szex-Akció Hírcsoport műsorvezetőivel (a műsorokban több témát érintünk, olykor csapongunk, ezért cím és leírás nem, vagy csak ritkán tartozik hozzá, de ez ne tévesszen meg senkit: a pontos kezdés és vég mindig be van állítva az archívumban!)",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc83",
+  "name": "Közösség - barátság - tehetség",
+  "alias": "kozosseg-baratsag-tehetseg",
+  "definition": "Beszélgetős múltidézés médiatáborok műsorai, hangjai, nyarak slágerei, hangulatai felelevenítésével",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "56fcb973e4b090fd8f2a60f8",
+  "name": "Lemming Program",
+  "alias": "lemming",
+  "definition": "A Szimplakert zenei tehetségkutató programja.",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc65",
+  "name": "Lesson Zero",
+  "alias": "lesson-zero",
+  "definition": "                             Nulladik lecke a nulladik órán, a hajnali iskolában.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "59ad1ae96a60904998a7ecf7",
+  "name": "Leuchtturm – Világítótorony",
+  "alias": "leuchtturm",
+  "definition": "Die deutschsprachige Sendung im Tilos  - A Tilos rádió német nyelvű műsora",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc8b",
+  "name": "LichtHof",
+  "alias": "lichthof",
+  "definition": "Die deutschsprachige Sendung im Tilos.",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "56ff9b4f276c409bc7831ab4",
+  "name": "Liget Extra",
+  "alias": "liget",
+  "definition": "Egy életszerűen változó, helyi közvetítésekkel színesített műsor a liget projekt megállításáról.",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc3a",
+  "name": "Lomidhigh (polymorphin)",
+  "alias": "lomidhigh-polymorphin",
+  "definition": "LoMidHigh",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "57cba04360543f70f16a77bb",
+  "name": "LosTorrentos Radio Show",
+  "alias": "lostorrentos",
+  "definition": "Filmekről szóló rádióműsor",
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5480cee86dab254449a7cbf1",
+  "name": "Mackóhullás",
+  "alias": "mackohullas",
+  "definition": "zenei monoblokk kétfülűeknek egy órában",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc2a",
+  "name": "Madártávlat és Békaperspektíva",
+  "alias": "madartavlat-es-bekaperspektiva",
+  "definition": "Színházi műsor",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc97",
+  "name": "Magic Monday",
+  "alias": "Magic",
+  "definition": "Riportok, vélemények, kutatások és ellenérvek a szervezetek világából.",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc11",
+  "name": "Magyaróra",
+  "alias": "magyarora",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "PLANNED"
+}, {
+  "id": "5480cee86dab254449a7cc09",
+  "name": "MALE sTRip show",
+  "alias": "male-strip-show",
+  "definition": "péntek esti funksouldisco, hol hiphopismegfunkbreakekis szolnak",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbed",
+  "name": "Mana Mana",
+  "alias": "mana-mana",
+  "definition": "Eklektikus zenei csemegék garmadája. Az elhangzott zenékről írások a weboldalunkon.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5c4a0f266c2644c7267e5995",
+  "name": "Mauvaises ondes",
+  "alias": "mauvaises_ondes",
+  "definition": "Tilos Radio en Français",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbd3",
+  "name": "Mehr Licht",
+  "alias": "mehr-licht",
+  "definition": "Mehr Licht! - Die deutschsprachige Sendung im Tilos.",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc05",
+  "name": "Mezítlábas Mesék",
+  "alias": "mezitlabas-mesek",
+  "definition": "jó számok hétről hétre, az őskortól napjainkig",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc20",
+  "name": "Midnite",
+  "alias": "midnite",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc15",
+  "name": "mindenFEEL",
+  "alias": "mindenfeel",
+  "definition": "minden héten a legfrissebb mindenféleségek",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc21",
+  "name": "MinimalHeadz/Eat Da Beat",
+  "alias": "minimalheadz-eat-da-beat",
+  "definition": "Minimalisztikus alapon nyugvó műsor, de az electro, techno, house, dub is része a 3 órás mixfolyamnak.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbdb",
+  "name": "Morális Vállakozók",
+  "alias": "moralis-vallalkozok",
+  "definition": "kedd esti drogosműsor",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc5b",
+  "name": "Most",
+  "alias": "most",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc7a",
+  "name": "Motor Dub",
+  "alias": "eteri-after",
+  "definition": "detroit, dub, acid",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc3d",
+  "name": "Mr. Roky Blindeaf és társai",
+  "alias": "mr-roky-blindeaf-es-tarsai",
+  "definition": "Mr. roky Blindeaf és társai   esélyegyenlőségi (nem panasz) műsor",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "54af8f3a8de2609c831038dd",
+  "name": "MustBeat show",
+  "alias": "mustbeat",
+  "definition": "In this radio show, the guys are gonna host their own releases as well as the music of fellow independent labels from all around the world...",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbf2",
+  "name": "Még több jazzt az óvodákba!",
+  "alias": "meg-tobb-jazzt",
+  "definition": "Modern jazz műsor klasszikus és kortárs zenékkel, amik zöme soha nem hangzott el a magyar médiában. És nem is nagyon fog. ",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbfe",
+  "name": "Nahát",
+  "alias": "nahat",
+  "definition": "Eklektikus freestyle lélek és tánczene a jobb életért.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc95",
+  "name": "Need",
+  "alias": "need",
+  "definition": "Törtek hajnala",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc4a",
+  "name": "Nem a 3 millió koldus országa",
+  "alias": "nem-a-3-millio-koldus-orszaga",
+  "definition": "Társadalomtudományi ismeretterjesztő műsor",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbe9",
+  "name": "Nemzeti Felkelés",
+  "alias": "nemzeti-felkeles",
+  "definition": "Kiskádár, Balázs, Benedek és persze Tibi",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc19",
+  "name": "Nippon Groove",
+  "alias": "nippon-groove",
+  "definition": "A lehető legáttekintőbb képet adjuk a japán zenei színtérről olyan előadókkal, akik korábban nemzetközileg nem igazán váltak ismertté, mindezt mindenféle műfaji korlát nélkül.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc28",
+  "name": "No Wave",
+  "alias": "no-wave",
+  "definition": "A műsor célja: megismertetni a hagyományos műfajokba nem sorolható nemzetközi zenei törekvéseket.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc8d",
+  "name": "Nyers Vágás",
+  "alias": "nyers-vagas",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc7e",
+  "name": "Nyugati tér",
+  "alias": "nyugati-ter",
+  "definition": "A kortárs irodalmi rádióműsor. ",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5638a18fe4b0c19128242bdf",
+  "name": "Nápolyi szext",
+  "alias": "napolyi",
+  "definition": "Műsor a klasszikus -és kortárszene világáról, határterületeiről.",
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5480cee86dab254449a7cbf7",
+  "name": "Népzene",
+  "alias": "nepzene",
+  "definition": "A modern magyar rádiózás legrégebbi népzenei műsora állandó koncertekkel, vendégekkel.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc2f",
+  "name": "Occam Borotvája",
+  "alias": "occam-borotvaja",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5819f1189d7c44476716ac28",
+  "name": "OFF-KÁNON",
+  "alias": "off-kanon",
+  "definition": "Építészet, urbanisztika és köztér.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "58f4ebe49d7c44476716ac40",
+  "name": "Olajág a tűzre",
+  "alias": "top-hit",
+  "definition": "Világnézeteket és vallásokat üldözünk az éterben",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc01",
+  "name": "Optimal",
+  "alias": "optimal",
+  "definition": "Afro-kínai kertészműsor",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5657ff1de4b0c76eb97f06d6",
+  "name": "Outline",
+  "alias": "outline",
+  "definition": "Outsider house és hálószoba techno",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc6d",
+  "name": "Pergő Képek",
+  "alias": "pergo-kepek",
+  "definition": "Pergő Képek",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5c52dcfb6c2644c7267e5996",
+  "name": "Phantom Chrome  Project",
+  "alias": "phantom_chrome_project",
+  "definition": null,
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc93",
+  "name": "Pillangó első látásra",
+  "alias": "pillango",
+  "definition": "...",
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5480cee86dab254449a7cbd7",
+  "name": "Pingvintánc",
+  "alias": "pingvintanc",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc5e",
+  "name": "Planet Error",
+  "alias": "planet-error",
+  "definition": "energia/környezettudatos műsor a fenntarthatóság és a környezetvédelem jegyében. Témák: Földünk, energia, víz, környezeti értékek, paradigmaváltások, fizikai törvények, kémiai képletek, természeti és humán erőforrás hasznosítás, társadalmi innováció, és amit a kedves hallgatók felvetnek.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "56ecf1d90ace0e994cb519fc",
+  "name": "Planet Error Városligeti Különkiadás",
+  "alias": "Error-xxx",
+  "definition": null,
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5480cee86dab254449a7cc72",
+  "name": "Plug & Lay",
+  "alias": "plug-lay",
+  "definition": "mély elektromos kisülés",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5c61b06f6c2644c7267e5999",
+  "name": "PoliTour",
+  "alias": "politour",
+  "definition": "60 perc alatt a Föld körül",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "55557f4ae4b0e6221ea329a4",
+  "name": "Polkult",
+  "alias": "poltkult",
+  "definition": "A legtágabban értelmezett politikai kultúrát tárgyaló műsor.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc29",
+  "name": "Pompidou overground",
+  "alias": "pompidou-overground",
+  "definition": null,
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5a76b56f6a60904998a7ed0a",
+  "name": "prizMA",
+  "alias": "prizma",
+  "definition": "A prizMA kéthetente hétfő délben jelentkező egy órás zenei magazinműsor, amely egyszer konzerv, másszor élő.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbcf",
+  "name": "Páholy",
+  "alias": "paholy",
+  "definition": "kicsit okoskodunk, kicsit sztorizgatunk miközben punk/hc zenét hallgatunk...",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc08",
+  "name": "Péntek 20-21",
+  "alias": "pentek-20-21",
+  "definition": "break beat, azaz törések a táncparketten",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc5f",
+  "name": "Radio Africa",
+  "alias": "radio-africa",
+  "definition": "Az Ebony Afrikai Kulturális, Művészeti és Emberi Jogi Egyesület műsora",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc0c",
+  "name": "Rasztaműhely",
+  "alias": "rasztamuhely",
+  "definition": "random gyökerek",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "560eeb28e4b0cfa2540899de",
+  "name": "Real Sitt",
+  "alias": "realsitt",
+  "definition": "Az első magyar  börtönrádió különkiadása.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc75",
+  "name": "reHAB a tortán",
+  "alias": "rehab-a-tortan",
+  "definition": "ismeretterjesztés fogyatékossággal élő emberekről",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbe8",
+  "name": "Remiz",
+  "alias": "remiz-524",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc51",
+  "name": "Remiz Radio Show",
+  "alias": "remiz",
+  "definition": "Heti breakbeat adag",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbe5",
+  "name": "Roadmovie",
+  "alias": "roadmovie",
+  "definition": "szomorú számok szerelemről",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc26",
+  "name": "Rongy Minnyár (a.k.a. Round Midnight)",
+  "alias": "rongy-minnyar-a-k-a-round-midnight",
+  "definition": "latin jazz",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5b51728f6a60904998a7ed1e",
+  "name": "Rotor",
+  "alias": "rotor",
+  "definition": "Fortnightly dark techno, rhythmic noise and industrial music show with the odd interview and occasional guest DJs.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc6a",
+  "name": "Régen minden jobb volt!",
+  "alias": "regen-minden-jobb-volt",
+  "definition": "A Tilos Rádió hátrafelé nyilazó műsora.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5a2a62216a60904998a7ed02",
+  "name": "Sample Temple",
+  "alias": "sample-temple",
+  "definition": "Amit hallasz, mikor Rap-et hallgatsz: Boom bap-ből bontott Soul-Funk-Jazz és minden más, ahogy a producerek is hallják.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc4e",
+  "name": "Sell-Action, avagy: baráti hangok lemezekről...",
+  "alias": "sell-action-avagy-barati-hangok-lemezekrol",
+  "definition": "free-style music collection",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbec",
+  "name": "Ska Club",
+  "alias": "ska-club",
+  "definition": "ska,rocksteady,reggae",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc89",
+  "name": "Skicc",
+  "alias": "skicc",
+  "definition": "",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc4c",
+  "name": "Slow Down",
+  "alias": "slow-down",
+  "definition": "house, disco, funk, hip hop, jazz, dub, techno...",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbfb",
+  "name": "Smokin'HeadZ",
+  "alias": "smokinheadz",
+  "definition": "Valami elektromos zene",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "58db54b39d7c44476716ac35",
+  "name": "Sokolébresztő",
+  "alias": "sokol",
+  "definition": "\"Az űrös műsor\"",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc17",
+  "name": "Solar Noise",
+  "alias": "solar-noise",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc40",
+  "name": "Some Beat",
+  "alias": "some-beat",
+  "definition": "Minden páros szombat hajnal",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc80",
+  "name": "Song-óra",
+  "alias": "song-ora",
+  "definition": "\"Ráhangolás az összhangra\" művészeti színtér",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc94",
+  "name": "Soul School",
+  "alias": "soul-school",
+  "definition": "classic rhythm and blues / soul/ \"race music\"  from 50s, 60s, 70s and more...",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc34",
+  "name": "Spanyol Inkvizíció",
+  "alias": "spanyol-inkvizicio",
+  "definition": "Kínvallatós műsor.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc74",
+  "name": "Street Skills",
+  "alias": "street-skills",
+  "definition": "old-school tört ütemek egy scratch-perverztől",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc64",
+  "name": "Strip-10",
+  "alias": "strip-10",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc79",
+  "name": "Subculture Revolution Family / Savage Tales",
+  "alias": "subculture-revolution-family-savage-tales",
+  "definition": "Kéthetente szerdán éjjel random style underground Savage, Fantom és vendégeik!",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc53",
+  "name": "sxsw",
+  "alias": "sxsw",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc4d",
+  "name": "Szabad a zene",
+  "alias": "szabad-a-zene",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc38",
+  "name": "Szabadfoglalkozás",
+  "alias": "szabadfoglalkozas",
+  "definition": "rappelés, beszélgetés, újdonságok, új zenekarok",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbea",
+  "name": "Szakácstolvaj",
+  "alias": "szakacstolvaj",
+  "definition": "interaktív beszélgetős műsor",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbdf",
+  "name": "Szappanopera helyett",
+  "alias": "szappanopera-helyett",
+  "definition": "Élő, telefonos LMBT kulturális, érdekvédelmi, zenés magazinműsor két hetente",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5c645cdc6c2644c7267e599b",
+  "name": "Szemüveg",
+  "alias": "szemuveg",
+  "definition": null,
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc14",
+  "name": "Szerda esti",
+  "alias": "szerda-esti",
+  "definition": "Palotai Zsolt legendás műsora.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc7d",
+  "name": "Szex-Akció Hírcsoport",
+  "alias": "szex-akcio-hircsoport",
+  "definition": "Csak ülünk és meséltetünk... ",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc0f",
+  "name": "Szik+Víz",
+  "alias": "szikviz",
+  "definition": "eklektikus zenei program",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "57a8fb0f60543f70f16a77b6",
+  "name": "Sznobok órája",
+  "alias": "sznobok",
+  "definition": "Morcos műsor másként mondolkodóknak",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc46",
+  "name": "Sztriit Noiz",
+  "alias": "sztriit-noiz-tilos-slam",
+  "definition": "UK GRIME + Minden ami nagyvárosi verbál kultúrához köthető",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbf9",
+  "name": "Szufla",
+  "alias": "szufla",
+  "definition": "mindenzenei válogatás, hol filmrészlet, hol hip-hop, hol roots reggae",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "54bfb4208de29aec2a13f011",
+  "name": "Szépkilátó Fogadó",
+  "alias": "szepkilato",
+  "definition": "Enyém, tiéd, miénk...Hányféle a kulturális örökség?",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc37",
+  "name": "Szőke rádiózik",
+  "alias": "szoke-radiozik",
+  "definition": "Szőke rádiózik Taliándörögdről a Tiloson.",
+  "type": "SPEECH",
+  "status": "LEGEND"
+}, {
+  "id": "5480cee86dab254449a7cc76",
+  "name": "Szőnyeg alól",
+  "alias": "szonyeg-alol",
+  "definition": "kétheti roma magazin",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbf3",
+  "name": "Take it easy",
+  "alias": "take-it-easy",
+  "definition": "kéthetente | hétfőnként 12-13:30 | triphiphopjazzchilldowntempo ♫",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc86",
+  "name": "Tandoori Italiano",
+  "alias": "tandoori-italiano",
+  "definition": "Tandoori Italiano Italian, vintage, folk, pop, rock, glam, talk, coffee, opinion and guests",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc3c",
+  "name": "Tandoori Salami",
+  "alias": "tandoori-salami",
+  "definition": "multi-kulti-reggeli",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "552537848de2d6716a25d68c",
+  "name": "Technologie und das Unheimliche",
+  "alias": "techno",
+  "definition": "Der Geist ist ein Knochen",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc91",
+  "name": "testmusor",
+  "alias": "testmsudo",
+  "definition": "torold most",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc82",
+  "name": "Teszt és Lélek",
+  "alias": "teszt-es-lelek",
+  "definition": "pszichológiai témák kéthetente",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbd4",
+  "name": "The Boogie Channel - 'Boogie Sáv' ",
+  "alias": "the-boogie-channel-boogie-sav",
+  "definition": "Music styles: Hip Hop / Rap / Reggae-Dub / Acid Jazz / Trip Hop / Breaks / Turntablism",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "56e924b60ace0e994cb519f8",
+  "name": "The Naut Horror show",
+  "alias": "naut",
+  "definition": null,
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc23",
+  "name": "The::::Grey::::Ring",
+  "alias": "the-grey-ring",
+  "definition": "underground techno",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc2e",
+  "name": "Tilos Archiv",
+  "alias": "tilos-archiv",
+  "definition": "Válogatás az elmúlt évtizedek legjobb műsoraiból.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5a2957b96a60904998a7ecfe",
+  "name": "Tilos Bútorzene",
+  "alias": "butorzene",
+  "definition": "Hallgatóbarát kortárs zene Tilos módra.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "54e215158de29e8508b1a7d4",
+  "name": "Tilos Classic",
+  "alias": "classic",
+  "definition": "Visszavonult tilos djk kalandozása.",
+  "type": "MUSIC",
+  "status": "LEGEND"
+}, {
+  "id": "567bb59d8d7cc174097afda7",
+  "name": "Tilos Extra",
+  "alias": "extra",
+  "definition": "Ad-hoc műsor különkiadások",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc7c",
+  "name": "Tilos Hírek",
+  "alias": "tilos-hirek",
+  "definition": "a Tilos alternatív hírei",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5577ff3fe4b040b3e33204d4",
+  "name": "Tilos Maraton",
+  "alias": "maraton",
+  "definition": "Extra adások a maratonról",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbee",
+  "name": "Tilos Mesék",
+  "alias": "tilos-mesek",
+  "definition": "A Tilos Rádió kreatív hangműhelyéből, a műsorkészítők szereplésével készülő mesék gyerekeknek és kicsi felnőtteknek.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "57a8fb4960543f70f16a77b7",
+  "name": "Tilos Oral History",
+  "alias": "oral-history",
+  "definition": null,
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc90",
+  "name": "Tilos Selection",
+  "alias": "selection",
+  "definition": null,
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc04",
+  "name": "Tiszta Zene",
+  "alias": "tiszta-zene",
+  "definition": "A Tiszta Zene életvidám, jókedvű, főként instrumentális muzsika és elektronikus tánczene",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc58",
+  "name": "Tomboló Negyvenesek",
+  "alias": "tombolo-negyvenesek",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "PLANNED"
+}, {
+  "id": "5480cee86dab254449a7cbdd",
+  "name": "Tordas Rádió",
+  "alias": "tordas-radio",
+  "definition": "Egy Dj és egy halbiológus embereken végzett kísérletei",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc8e",
+  "name": "Totoya klub",
+  "alias": "totoya-klub",
+  "definition": "Kéthetente jelentkező műsor az aktuális basszus-orientált zenék színteréről",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc00",
+  "name": "Totoya klub + Dzsungel könyve",
+  "alias": "totoya-klub-dzsungel-konyve",
+  "definition": "hip-hop, dubstep, jungle, drum and bass",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc56",
+  "name": "Traffic",
+  "alias": "traffic",
+  "definition": "hip hop, experimental,trap, dubstep, tuntablism westcoast shit",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbeb",
+  "name": "Tune-in",
+  "alias": "tune-in",
+  "definition": "két óra reggae a foundationtól napjaink dancehalljáig, örök riddimek és legfrissebb zenék.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc2d",
+  "name": "Tótumfaktum",
+  "alias": "totumfaktum",
+  "definition": "Még egy művész is lehet ember, csak előtte dekonstruálni kell!",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc78",
+  "name": "Törődés",
+  "alias": "torodes",
+  "definition": "Tört ritmusszerkezetű intelligens elektronikus tánczene két órán át.",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc24",
+  "name": "Ultrahang",
+  "alias": "ultrahang",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc85",
+  "name": "Undertakerz",
+  "alias": "undertakerz",
+  "definition": "Underground zenei műsor (..minden, ami metál!)",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "570f0037e92ae0e74db14223",
+  "name": "Utcarádió",
+  "alias": "utcaradio",
+  "definition": "Az Utcarádió egy civil, polgári öntevékenységet bemutató műsor. Elsősorban Budapest polgárainak az önrendelkezésük visszaszerzéséért folytatott akcióit és törekvéseit mutatja be. Igyekszünk. Mivel a civil aktivitás és az önrendelkezés rádiónk fontos értéke, ezért nem vagyunk teljesen semlegesek az ilyen akciók megítélésében. Mégis igyekszünk megismerni sok szempontot.",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc02",
+  "name": "valami",
+  "alias": "valami",
+  "definition": "minimalistik eklektik elektronik",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc4f",
+  "name": "Vostock ",
+  "alias": "vostock",
+  "definition": "orosz-magyar nyelvű K-EU műsor",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc22",
+  "name": "Vákuumcsomagolt Hegyilevegő",
+  "alias": "vakuumcsomagolt-hegyilevego",
+  "definition": "industrial - E.B.M. - wave",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cc3f",
+  "name": "Weekandbass",
+  "alias": "weekandbass",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc81",
+  "name": "What's my age again?",
+  "alias": "whats-my-age-again",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc3b",
+  "name": "Wiener Schnitzel",
+  "alias": "wiener-schnitzel",
+  "definition": "ami a Bécs-Berlin tengelyen történik",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}, {
+  "id": "5480cee86dab254449a7cbe0",
+  "name": "Wiener Schnitzel - second edition",
+  "alias": "wiener-schnitzel-second-edition",
+  "definition": "",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc67",
+  "name": "XXX",
+  "alias": "xxx",
+  "definition": "szexműsor",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "57cb9f0b60543f70f16a77ba",
+  "name": "ZSurNALiszt",
+  "alias": "zsurnaliszt",
+  "definition": null,
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbd2",
+  "name": "Zártkörű lányok",
+  "alias": "zartkoru-lanyok",
+  "definition": "Zártkörű lányok leszbikus műsor",
+  "type": "SPEECH",
+  "status": "ACTIVE"
+}, {
+  "id": "5ae9a0cd6a60904998a7ed13",
+  "name": "Éclectronique",
+  "alias": "eclectronique",
+  "definition": "L'émission est organisée autour d'un débat et / ou d'une interview sur un thème spécifique, mais contient également des passages musicaux.",
+  "type": "SPEECH",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbfd",
+  "name": "Élő adás",
+  "alias": "elo-adas",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cc5c",
+  "name": "Ó csiga mászd meg a Fuzsijamát - Menyhárt Jenő műsora",
+  "alias": "o-csiga-maszd-meg-a-fuzsijamat-menyhart-jeno-musora",
+  "definition": "",
+  "type": "MUSIC",
+  "status": "OLD"
+}, {
+  "id": "5480cee86dab254449a7cbf8",
+  "name": "Ühüm TV",
+  "alias": "uhum-tv",
+  "definition": "DUB, DUBSTEP, DANCEHALL, HIPHOP, REGGAE - mikor milyen kedvem van...",
+  "type": "MUSIC",
+  "status": "ACTIVE"
+}]
