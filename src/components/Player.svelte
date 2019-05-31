@@ -21,6 +21,7 @@
 
       $song =  value.shift();
       playlist.set(value);
+      currentSound = createCurrentSong();
     });
 
     Howler.volume(volume);
