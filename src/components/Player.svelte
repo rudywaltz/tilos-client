@@ -73,7 +73,7 @@
   }
 
 
-  const toggleSound = () => playing ? stopSound() : playSound();
+  const toggleSound = () => playing ? pauseSound() : playSound();
 
   const playSound = () => {
     currentSound.play();
@@ -93,6 +93,11 @@
 
   const stopSound = () => {
     currentSound.stop();
+    playing =  false;
+  };
+
+  const pauseSound = () => {
+    currentSound.pause();
     playing =  false;
   };
 
@@ -232,7 +237,7 @@
 <div id="player">
   <div class="player">
     <div class="player__control">
-      <button type="button" class="player__button player__play" on:click={toggleSound} disabled={!duration}>{ playing ? 'Stop' : 'Play' }</button>
+      <button type="button" class="player__button player__play" on:click={toggleSound} disabled={!duration}>{ playing ? 'Pause' : 'Play' }</button>
       <button type="button" class="player__button player__seek" on:click={seekSound} disabled={ !duration }>Seeek</button>
     </div>
     <div class="player__song">

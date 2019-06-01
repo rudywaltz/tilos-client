@@ -80,10 +80,10 @@ describe('player', () => {
     it('play sound', () => {
       cy.get('#player .player__play')
         .click();
-        cy.get('#player .player__play').contains('Stop')
+        cy.get('#player .player__play').contains('Pause')
     });
 
-    it('stop sound', () => {
+    it('pause sound', () => {
       cy.get('#player .player__play')
         .click()
         .click()
@@ -268,7 +268,7 @@ describe('player', () => {
       cy.get('.player__title')
         .contains('Jézus és a jelzőrakéta')
       cy.get('#player .player__play')
-        .contains('Stop')
+        .contains('Pause')
       cy.get('#player .player__current')
         .contains('00:00:01')
     });
