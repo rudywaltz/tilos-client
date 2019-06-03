@@ -1,6 +1,6 @@
 describe('episode', () => {
   beforeEach(() => {
-    cy.visit('/archive', {
+    cy.visit('/archive/2018-05-10', {
       onBeforeLoad: (contentWindow) => {
         contentWindow.localStorage.clear();
       }
@@ -57,7 +57,7 @@ describe('episode', () => {
 
   describe('localstorage', () => {
     beforeEach(()=> {
-      cy.visit('/archive', {
+      cy.visit('/archive/2018-05-10', {
         onBeforeLoad: (contentWindow) => {
           contentWindow.localStorage.clear();
           contentWindow.localStorage

@@ -1,5 +1,9 @@
 
 <script>
+  import { format } from 'date-fns';
+
+  const archiveLink = `archive/${format(new Date(), 'YYYY-MM-DD')}`;
+
 	export let segment;
 </script>
 
@@ -52,7 +56,7 @@
 <nav>
 	<ul>
 		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-		<li><a class='{segment === "archive" ? "selected" : ""}' href='archive' rel=prefetch>Archívum</a></li>
+		<li><a class='{segment === "archive" ? "selected" : ""}' href={archiveLink} rel=prefetch>Archívum</a></li>
 		<li><a class='{segment === "shows" ? "selected" : ""}' href='shows' rel=prefetch>Műsorok</a></li>
 	</ul>
 </nav>
