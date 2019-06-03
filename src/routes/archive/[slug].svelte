@@ -1,26 +1,30 @@
 <script context="module">
-	export async function preload(page, session) {
-    const { query } =  page;
-    const start = query.start || 1525903200000;
-    const end = query.end || 1525989600000;
-    let episodes = [];
+  import { isValid, startOfDay, endOfDay, getTime } from 'date-fns';
 
-    try {
-      const res = await this.fetch(`https://tilos.hu/api/v1/episode?start=${start}&end=${end}`, {
+  export async function preload(page, session) {
+    const { slug } = page.params;
+    let date = new Date(slug);
+    date = isValid(date) ? date : new Date();
+    const dayStart  = getTime(startOfDay(date));
+    const dayEnd = getTime(endOfDay(date));
+    let episodes = [];
+     try {
+      const res = await this.fetch(`https://tilos.hu/api/v1/episode?start=${dayStart}&end=${dayEnd}`, {
 			  credentials: 'include'
       });
     episodes = await res.json();
     } catch(e) {
       console.log('error in Fetch', e);
     }
-		return { episodes };
+		return { episodes, slug };
   }
 </script>
 
 <script>
-  import Episode from '../components/Episode.svelte';
-  import { format } from '../helpers';
+  import Episode from '../../components/Episode.svelte';
+  import { format } from '../../helpers';
   export let episodes;
+  export let slug;
   let newEpisodes = [];
 
   episodes.forEach(episode => {
@@ -28,7 +32,7 @@
       name: episode.show.name,
       showId: episode.show.id,
       text: episode.text ? episode.text.title : '------',
-      mp3: episode.m3uUrl.slice(0, -3) + 'mp3',
+      mp3: episode.m3uUrl ? episode.m3uUrl.slice(0, -3) + 'mp3' : '',
       duration: (episode.realTo - episode.realFrom) / 1000
     })
   });
@@ -51,7 +55,7 @@
   <title>Archívum</title>
 </svelte:head>
 
-<h1>Archívum</h1>
+<h1>Archívum { slug }</h1>
 
 <div class="archive">
   {#each newEpisodes as episode}
