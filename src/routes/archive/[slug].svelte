@@ -12,9 +12,10 @@
     console.log('unix time', getUnixTime(getZonedTime(date, budapest)));
     date = isValid(date) ? getUnixTime(getZonedTime(date, budapest)) : getUnixTime(getZonedTime(new Date(), 'budapest'));
     console.log(date);
-    const dayStart  = getTime(startOfDay(date));
+    const dayStart  = getTime(startOfDay(date)) + (new Date(date).getTimezoneOffset() * 60000);
     console.log('dayStart', dayStart);
-    const dayEnd = getTime(endOfDay(date));
+    const dayEnd = getTime(endOfDay(date)) + (new Date(date).getTimezoneOffset() * 60000);
+    console.log('dayEnd', dayEnd)
     let episodes = [];
      try {
       const res = await this.fetch(`https://tilos.hu/api/v1/episode?start=${dayStart}&end=${dayEnd}`, {
