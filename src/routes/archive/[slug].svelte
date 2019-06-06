@@ -5,12 +5,15 @@
 
   export async function preload(page, session) {
     const { slug } = page.params;
-    let date = new Date(slug); //timezone
+    console.log('slug', slug)
+    let date = new Date(slug);
+    console.log('date', date);
     const budapest = findTimeZone('Europe/Budapest');
-    console.log('fff', getUnixTime(getZonedTime(date, budapest)));
+    console.log('unix time', getUnixTime(getZonedTime(date, budapest)));
     date = isValid(date) ? getUnixTime(getZonedTime(date, budapest)) : getUnixTime(getZonedTime(new Date(), 'budapest'));
     console.log(date);
     const dayStart  = getTime(startOfDay(date));
+    console.log('dayStart', dayStart);
     const dayEnd = getTime(endOfDay(date));
     let episodes = [];
      try {
@@ -33,6 +36,8 @@
   let newEpisodes = [];
 
   episodes.forEach(episode => {
+    console.log('title', episode.show.name);
+    console.log('m3u', episode.m3uUrl);
     newEpisodes.push({
       name: episode.show.name,
       showId: episode.show.id,
