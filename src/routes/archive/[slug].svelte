@@ -1,20 +1,13 @@
 <script context="module">
-  import { isValid, startOfDay, endOfDay, getTime } from 'date-fns';
-  const { getZonedTime, findTimeZone, getUnixTime } = require('timezone-support');
-
+  const {findTimeZone, setTimeZone } = require('timezone-support');
 
   export async function preload(page, session) {
     const { slug } = page.params;
-    console.log('slug', slug)
-    let date = new Date(slug);
-    console.log('date', date);
+    const date = slug.split('-');
     const budapest = findTimeZone('Europe/Budapest');
-    console.log('unix time', getUnixTime(getZonedTime(date, budapest)));
-    date = isValid(date) ? getUnixTime(getZonedTime(date, budapest)) : getUnixTime(getZonedTime(new Date(), 'budapest'));
-    console.log(date);
-    const dayStart  = getTime(startOfDay(date)) + (new Date(date).getTimezoneOffset() * 60000);
+    const dayStart  = setTimeZone({ year: date[0], month: date[1], day: date[2], hours: 0, minutes: 0 }, budapest).epoch;
     console.log('dayStart', dayStart);
-    const dayEnd = getTime(endOfDay(date)) + (new Date(date).getTimezoneOffset() * 60000);
+    const dayEnd = setTimeZone({ year: date[0], month: date[1], day: date[2], hours: 24, minutes: 0 }, budapest).epoch;
     console.log('dayEnd', dayEnd)
     let episodes = [];
      try {
