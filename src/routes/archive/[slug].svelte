@@ -6,9 +6,7 @@
     const date = slug.split('-');
     const budapest = findTimeZone('Europe/Budapest');
     const dayStart  = setTimeZone({ year: date[0], month: date[1], day: date[2], hours: 0, minutes: 0 }, budapest).epoch;
-    console.log('dayStart', dayStart);
     const dayEnd = setTimeZone({ year: date[0], month: date[1], day: date[2], hours: 24, minutes: 0 }, budapest).epoch;
-    console.log('dayEnd', dayEnd)
     let episodes = [];
      try {
       const res = await this.fetch(`https://tilos.hu/api/v1/episode?start=${dayStart}&end=${dayEnd}`, {
@@ -30,8 +28,6 @@
   let newEpisodes = [];
 
   episodes.forEach(episode => {
-    console.log('title', episode.show.name);
-    console.log('m3u', episode.m3uUrl);
     newEpisodes.push({
       name: episode.show.name,
       showId: episode.show.id,
