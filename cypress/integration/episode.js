@@ -60,6 +60,15 @@ describe('episode', () => {
     });
   })
 
+  it('handle invalid url', () => {
+    cy.visit('/archive/2018-05-blabla', {
+      onBeforeLoad: (contentWindow) => {
+        contentWindow.localStorage.clear();
+      }
+    })
+    cy.get('.archive').contains('Nincs elérhető adás');
+  })
+
   describe('localstorage', () => {
     beforeEach(()=> {
       cy.visit('/archive/2018-05-10', {
