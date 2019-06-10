@@ -28,6 +28,11 @@ describe('episode', () => {
       .contains('Hotel North Pole')
   })
 
+  it('should be disabled if the epsiode in the future', () => {
+    cy.visit('/archive/2028-05-10')
+    cy.get('.archive > :nth-child(1) .episode__add_playlist').should('be.disabled');
+  })
+
   it('should remove from playlist if was there before', () => {
     cy.get('.archive > :nth-child(1) .episode__add_playlist').click();
     cy.get('.archive > :nth-child(1) .episode__add_playlist')

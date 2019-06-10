@@ -7,6 +7,7 @@
   export let duration;
   export let text;
   export let showId;
+  export let inThePast;
 
   $: isInPlaylist = !!$playlist.find(song => song.url === mp3) || $song.url === mp3;
   $: hide = $hiddenShows.indexOf(showId) > -1;
@@ -59,7 +60,7 @@
     <p class="episode__diary">{text}</p>
     <code class="episode__link">{mp3}</code>
     <br>
-    <button type="button" on:click={playlistToggle} class="episode__add_playlist">{isInPlaylist ? 'Remove from Playlist' : 'Add to Playlist'}</button>
+    <button type="button" on:click={playlistToggle} class="episode__add_playlist" disabled={!inThePast}>{isInPlaylist ? 'Remove from Playlist' : 'Add to Playlist'}</button>
     <br>
     <button type="button" on:click={hideArtist} class="episode__hide_artist">Hide this Artist</button>
   </div>

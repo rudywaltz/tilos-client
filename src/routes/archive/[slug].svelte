@@ -31,6 +31,7 @@
     newEpisodes.push({
       name: episode.show.name,
       showId: episode.show.id,
+      inThePast: episode.inThePast,
       text: episode.text ? episode.text.title : '------',
       mp3: episode.m3uUrl ? episode.m3uUrl.slice(0, -3) + 'mp3' : '',
       duration: (episode.realTo - episode.realFrom) / 1000
