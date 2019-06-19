@@ -1,21 +1,23 @@
 <script context="module">
-	export async function preload() {
+  export async function preload() {
     let shows = [];
     try {
-      const res = await this.fetch('/shows.json', {
-			  credentials: 'include'
-      });
-    shows = await res.json();
+      const res = await this.fetch('/shows.json', { credentials: 'include' });
+      shows = await res.json();
     } catch(e) {
       console.log('error in Fetch', e);
     }
-		return { shows };
+    return { shows };
   }
 </script>
 <script>
   import Showlist from "../components/Showlist.svelte";
+  import { normailezeString } from "../helpers";
+  export let shows;
 
- export let shows;
+  let searchTerm = '';
+  let condition = (show) => normailezeString(show.name).indexOf(normailezeString(searchTerm)) != -1;
+  $: filteredShows = searchTerm.length ? shows.filter(condition) : shows;
 </script>
 
 <svelte:head>
@@ -24,7 +26,8 @@
 
 <h1>Műsorok</h1>
 <hr>
+<input type="serach" bind:value={searchTerm}>
 <br>
-{#each shows as show}
-  <Showlist { ...show }></Showlist>
+{#each filteredShows as show}
+  <Showlist { ...show } ></Showlist>
 {/each}

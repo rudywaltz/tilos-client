@@ -7,3 +7,7 @@ export const format = time => {
     const seconds = Math.ceil((time % 60));
     return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
   };
+
+export const normailezeString = str => str.length ?
+    str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase() :
+    str;
