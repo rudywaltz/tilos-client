@@ -2,8 +2,7 @@
   import { format } from 'date-fns';
 
   const currentDate = format(new Date(), 'YYYY-MM-DD');
-	export async function preload(page, session) {
-
+	export async function preload() {
     return this.redirect(302, `archive/${currentDate}`);
   }
 </script>

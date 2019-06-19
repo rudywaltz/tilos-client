@@ -51,11 +51,16 @@
           playSound();
         }
       },
-      onend: () => {
+      onend: function() {
         clearPollingSong = true;
         $song = {};
         if ($playlist.length) {
           loadNewSong();
+        } else {
+          currentSound = null;
+          duration =  0;
+          time = 0;
+          playing = false;
         }
       }
     });

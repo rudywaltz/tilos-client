@@ -64,7 +64,7 @@
   <title>Archívum</title>
 </svelte:head>
 
-<h1>Archívum { slug }</h1>
+<h1>Archívum</h1>
 <div>
   <a href="{ prevDay }" rel=prefetch>Előző Nap</a>
   { slug }
