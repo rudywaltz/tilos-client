@@ -77,6 +77,21 @@
     currentSound = createCurrentSong();
   }
 
+  const nextSong = () => {
+    if (!$playlist.length) {
+      $song = {};
+      currentSound = null;
+      duration =  0;
+      time = 0;
+      playing = false;
+      return;
+    }
+
+    $song = $playlist.shift();
+    $playlist = $playlist; //TODO: nicer solution
+    currentSound = createCurrentSong();
+  }
+
 
   const toggleSound = () => playing ? pauseSound() : playSound();
 
@@ -106,7 +121,11 @@
     playing =  false;
   };
 
-  const seekSound = () => currentSound.seek(currentSound.seek() + 30);
+  const fastForward = () => currentSound.seek(currentSound.seek() + 30);
+  const backward = () => {
+    const newPostition = currentSound.seek() - 10 > 0 ? currentSound.seek() - 10 : 0;
+    currentSound.seek(newPostition);
+  };
 
   const setVolume = event => {
     if (event.type === 'mousemove' && event.buttons !== 1) {
@@ -192,7 +211,8 @@
     user-select: none;
   }
 
-  .player__song_control:hover .volume__ghost {
+  .player__song_control:hover .volume__ghost,
+  .volume__ghost.volume__ghost--visible {
     height: 240px;
   }
 
@@ -242,8 +262,10 @@
 <div id="player">
   <div class="player">
     <div class="player__control">
+      <button type="button" class="player__button player__backward" on:click={backward} disabled={ !duration }>Backward</button>
       <button type="button" class="player__button player__play" on:click={toggleSound} disabled={!duration}>{ playing ? 'Pause' : 'Play' }</button>
-      <button type="button" class="player__button player__seek" on:click={seekSound} disabled={ !duration }>Seeek</button>
+      <button type="button" class="player__button player__fast_forward" on:click={fastForward} disabled={ !duration }>Forward</button>
+      <button type="button" class="player__button player__fast_next" on:click={nextSong} disabled={ !duration }>Next Song</button>
     </div>
     <div class="player__song">
       <div class="player__title">{ $song.url ? $song.title : 'No sound selected' }</div>

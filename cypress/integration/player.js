@@ -1,3 +1,5 @@
+import { createGzip } from "zlib";
+
 describe('player', () => {
   beforeEach(() => {
     cy.clearLocalStorage();
@@ -23,7 +25,7 @@ describe('player', () => {
 
     it('buttons disabled', () => {
       cy.get('#player .player__play').should('be.disabled');
-      cy.get('#player .player__seek').should('be.disabled');
+      cy.get('#player .player__fast_forward').should('be.disabled');
     });
 
     it('should be toggle playlist', () => {
@@ -101,7 +103,7 @@ describe('player', () => {
       })
       cy.get('#player .player__play')
         .click();
-      cy.get('#player .player__seek')
+      cy.get('#player .player__fast_forward')
         .click();
 
       cy
@@ -135,7 +137,7 @@ describe('player', () => {
 
       cy.get('#player .player__play')
         .click();
-      cy.get('#player .player__seek')
+      cy.get('#player .player__fast_forward')
         .click();
       cy.reload().should(()=> {
         expect(localStorage.getItem('tilosStoreSong')).to.be.null;
@@ -159,7 +161,7 @@ describe('player', () => {
     it('progressbar display current position', () => {
       cy.get('#player .player__play')
         .click()
-      cy.get('#player .player__seek')
+      cy.get('#player .player__fast_forward')
         .click()
       cy.get('#player .player__current')
         .contains('00:00:32')
@@ -167,6 +169,17 @@ describe('player', () => {
         .should( $div => {
           expect($div[0].style.width).to.be.greaterThan('5%');
         })
+    });
+
+    it('should seek backward 10s', () => {
+      cy.get('#player .player__play')
+        .click();
+      cy.get('#player .player__fast_forward')
+        .click()
+      cy.get('#player .player__backward')
+        .click();
+      cy.get('#player .player__current')
+        .contains('00:00:22');
     });
 
     it('should change the track position base cursor position', () => {
@@ -262,7 +275,7 @@ describe('player', () => {
     it('play next sound continously', () => {
       cy.get('#player .player__play')
         .click()
-      cy.get('#player .player__seek')
+      cy.get('#player .player__fast_forward')
         .click()
 
       cy.get('.player__title')
