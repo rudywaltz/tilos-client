@@ -2,6 +2,7 @@ import { createGzip } from "zlib";
 
 describe('player', () => {
   beforeEach(() => {
+    cy.viewport('macbook-13');
     cy.clearLocalStorage();
   });
 
