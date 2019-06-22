@@ -278,7 +278,7 @@
       </div>
     </div>
     <div class="player__song_control" on:mouseenter={ () => { console.log('muhaha'); showVolumeBar = true;} }>
-      <button type="button" class="player__button">Volume {showVolumeBar}</button>
+      <button type="button" class="player__button">Volume</button>
       <div class="volume__ghost" class:volume__ghost--visible={showVolumeBar} on:mouseleave={ ()=> showVolumeBar = false }>
         <div class="volume" id="volume" on:click={setVolume} on:mousemove={setVolume}>
           <div class="volume__bar" style="height: { volume * 100 }%"></div>
