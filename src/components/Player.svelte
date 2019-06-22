@@ -80,9 +80,9 @@
   const nextSong = () => {
     if (!$playlist.length) {
       $song = {};
+      clearPollingSong = true;
       currentSound = null;
       duration =  0;
-      time = 0;
       playing = false;
       return;
     }
