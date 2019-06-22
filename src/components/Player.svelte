@@ -262,22 +262,22 @@
 <div id="player">
   <div class="player">
     <div class="player__control">
-      <button type="button" class="player__button player__backward" on:click={backward} disabled={ !duration }>Backward</button>
+      <button type="button" class="player__button player__backward mobile-hidden" on:click={backward} disabled={ !duration }>Backward</button>
       <button type="button" class="player__button player__play" on:click={toggleSound} disabled={!duration}>{ playing ? 'Pause' : 'Play' }</button>
-      <button type="button" class="player__button player__fast_forward" on:click={fastForward} disabled={ !duration }>Forward</button>
-      <button type="button" class="player__button player__fast_next" on:click={nextSong} disabled={ !duration }>Next Song</button>
+      <button type="button" class="player__button player__fast_forward mobile-hidden" on:click={fastForward} disabled={ !duration }>Forward</button>
+      <button type="button" class="player__button player__fast_next mobile-hidden" on:click={nextSong} disabled={ !duration }>Next Song</button>
     </div>
     <div class="player__song">
       <div class="player__title">{ $song.url ? $song.title : 'No sound selected' }</div>
-      <div class="player__prog">
+      <div class="player__prog mobile-hidden">
         <div class="player__current">{ $song.url ? format(time) : format() }</div>
         <div class="progress" on:click={seekWithBar}  on:mousemove={seekWithBar}>
           <div class="progress__bar" style="width:{ percent }%"></div>
         </div>
-        <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
+        <div class="player__duration mobile-hidden">{ $song.url ? format(duration) : format() }</div>
       </div>
     </div>
-    <div class="player__song_control" on:mouseenter={ () => { console.log('muhaha'); showVolumeBar = true;} }>
+    <div class="player__song_control mobile-hidden" on:mouseenter={ () => { console.log('muhaha'); showVolumeBar = true;} }>
       <button type="button" class="player__button">Volume</button>
       <div class="volume__ghost" class:volume__ghost--visible={showVolumeBar} on:mouseleave={ ()=> showVolumeBar = false }>
         <div class="volume" id="volume" on:click={setVolume} on:mousemove={setVolume}>
