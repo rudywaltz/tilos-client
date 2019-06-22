@@ -11,6 +11,7 @@
   let volume = .5;
   let isPlaylistVisible = false;
   let currentSound = null;
+  let showVolumeBar = false;
   let unsubscribe = () => { };
 
   $: percent = (time / duration * 100).toFixed(2) || 0;
@@ -211,11 +212,6 @@
     user-select: none;
   }
 
-  .player__song_control:hover .volume__ghost,
-  .volume__ghost.volume__ghost--visible {
-    height: 240px;
-  }
-
   .progress {
     background: #aaa;
     height: 16px;
@@ -236,6 +232,10 @@
     position: absolute;
     transition: height .4s cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 60px;
+  }
+
+  .volume__ghost--visible {
+    height: 240px;
   }
 
   .volume {
@@ -277,9 +277,9 @@
         <div class="player__duration">{ $song.url ? format(duration) : format() }</div>
       </div>
     </div>
-    <div class="player__song_control">
-      <button type="button" class="player__button">Volume</button>
-      <div class="volume__ghost">
+    <div class="player__song_control" on:mouseenter={ () => { console.log('muhaha'); showVolumeBar = true;} }>
+      <button type="button" class="player__button">Volume {showVolumeBar}</button>
+      <div class="volume__ghost" class:volume__ghost--visible={showVolumeBar} on:mouseleave={ ()=> showVolumeBar = false }>
         <div class="volume" id="volume" on:click={setVolume} on:mousemove={setVolume}>
           <div class="volume__bar" style="height: { volume * 100 }%"></div>
         </div>

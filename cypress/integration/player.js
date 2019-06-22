@@ -2,7 +2,6 @@ import { createGzip } from "zlib";
 
 describe('player', () => {
   beforeEach(() => {
-    cy.viewport('macbook-13');
     cy.clearLocalStorage();
   });
 
@@ -221,32 +220,41 @@ describe('player', () => {
         })
     })
 
-    it.skip('render current volume', () => { // hover in cypress
-      cy.get('.player__song_control').trigger('mouseover');
-      cy.get('.volume .volume__bar')
-        .should( $div => {
-          expect($div[0].style.width).to.eq('50%');
-        })
-    });
+    describe('volume', ()=> {
+      beforeEach(()=> {
+        cy.get('.player__song_control').trigger('mouseenter');
+      });
 
-    it.skip('should change the volume base cursor position', () => {  // hover in cypress
-      cy.get('.volume')
-        .click(150, 10)
-      cy.get('.volume .volume__bar')
-        .should( $div => {
-          expect($div[0].style.width).to.eq('75%');
-        })
-    });
+      afterEach(()=> {
+        cy.get('.volume__ghost').trigger('mouseleave');
+      });
 
-    it.skip('should constantly change the volume if mouse move', () => {
-      cy.get('.volume')
-        .trigger('mousedown', 'center', 'center')
-        .trigger('mousemove', 50, 10, { buttons: 1 })
-      cy.get('.volume .volume__bar')
-        .should( $div => {
-          expect($div[0].style.width).to.eq('25%');
-        })
-    });
+      it('render current volume', () => { // hover in cypress
+        cy.get('.volume__bar')
+          .should( $div => {
+            expect($div[0].style.height).to.eq('50%');
+          })
+      });
+
+      it('should change the volume base cursor position', () => {
+        cy.get('.volume')
+          .click(10, 40)
+        cy.get('.volume .volume__bar')
+          .should( $div => {
+            expect($div[0].style.height).to.greaterThan('75%');
+          })
+      });
+
+      it('should constantly change the volume if mouse move', () => {
+        cy.get('.volume')
+          .trigger('mousedown', 'center', 'center')
+          .trigger('mousemove', 10, 40, { buttons: 1 })
+        cy.get('.volume .volume__bar')
+          .should( $div => {
+            expect($div[0].style.height).to.greaterThan('75%');
+          })
+      });
+    })
   });
 
   describe('with playlist', ()=> {
