@@ -187,11 +187,11 @@ describe('player', () => {
       cy.get('#player .player__play')
         .click()
       cy.get('.progress')
-        .click(650, 10)
+        .click(500, 10)
       cy.get('.progress .progress__bar')
         .should( $div => {
           expect($div[0].style.width).to.greaterThan('50%');
-          expect($div[0].style.width).to.lessThan('100%');
+          expect($div[0].style.width).to.lessThan('90%');
         })
     });
 
