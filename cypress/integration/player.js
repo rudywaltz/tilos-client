@@ -119,7 +119,7 @@ describe('player', () => {
     it('should save current time to localstorage', () => {
       cy.get('#player .player__play')
         .click();
-      cy.wait(200);
+      cy.wait(250);
       cy.reload().should(()=> {
         const savedData = JSON.parse(localStorage.getItem('tilosStoreSong'))
         expect(savedData.time).to.be.greaterThan(.1);
@@ -190,10 +190,8 @@ describe('player', () => {
         .click(650, 10)
       cy.get('.progress .progress__bar')
         .should( $div => {
-          // expect($div[0].style.width).to.greaterThan('75%');
           expect($div[0].style.width).to.greaterThan('50%');
-          // expect($div[0].style.width).to.lessThan('76%');
-          expect($div[0].style.width).to.lessThan('86%');
+          expect($div[0].style.width).to.lessThan('100%');
         })
     });
 
