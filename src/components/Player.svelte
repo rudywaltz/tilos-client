@@ -52,21 +52,25 @@
           playSound();
         }
       },
-      onend: function() {
+      onend: () => {
         clearPollingSong = true;
         $song = {};
         if ($playlist.length) {
           loadNewSong();
         } else {
-          currentSound = null;
-          duration =  0;
-          time = 0;
-          playing = false;
+          resetSongStatus();
         }
       }
     });
   };
 
+  const resetSongStatus = () => {
+    $song = {};
+    currentSound = null;
+    duration =  0;
+    time = 0;
+    playing = false;
+  }
 
   const loadNewSong = () => {
     if (Object.keys($song).length || !$playlist.length) {
@@ -80,11 +84,8 @@
 
   const nextSong = () => {
     if (!$playlist.length) {
-      $song = {};
       clearPollingSong = true;
-      currentSound = null;
-      duration =  0;
-      playing = false;
+      resetSongStatus();
       return;
     }
 
@@ -93,16 +94,16 @@
     currentSound = createCurrentSong();
   }
 
-
   const toggleSound = () => playing ? pauseSound() : playSound();
 
   const playSound = () => {
     currentSound.play();
     playing = true;
-    clearPollingSong = false ;
+    clearPollingSong = false;
 
     const pollingSongData = setInterval(() => {
-      if (clearPollingSong) {
+      console.log('pollypirot');
+      if (!playing) {
         time = 0;
         clearInterval(pollingSongData);
         return;
@@ -114,17 +115,20 @@
 
   const stopSound = () => {
     currentSound.stop();
+    clearPollingSong = true;
     playing =  false;
   };
 
   const pauseSound = () => {
     currentSound.pause();
-    playing =  false;
+    clearPollingSong = true;
+    playing = false;
   };
 
   const fastForward = () => currentSound.seek(currentSound.seek() + 30);
   const backward = () => {
-    const newPostition = currentSound.seek() - 10 > 0 ? currentSound.seek() - 10 : 0;
+    const currentPosition = currentSound.seek();
+    const newPostition = currentPosition - 10 > 0 ? currentPosition - 10 : 0;
     currentSound.seek(newPostition);
   };
 
@@ -296,5 +300,4 @@
   </div>
 </div>
 
-<button on:click="{clearAll}">Clear all</button>
 <svelte:window on:beforeunload={setCurrentData} />
