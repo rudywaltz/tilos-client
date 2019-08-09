@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build",
+    "build": "npx sapper build",
     "export": "sapper export",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
