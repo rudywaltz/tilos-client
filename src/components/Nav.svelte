@@ -2,7 +2,7 @@
 <script>
   import { format } from 'date-fns';
 
-  const archiveLink = `archive/${format(new Date(), 'YYYY-MM-DD')}`;
+  const archiveLink = `archive/${format(new Date(), 'yyyy-MM-dd')}`;
 
 	export let segment;
 </script>

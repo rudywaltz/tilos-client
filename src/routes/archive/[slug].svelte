@@ -26,7 +26,7 @@
 </script>
 
 <script>
-  import { addDays, format as dFormat } from 'date-fns';
+  import { addDays, format as dFormat, parseISO, isValid } from 'date-fns';
   import Episode from '../../components/Episode.svelte';
   import { format } from '../../helpers';
   export let episodes;
@@ -43,8 +43,8 @@
     }
   });
 
-  $: prevDay = `/archive/${dFormat(addDays(new Date(slug), -1), 'YYYY-MM-DD')}`;
-  $: nextDay = `/archive/${dFormat(addDays(new Date(slug), 1), 'YYYY-MM-DD')}`;
+  $: prevDay = isValid(parseISO(slug)) ? `/archive/${dFormat(addDays(parseISO(slug), -1), 'yyyy-MM-dd')}` : '';
+  $: nextDay = isValid(parseISO(slug))? `/archive/${dFormat(addDays(parseISO(slug), 1), 'yyyy-MM-dd')}`: '';
 </script>
 
 <style>
