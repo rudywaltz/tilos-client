@@ -1,7 +1,0 @@
-name: Release
-on: release
-
-jobs:
-  send:
-    name: Send new verison
-    runs-on: ubuntu-latest
