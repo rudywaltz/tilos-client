@@ -1,10 +1,17 @@
-name: Update
-on: push
+name: CI
+
+on: [push]
+
 jobs:
-  send:
-    name: Send new verison
+  build:
+
     runs-on: ubuntu-latest
+    
     steps:
-      - name: HTTP client
-        if: github.event.action == 'published'
-        run: curl GET -X https://google.com
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
