@@ -77,23 +77,27 @@
       return;
     }
 
-    $song = $playlist.shift();
-    $playlist = $playlist; //TODO: nicer solution
-    currentSound = createCurrentSong();
+    nextFromPlaylist();
   }
 
   const nextSong = () => {
+    currentSound.unload();
+
     if (!$playlist.length) {
       clearPollingSong = true;
       resetSongStatus();
       return;
     }
 
-    $song = $playlist.shift();
-    $playlist = $playlist; //TODO: nicer solution
-    currentSound = createCurrentSong();
+    nextFromPlaylist();
+
   }
 
+  const nextFromPlaylist = () => {
+      $song = $playlist.shift();
+      $playlist = $playlist; //TODO: nicer solution
+      currentSound = createCurrentSong();
+  }
   const toggleSound = () => playing ? pauseSound() : playSound();
 
   const playSound = () => {
@@ -102,7 +106,6 @@
     clearPollingSong = false;
 
     const pollingSongData = setInterval(() => {
-      console.log('pollypirot');
       if (!playing) {
         time = 0;
         clearInterval(pollingSongData);
