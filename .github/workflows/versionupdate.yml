@@ -1,8 +1,8 @@
 name: Update
 on: push	
 
-jobs:	jobs:
-  send:	  build:
+jobs:
+  send:
     name: Send new verison	
     runs-on: ubuntu-latest
     
