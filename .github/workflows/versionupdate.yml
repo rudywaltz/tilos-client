@@ -9,4 +9,3 @@ jobs:
     steps:
       - name: HTTP client
         run: echo RUN
-        run: curl GET -X https://google.com
