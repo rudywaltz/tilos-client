@@ -1,5 +1,5 @@
 name: Update
-on: push	
+on: check_suite
 
 jobs:
   send:
@@ -8,5 +8,5 @@ jobs:
     
     steps:
       - name: HTTP client
-        if: github.event.action == 'published'
+        run: echo RUN
         run: curl GET -X https://google.com
