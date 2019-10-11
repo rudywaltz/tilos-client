@@ -1,0 +1,12 @@
+name: Update
+on: push	
+
+jobs:	jobs:
+  send:	  build:
+    name: Send new verison	
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: HTTP client
+        if: github.event.action == 'published'
+        run: curl GET -X https://google.com
