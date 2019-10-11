@@ -1,0 +1,11 @@
+name: Update
+on: check_run
+
+jobs:
+  send:
+    name: Send new verison	
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: HTTP client
+        run: echo RUN CHECK
