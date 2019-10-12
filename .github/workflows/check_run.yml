@@ -9,5 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: HTTP client
+      - name: Check
         run: echo RUN CHECK
+      - name: HTTP Client
+        run: curl -X POST -H "Content-Type:application/json" --data '{"text": "This is a line of text in a channel. And this is another line of text."}' ${CONNECTOR_URL}
+        env:
+          CONNECTOR_URL: ${{ secrets.connectorUrl }}
