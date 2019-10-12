@@ -1,5 +1,7 @@
 name: Update
-on: check_run
+on:
+  check_run:
+    types: [completed]
 
 jobs:
   send:
