@@ -14,4 +14,4 @@ jobs:
       - name: HTTP Client
         run: curl -X POST -H "Content-Type:application/json" --data '{"text":"This is a line of text in a channel.\nAnd this is another line of text."}' ${BLA}
         env:
-          CONNECTOR_URL: ${{ secrets.BLA }}
+          BLA: ${{ secrets.BLA }}
