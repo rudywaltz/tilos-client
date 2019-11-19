@@ -6,7 +6,6 @@
   export let definition;
   export let type;
   export let status;
-  export let alias;
 
   $: isHidden = $hiddenShows.indexOf(id) > -1;
 

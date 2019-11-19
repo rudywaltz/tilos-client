@@ -2,7 +2,7 @@
   export async function preload() {
     let shows = [];
     try {
-      const res = await this.fetch('/shows.json', { credentials: 'include' });
+      const res = await this.fetch('/api/v1/show?status=all');
       shows = await res.json();
     } catch(e) {
       console.log('error in Fetch', e);

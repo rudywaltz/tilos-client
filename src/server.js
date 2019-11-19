@@ -2,21 +2,46 @@ import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
+import https from 'https';
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
+const proxy = (req, response, next) => {
+  if(req.method === 'GET' && req.url.startsWith('/api/')) {
+    https.get(`https://tilos.hu${req.url}`, (res) => {
+      let data = '';
+
+      res.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      res.on('end', () => {
+        response.end(data)
+      });
+
+    }).on('socket', (socket) => {
+      socket.emit('agentRemove');
+    });
+
+  } else {
+    next();
+  }
+}
+
 polka()
-	.use(
-		compression({ threshold: 0 }),
-		sirv('static', { dev }),
-		sapper.middleware({
-			session: (req, res) => ({
-				development: dev,
-			})
-	}))
-	.listen(PORT, err => {
-		if (err) console.log('error', err);
+  .use(
+    compression({ threshold: 0 }),
+    sirv('static', { dev }),
+
+    proxy,
+    sapper.middleware({
+      session: (req, res) => ({
+        development: dev,
+      })
+  }))
+  .listen(PORT, err => {
+    if (err) console.log('error', err);
   });
 
 
