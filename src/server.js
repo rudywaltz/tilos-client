@@ -8,7 +8,7 @@ const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 const proxy = (req, response, next) => {
-  if(req.method === 'GET' && req.url.startsWith('/api/')) {
+  if(req.method === 'GET' && (req.url.startsWith('/api/'))) {
     https.get(`https://tilos.hu${req.url}`, (res) => {
       let data = '';
 
@@ -17,29 +17,27 @@ const proxy = (req, response, next) => {
       });
 
       res.on('end', () => {
-        response.end(data)
+        response.end(data);
       });
 
     }).on('socket', (socket) => {
       socket.emit('agentRemove');
     });
-
   } else {
     next();
   }
-}
+};
 
 polka()
   .use(
     compression({ threshold: 0 }),
     sirv('static', { dev }),
-
     proxy,
     sapper.middleware({
-      session: (req, res) => ({
+      session: () => ({
         development: dev,
       })
-  }))
+    }))
   .listen(PORT, err => {
     if (err) console.log('error', err);
   });
