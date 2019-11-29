@@ -277,7 +277,7 @@
         <div class="player__duration mobile-hidden">{ $song.url ? format(duration) : format() }</div>
       </div>
     </div>
-    <div class="player__song_control mobile-hidden" on:mouseenter={ () => { console.log('muhaha'); showVolumeBar = true;} }>
+    <div class="player__song_control mobile-hidden" on:mouseenter={ () => { showVolumeBar = true;} }>
       <button type="button" class="player__button">Volume</button>
       <div class="volume__ghost" class:volume__ghost--visible={showVolumeBar} on:mouseleave={ ()=> showVolumeBar = false }>
         <div class="volume" id="volume" on:click={setVolume} on:mousemove={setVolume}>
