@@ -1,7 +1,6 @@
 <script context="module">
     export async function preload({ params }) {
       let [showSlug, year, quarter] = params.slug;
-      console.log(showSlug, year, quarter)
       let show = {};
       try {
         const res = await this.fetch(`/api/v1/show/${showSlug}`);
@@ -10,12 +9,12 @@
         console.log('error in Fetch', e);
       }
 
-      return { show, showSlug};
+      return { show, showSlug, year, quarter};
     }
   </script>
 
   <script>
-    export let showSlug
+    export let showSlug;
     export let show;
   </script>
 
