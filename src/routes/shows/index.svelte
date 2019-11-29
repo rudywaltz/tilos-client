@@ -11,8 +11,8 @@
   }
 </script>
 <script>
-  import Showlist from "../components/Showlist.svelte";
-  import { normailezeString } from "../helpers";
+  import Showlist from '../../components/Showlist.svelte';
+  import { normailezeString } from '../../helpers';
   export let shows;
 
   let searchTerm = '';

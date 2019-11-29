@@ -6,16 +6,17 @@
   export let definition;
   export let type;
   export let status;
+  export let alias;
 
   $: isHidden = $hiddenShows.indexOf(id) > -1;
 
   const toggleHiddenShow = () => {
-      if (isHidden) {
-          $hiddenShows = $hiddenShows.filter(showId => showId !== id);
-      } else {
-        $hiddenShows = [...$hiddenShows, id];
-      }
-  }
+    if (isHidden) {
+      $hiddenShows = $hiddenShows.filter(showId => showId !== id);
+    } else {
+      $hiddenShows = [...$hiddenShows, id];
+    }
+  };
 </script>
 
 <style>
@@ -27,7 +28,7 @@
 
 
 <div class:unwanted={isHidden}>
-  <h2>{name}</h2>
+  <h2><a rel='prefetch' href="shows/{alias}">{name}</a></h2>
   <div>{type} | {status}</div>
   <p>{definition}</p>
 </div>
