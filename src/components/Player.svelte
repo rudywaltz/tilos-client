@@ -7,7 +7,7 @@
   let duration =  0;
   let time = 0;
   let playing = false;
-  let clearPollingSong = false;
+  // let clearPollingSong = false;
   let volume = .5;
   let isPlaylistVisible = false;
   let currentSound = null;
@@ -53,7 +53,7 @@
         }
       },
       onend: () => {
-        clearPollingSong = true;
+        // clearPollingSong = true;
         $song = {};
         if ($playlist.length) {
           loadNewSong();
@@ -70,7 +70,7 @@
     duration =  0;
     time = 0;
     playing = false;
-  }
+  };
 
   const loadNewSong = () => {
     if (Object.keys($song).length || !$playlist.length) {
@@ -78,32 +78,32 @@
     }
 
     nextFromPlaylist();
-  }
+  };
 
   const nextSong = () => {
     currentSound.unload();
 
     if (!$playlist.length) {
-      clearPollingSong = true;
+      // clearPollingSong = true;
       resetSongStatus();
       return;
     }
 
     nextFromPlaylist();
 
-  }
+  };
 
   const nextFromPlaylist = () => {
-      $song = $playlist.shift();
-      $playlist = $playlist; //TODO: nicer solution
-      currentSound = createCurrentSong();
-  }
+    $song = $playlist.shift();
+    $playlist = $playlist; //TODO: nicer solution
+    currentSound = createCurrentSong();
+  };
   const toggleSound = () => playing ? pauseSound() : playSound();
 
   const playSound = () => {
     currentSound.play();
     playing = true;
-    clearPollingSong = false;
+    // clearPollingSong = false;
 
     const pollingSongData = setInterval(() => {
       if (!playing) {
@@ -116,15 +116,15 @@
     }, 200);
   };
 
-  const stopSound = () => {
-    currentSound.stop();
-    clearPollingSong = true;
-    playing =  false;
-  };
+  // const stopSound = () => {
+  //   currentSound.stop();
+  //   clearPollingSong = true;
+  //   playing =  false;
+  // };
 
   const pauseSound = () => {
     currentSound.pause();
-    clearPollingSong = true;
+    // clearPollingSong = true;
     playing = false;
   };
 
@@ -164,18 +164,11 @@
       return;
     }
 
-    const fullSong = Object.assign({}, $song, { time })
+    const fullSong = Object.assign({}, $song, { time });
     localStorage.setItem('tilosStoreSong', JSON.stringify(fullSong));
   };
 
   const togglePlaylist = () => isPlaylistVisible = !isPlaylistVisible;
-
-  const clearAll = () => {
-    $song = {};
-    $playlist = [];
-    localStorage.clear();
-  }
-
 </script>
 
 <style>

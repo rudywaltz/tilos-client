@@ -17,7 +17,7 @@
     $song = {};
     $playlist = [];
     localStorage.clear();
-  }
+  };
   </script>
 <button on:click="{clearAll}">Clear all</button>
 <div class="wrap">

@@ -1,13 +1,13 @@
 const pad = num => num < 10 ? '0' + num : num;
 
 export const format = time => {
-    if (isNaN(time)) return '--:--:--';
-    const hours = Math.floor(time / (60 * 60))
-    const minutes = Math.floor((time / 60) % 60);
-    const seconds = Math.ceil((time % 60));
-    return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-  };
+  if (isNaN(time)) return '--:--:--';
+  const hours = Math.floor(time / (60 * 60));
+  const minutes = Math.floor((time / 60) % 60);
+  const seconds = Math.ceil((time % 60));
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+};
 
 export const normailezeString = str => str.length ?
-    str.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase() :
-    str;
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase() :
+  str;

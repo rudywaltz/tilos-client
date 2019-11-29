@@ -4,7 +4,7 @@
 
   const archiveLink = `archive/${format(new Date(), 'yyyy-MM-dd')}`;
 
-	export let segment;
+export let segment;
 </script>
 
 <style>

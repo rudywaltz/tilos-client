@@ -16,7 +16,7 @@
       return;
     }
     localStorage.setItem('tilosStorePlaylist', JSON.stringify($playlist));
-  }
+  };
 
 </script>
 
@@ -44,7 +44,7 @@
     <li class="song" draggable="true">
       <h3 class="song__title">{ song.title }</h3> { song.url }
       <span class="song__duration"> { format(song.duration) }</span>
-      <button type="button" class="song__clear" on:click="{e => removeSong(song.url)}">Clear</button>
+      <button type="button" class="song__clear" on:click="{() => removeSong(song.url)}">Clear</button>
     </li>
   {:else}
     <li>Choose one song</li>

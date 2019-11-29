@@ -27,11 +27,11 @@
       url: mp3,
       duration: duration
     }];
-  }
+  };
 
   const hideArtist = () => {
     $hiddenShows = [...$hiddenShows, showId];
-  }
+  };
 </script>
 
 <style>

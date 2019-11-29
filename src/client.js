@@ -12,7 +12,7 @@ saveToLocalStorage(hiddenShows, 'tilosStorehiddenShows');
 
 
 sapper.start({
-	target: document.querySelector('#tilos-client')
+  target: document.querySelector('#tilos-client')
 });
 
 

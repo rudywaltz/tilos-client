@@ -9,14 +9,12 @@
     const dayEnd = setTimeZone({ year: date[0], month: date[1], day: date[2], hours: 24, minutes: 0 }, budapest).epoch;
     let episodes = [];
 
-     try {
+    try {
       if (isNaN(dayStart) || isNaN(dayEnd)) {
         return { episodes, slug };
       }
 
-      const res = await this.fetch(`https://tilos.hu/api/v1/episode?start=${dayStart}&end=${dayEnd}`, {
-        credentials: 'include'
-      });
+      const res = await this.fetch(`/api/v1/episode?start=${dayStart}&end=${dayEnd}`);
       episodes = await res.json();
     } catch(e) {
       console.log('error in Fetch', e);
@@ -26,9 +24,8 @@
 </script>
 
 <script>
-  import { addDays, format as dFormat, parseISO, isValid } from 'date-fns';
+  import { addDays, format, parseISO, isValid } from 'date-fns';
   import Episode from '../../components/Episode.svelte';
-  import { format } from '../../helpers';
   export let episodes;
   export let slug;
 
@@ -40,11 +37,11 @@
       text: episode.text ? episode.text.title : '------',
       mp3: episode.m3uUrl ? episode.m3uUrl.slice(0, -3) + 'mp3' : '',
       duration: (episode.realTo - episode.realFrom) / 1000
-    }
+    };
   });
 
-  $: prevDay = isValid(parseISO(slug)) ? `/archive/${dFormat(addDays(parseISO(slug), -1), 'yyyy-MM-dd')}` : '';
-  $: nextDay = isValid(parseISO(slug))? `/archive/${dFormat(addDays(parseISO(slug), 1), 'yyyy-MM-dd')}`: '';
+  $: prevDay = isValid(parseISO(slug)) ? `/archive/${format(addDays(parseISO(slug), -1), 'yyyy-MM-dd')}` : '';
+  $: nextDay = isValid(parseISO(slug))? `/archive/${format(addDays(parseISO(slug), 1), 'yyyy-MM-dd')}`: '';
 </script>
 
 <style>
