@@ -29,15 +29,11 @@
     const load = async () => {
      const response =  await fetch(`/api/v1/show/${id}/episodes?start=${getTime(firstDayOfQuarter)}&end=${getTime(lastDayOfQuarter)}`);
      const res =  await response.json();
-
-     console.log(res)
      return res;
     }
 
     onMount(async () => {
-      console.log('before')
       archiveShows = await load();
-      console.log('after');
   });
 
 
