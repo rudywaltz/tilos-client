@@ -3,41 +3,40 @@
 
   import { getQuarter, setQuarter, endOfQuarter, startOfQuarter, isAfter, endOfDay, getTime } from 'date-fns';
 
-  export let year
-  export let quarter
-  export let firstShowDate
-  export let lastShowDate
-  export let id
+  export let year;
+  export let quarter;
+  export let firstShowDate;
+  export let lastShowDate;
+  export let id;
 
-  let archiveShows = []
+  let archiveShows = [];
   year = year || new Date().getFullYear();
   quarter = quarter || getQuarter(new Date());
 
+  let firstDayOfQuarter = setQuarter(new Date(year, 0, 1), quarter);
+  if (isAfter(firstShowDate, firstDayOfQuarter)) {
+    firstDayOfQuarter = firstShowDate;
+  }
 
-    let firstDayOfQuarter = setQuarter(new Date(year, 0, 1), quarter);
-    if (isAfter(firstShowDate, firstDayOfQuarter)) {
-        firstDayOfQuarter = firstShowDate;
-    }
+  let lastDayOfQuarter = endOfQuarter(firstDayOfQuarter);
 
-    let lastDayOfQuarter = endOfQuarter(firstDayOfQuarter);
+  if (isAfter(lastDayOfQuarter, lastShowDate)) {
+    lastDayOfQuarter = endOfDay(lastShowDate);
+    firstDayOfQuarter = startOfQuarter(lastDayOfQuarter);
+  }
 
-    if (isAfter(lastDayOfQuarter, lastShowDate)) {
-      lastDayOfQuarter = endOfDay(lastShowDate);
-      firstDayOfQuarter = startOfQuarter(lastDayOfQuarter);
-    }
+  const load = async () => {
+    const response =  await fetch(`/api/v1/show/${id}/episodes?start=${getTime(firstDayOfQuarter)}&end=${getTime(lastDayOfQuarter)}`);
+    const res =  await response.json();
+    return res;
+  };
 
-    const load = async () => {
-     const response =  await fetch(`/api/v1/show/${id}/episodes?start=${getTime(firstDayOfQuarter)}&end=${getTime(lastDayOfQuarter)}`);
-     const res =  await response.json();
-     return res;
-    }
-
-    onMount(async () => {
-      archiveShows = await load();
-  });
+  onMount(async () => {
+    archiveShows = await load();
+});
 
 
-  </script>
+</script>
   <h2>Archívum:</h2>
 {#each archiveShows as archive}
   <hr>
