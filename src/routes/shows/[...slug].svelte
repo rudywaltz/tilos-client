@@ -9,13 +9,17 @@
         console.log('error in Fetch', e);
       }
 
-      return { show, showSlug, year, quarter};
+      return { show, showSlug, year, quarter };
     }
   </script>
 
   <script>
+    import Archivelist from '../../components/Archivelist.svelte';
+
     export let showSlug;
     export let show;
+    export let year;
+    export let quarter;
   </script>
 
 
@@ -23,6 +27,9 @@
     <h1>{ show.name }</h1>
     <h2>{ show.definition }</h2>
     <div>{@html show.description }</div>
+
+    <Archivelist {year} {quarter} { ...show } ></Archivelist>
+
   {:else}
     <h1>{ showSlug } nevű műsor nem létezik</h1>
   {/if}
