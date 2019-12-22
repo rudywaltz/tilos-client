@@ -4,12 +4,12 @@ module.exports = {
     'es6': true,
     'node': true
   },
-  'extends': 'eslint:recommended',
+  'extends': ['eslint:recommended', 'plugin:cypress/recommended'],
   'globals': {
     'Atomics': 'readonly',
     'SharedArrayBuffer': 'readonly'
   },
-  'plugins': ['svelte3'],
+  'plugins': ['svelte3', 'cypress'],
   'overrides': [
     {
       'files': ['**/*.svelte', '**/*.html'],
