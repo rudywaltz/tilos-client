@@ -50,13 +50,16 @@
   const prev = async (event) => {
     event.preventDefault();
     const { localQuarter, localYear } = quarterDecrase(quarter, year);
-    console.log(quarter, localQuarter);
-    console.log(year, localYear);
     quarter = localQuarter;
     year = localYear;
 
-    archiveShows = archiveShowsTemp.length ? archiveShowsTemp : await load();
-    archiveShowsTemp = [];
+    if (archiveShowsTemp.length) {
+      archiveShows =  archiveShowsTemp;
+      archiveShowsTemp = [];
+    } else {
+      archiveShows = await load();
+    }
+
   };
 
   const next = async (event) => {
