@@ -2,7 +2,7 @@
   import { episodeMapper } from '../helpers';
   import Episode from './Episode.svelte';
   import { onMount } from 'svelte';
-  import { getQuarter, setQuarter, endOfQuarter, startOfQuarter, isAfter, endOfDay, getTime } from 'date-fns';
+  import { getYear, getQuarter, setQuarter, endOfQuarter, startOfQuarter, isSameQuarter, isAfter, endOfDay, getTime } from 'date-fns';
 
   export let year;
   export let quarter;
@@ -18,16 +18,25 @@
 
   $: episodes = episodeMapper(archiveShows)
 
-
-  const calculateQuarter = (localQuarter, localYear) => {
-    let firstDayOfQuarter = setQuarter(new Date(localYear, 0, 1), localQuarter);
+  const calculateQuarter = () => {
+    let firstDayOfQuarter = setQuarter(new Date(year, 0, 1), quarter);
     if (isAfter(firstShowDate, firstDayOfQuarter)) {
+      if (!isSameQuarter(firstDayOfQuarter, firstShowDate)) {
+        quarter = getQuarter(firstShowDate);
+        year = getYear(firstShowDate);
+      }
+
       firstDayOfQuarter = firstShowDate;
     }
 
     let lastDayOfQuarter = endOfQuarter(firstDayOfQuarter);
 
     if (isAfter(lastDayOfQuarter, lastShowDate)) {
+      if (!isSameQuarter(lastDayOfQuarter, lastShowDate)) {
+        quarter = getQuarter(lastShowDate);
+        year = getYear(lastShowDate);
+      }
+
       lastDayOfQuarter = endOfDay(lastShowDate);
       firstDayOfQuarter = startOfQuarter(lastDayOfQuarter);
     }
@@ -79,12 +88,11 @@
 
 
 </script>
-<h2>Archívum:</h2>
-<button type="button" href="" on:click={prev}>Prev</button>
-<button type="button" href="" on:click={next}>next</button>
-
-{#each episodes as episode}
-  <Episode {...episode}></Episode>
-{:else}
-  Nincs elérhető adás
-{/each}
+<h2>Archívum: { quarter }</h2>
+<button type="button" on:click={prev}>Prev</button>
+<button type="button" on:click={next}>next</button>
+  {#each episodes as episode}
+    <Episode {...episode}></Episode>
+  {:else}
+    Nincs elérhető adás
+  {/each}
