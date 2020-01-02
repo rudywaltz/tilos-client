@@ -1,18 +1,31 @@
 <script>
+  import Episode from './Episode.svelte';
   import { onMount } from 'svelte';
-
-  import { getQuarter, setQuarter, endOfQuarter, startOfQuarter, isAfter, endOfDay, getTime, format } from 'date-fns';
+  import { getQuarter, setQuarter, endOfQuarter, startOfQuarter, isAfter, endOfDay, getTime } from 'date-fns';
 
   export let year;
   export let quarter;
   export let firstShowDate;
   export let lastShowDate;
   export let id;
+  export let episodes;
 
   let archiveShows = [];
-  let archiveShowsTemp = [];
   year = year || new Date().getFullYear();
   quarter = quarter || getQuarter(new Date());
+
+
+  $: episodes = archiveShows.map(episode => {
+    return {
+      name: episode.show.name,
+      showId: episode.show.id,
+      inThePast: episode.inThePast,
+      text: episode.text ? episode.text.title : '------',
+      mp3: episode.m3uUrl ? episode.m3uUrl.slice(0, -3) + 'mp3' : '',
+      duration: (episode.realTo - episode.realFrom) / 1000
+    };
+  });
+
 
   const calculateQuarter = (localQuarter, localYear) => {
     let firstDayOfQuarter = setQuarter(new Date(localYear, 0, 1), localQuarter);
@@ -30,53 +43,39 @@
     return { firstDayOfQuarter, lastDayOfQuarter };
   };
 
-  const quarterDecrase = (localQuarter, localYear) => {
-    if (localQuarter === 1) {
-      localQuarter = 4;
-      localYear--;
+  const quarterDecrase = () => {
+    if (quarter === 1) {
+      quarter = 4;
+      year--;
     } else {
-      localQuarter--;
+      quarter--;
     }
-
-    return { localQuarter, localYear };
   };
 
-  const onPrevPrefetch = async () => {
-    const { localQuarter, localYear } = quarterDecrase(quarter, year);
-
-    archiveShowsTemp = await load(localQuarter, localYear);
-  };
-
-  const prev = async (event) => {
-    event.preventDefault();
-    const { localQuarter, localYear } = quarterDecrase(quarter, year);
-    quarter = localQuarter;
-    year = localYear;
-
-    if (archiveShowsTemp.length) {
-      archiveShows =  archiveShowsTemp;
-      archiveShowsTemp = [];
-    } else {
-      archiveShows = await load();
-    }
-
-  };
-
-  const next = async (event) => {
-    event.preventDefault();
-
+  const quarterIncrase = () => {
     if (quarter === 4) {
       quarter = 1;
       year = year + 1;
     } else {
       quarter++;
     }
+  };
+
+  const prev = async (event) => {
+    event.preventDefault();
+    quarterDecrase();
+    archiveShows = await load();
+  };
+
+  const next = async (event) => {
+    event.preventDefault();
+    quarterIncrase();
     archiveShows = await load();
   };
 
 
-  const load = async (localQuarter = quarter, localYear = year) => {
-    const { firstDayOfQuarter, lastDayOfQuarter } = calculateQuarter(localQuarter, localYear);
+  const load = async () => {
+    const { firstDayOfQuarter, lastDayOfQuarter } = calculateQuarter(quarter, year);
     const response =  await fetch(`/api/v1/show/${id}/episodes?start=${getTime(firstDayOfQuarter)}&end=${getTime(lastDayOfQuarter)}`);
     const res =  await response.json();
     return res;
@@ -84,18 +83,16 @@
 
   onMount(async () => {
     archiveShows = await load();
-    console.log(archiveShows);
 });
 
 
 </script>
 <h2>Archívum:</h2>
-<button type="button" href="" on:click={prev} on:mouseenter={onPrevPrefetch}>Prev</button>
+<button type="button" href="" on:click={prev}>Prev</button>
 <button type="button" href="" on:click={next}>next</button>
-{#each archiveShows as archive}
-  <hr>
-  <h4>{format(archive.realFrom, 'yyyy-MM-dd HH:mm')} - {format(archive.realTo, 'yyyy-MM-dd HH:mm')}</h4>
-  <h4>{archive.text ? archive.text.title : '--' }</h4>
-  <h4>{archive.m3uUrl}</h4>
-  <a href="{archive.url}">URL</a>
+
+{#each episodes as episode}
+  <Episode {...episode}></Episode>
+{:else}
+  Nincs elérhető adás
 {/each}
