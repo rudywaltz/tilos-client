@@ -16,7 +16,7 @@
   quarter = quarter || getQuarter(new Date());
 
 
-  $: episodes = episodeMapper(archiveShows)
+  $: episodes = episodeMapper(archiveShows);
 
   const calculateQuarter = () => {
     let firstDayOfQuarter = setQuarter(new Date(year, 0, 1), quarter);

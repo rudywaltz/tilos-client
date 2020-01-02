@@ -25,7 +25,7 @@
 
 <script>
   import { addDays, format, parseISO, isValid } from 'date-fns';
-  import { episodeMapper } from '../../helpers'
+  import { episodeMapper } from '../../helpers';
   import Episode from '../../components/Episode.svelte';
   export let episodes;
   export let slug;
