@@ -1,4 +1,5 @@
 <script>
+  import { episodeMapper } from '../helpers';
   import Episode from './Episode.svelte';
   import { onMount } from 'svelte';
   import { getQuarter, setQuarter, endOfQuarter, startOfQuarter, isAfter, endOfDay, getTime } from 'date-fns';
@@ -15,16 +16,7 @@
   quarter = quarter || getQuarter(new Date());
 
 
-  $: episodes = archiveShows.map(episode => {
-    return {
-      name: episode.show.name,
-      showId: episode.show.id,
-      inThePast: episode.inThePast,
-      text: episode.text ? episode.text.title : '------',
-      mp3: episode.m3uUrl ? episode.m3uUrl.slice(0, -3) + 'mp3' : '',
-      duration: (episode.realTo - episode.realFrom) / 1000
-    };
-  });
+  $: episodes = episodeMapper(archiveShows)
 
 
   const calculateQuarter = (localQuarter, localYear) => {
@@ -75,7 +67,7 @@
 
 
   const load = async () => {
-    const { firstDayOfQuarter, lastDayOfQuarter } = calculateQuarter(quarter, year);
+    const { firstDayOfQuarter, lastDayOfQuarter } = calculateQuarter();
     const response =  await fetch(`/api/v1/show/${id}/episodes?start=${getTime(firstDayOfQuarter)}&end=${getTime(lastDayOfQuarter)}`);
     const res =  await response.json();
     return res;
