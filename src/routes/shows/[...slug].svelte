@@ -15,7 +15,6 @@
 
   <script>
     import Archivelist from '../../components/Archivelist.svelte';
-
     export let showSlug;
     export let show;
     export let year;

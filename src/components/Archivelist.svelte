@@ -2,7 +2,17 @@
   import { episodeMapper } from '../helpers';
   import Episode from './Episode.svelte';
   import { onMount } from 'svelte';
-  import { getYear, getQuarter, setQuarter, endOfQuarter, startOfQuarter, isSameQuarter, isAfter, endOfDay, getTime } from 'date-fns';
+  import {
+    getYear,
+    getQuarter,
+    setQuarter,
+    endOfQuarter,
+    startOfQuarter,
+    isSameQuarter,
+    isAfter,
+    endOfDay,
+    getTime
+  } from 'date-fns';
 
   export let year;
   export let quarter;
@@ -10,12 +20,10 @@
   export let lastShowDate;
   export let id;
   export let episodes;
-
   let archiveShows = [];
-  year = year || new Date().getFullYear();
-  quarter = quarter || getQuarter(new Date());
 
-
+  year = Number(year) || new Date().getFullYear();
+  quarter = Number(quarter) || getQuarter(new Date());
   $: episodes = episodeMapper(archiveShows);
 
   const calculateQuarter = () => {
@@ -84,11 +92,11 @@
 
   onMount(async () => {
     archiveShows = await load();
-});
+  });
 
 
 </script>
-<h2>Archívum: { quarter }</h2>
+<h2>Archívum:</h2>
 <button type="button" on:click={prev}>Prev</button>
 <button type="button" on:click={next}>next</button>
   {#each episodes as episode}

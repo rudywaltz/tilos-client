@@ -7,7 +7,6 @@
   let duration =  0;
   let time = 0;
   let playing = false;
-  // let clearPollingSong = false;
   let volume = .5;
   let isPlaylistVisible = false;
   let currentSound = null;
@@ -53,7 +52,6 @@
         }
       },
       onend: () => {
-        // clearPollingSong = true;
         $song = {};
         if ($playlist.length) {
           loadNewSong();
@@ -84,7 +82,6 @@
     currentSound.unload();
 
     if (!$playlist.length) {
-      // clearPollingSong = true;
       resetSongStatus();
       return;
     }
@@ -103,7 +100,6 @@
   const playSound = () => {
     currentSound.play();
     playing = true;
-    // clearPollingSong = false;
 
     const pollingSongData = setInterval(() => {
       if (!playing) {
@@ -116,15 +112,25 @@
     }, 200);
   };
 
-  // const stopSound = () => {
-  //   currentSound.stop();
-  //   clearPollingSong = true;
-  //   playing =  false;
-  // };
+  const toggleLive = () => {
+    if (playing) {
+      playing = false;
+      currentSound.unload();
+      return;
+    }
+
+    $playlist = [$song, ...$playlist];
+    currentSound.unload();
+    $song = {
+      title: 'live 128kbps',
+      url: 'http://stream.tilos.hu:8000/tilos_128.mp3'
+    };
+    playing = true;
+    currentSound = createCurrentSong();
+  };
 
   const pauseSound = () => {
     currentSound.pause();
-    // clearPollingSong = true;
     playing = false;
   };
 
@@ -263,6 +269,7 @@
   <div class="player">
     <div class="player__control">
       <button type="button" class="player__button player__backward mobile-hidden" on:click={backward} disabled={ !duration }>Backward</button>
+      <button type="button" class="player__button" on:click={toggleLive}>LIVE</button>
       <button type="button" class="player__button player__play" on:click={toggleSound} disabled={!duration}>{ playing ? 'Pause' : 'Play' }</button>
       <button type="button" class="player__button player__fast_forward mobile-hidden" on:click={fastForward} disabled={ !duration }>Forward</button>
       <button type="button" class="player__button player__fast_next mobile-hidden" on:click={nextSong} disabled={ !duration }>Next Song</button>
