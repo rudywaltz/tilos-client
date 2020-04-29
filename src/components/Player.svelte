@@ -7,6 +7,7 @@
   let duration =  0;
   let time = 0;
   let playing = false;
+  let isLiveStream = false;
   let volume = .5;
   let isPlaylistVisible = false;
   let currentSound = null;
@@ -113,12 +114,15 @@
   };
 
   const toggleLive = () => {
-    if (playing) {
+    if (isLiveStream && playing) {
       playing = false;
       currentSound.unload();
+      $song = {};
+      isLiveStream = false;
       return;
     }
 
+    isLiveStream = true;
     $playlist = [$song, ...$playlist];
     currentSound.unload();
     $song = {
@@ -268,10 +272,10 @@
 <div id="player">
   <div class="player">
     <div class="player__control">
-      <button type="button" class="player__button player__backward mobile-hidden" on:click={backward} disabled={ !duration }>Backward</button>
+      <button type="button" class="player__button player__backward mobile-hidden" on:click={backward} disabled={ !duration || isLiveStream}>Backward</button>
       <button type="button" class="player__button" on:click={toggleLive}>LIVE</button>
-      <button type="button" class="player__button player__play" on:click={toggleSound} disabled={!duration}>{ playing ? 'Pause' : 'Play' }</button>
-      <button type="button" class="player__button player__fast_forward mobile-hidden" on:click={fastForward} disabled={ !duration }>Forward</button>
+      <button type="button" class="player__button player__play" on:click={toggleSound} disabled={!duration || isLiveStream}>{ playing ? 'Pause' : 'Play' }</button>
+      <button type="button" class="player__button player__fast_forward mobile-hidden" on:click={fastForward} disabled={ !duration || isLiveStream }>Forward</button>
       <button type="button" class="player__button player__fast_next mobile-hidden" on:click={nextSong} disabled={ !duration }>Next Song</button>
     </div>
     <div class="player__song">
@@ -281,7 +285,7 @@
         <div class="progress" on:click={seekWithBar}  on:mousemove={seekWithBar}>
           <div class="progress__bar" style="width:{ percent }%"></div>
         </div>
-        <div class="player__duration mobile-hidden">{ $song.url ? format(duration) : format() }</div>
+        <div class="player__duration mobile-hidden">{ $song.url && !isLiveStream ? format(duration) : format() }</div>
       </div>
     </div>
     <div class="player__song_control mobile-hidden" on:mouseenter={ () => { showVolumeBar = true;} }>
