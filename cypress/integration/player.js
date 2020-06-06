@@ -152,8 +152,8 @@ describe('player', () => {
       cy.get('#player .player__current')
         .contains('00:00:01');
       cy.get('.progress__bar')
-        .should( $div => {
-          expect($div[0].style.width).to.be.greaterThan('0.1%');
+        .should($div => {
+          expect(Number.parseFloat($div[0].style.width)).to.be.greaterThan(0.1);
         });
     });
 
@@ -167,7 +167,7 @@ describe('player', () => {
         .contains('00:00:32');
       cy.get('.progress__bar')
         .should( $div => {
-          expect($div[0].style.width).to.be.greaterThan('5%');
+          expect(Number.parseFloat($div[0].style.width)).to.be.greaterThan(5);
         });
     });
 
@@ -189,8 +189,8 @@ describe('player', () => {
         .click(500, 10);
       cy.get('.progress .progress__bar')
         .should( $div => {
-          expect($div[0].style.width).to.greaterThan('50%');
-          expect($div[0].style.width).to.lessThan('90%');
+          expect(Number.parseFloat($div[0].style.width)).to.greaterThan(50);
+          expect(Number.parseFloat($div[0].style.width)).to.lessThan(90);
         });
     });
 
@@ -202,10 +202,10 @@ describe('player', () => {
         .trigger('mousemove', 210, 10, { buttons: 1 });
       cy.get('.progress .progress__bar')
         .should( $div => {
-          // expect($div[0].style.width).to.lessThan('25.5%');
-          expect($div[0].style.width).to.lessThan('45.5%');
-          // expect($div[0].style.width).to.greaterThan('24%');
-          expect($div[0].style.width).to.greaterThan('14%');
+          // expect(Number.parseFloat($div[0].style.width)).to.lessThan(25.5);
+          expect(Number.parseFloat($div[0].style.width)).to.lessThan(45.5);
+          // expect(Number.parseFloat($div[0].style.width)).to.greaterThan(24);
+          expect(Number.parseFloat($div[0].style.width)).to.greaterThan(14);
         });
     });
 
@@ -216,7 +216,7 @@ describe('player', () => {
         .click();
       cy.get('.progress .progress__bar')
         .should( $div => {
-          expect($div[0].style.width).to.lessThan('1%');
+          expect(Number.parseFloat($div[0].style.width)).to.lessThan(1);
         });
     });
 
@@ -241,7 +241,7 @@ describe('player', () => {
           .click(10, 40);
         cy.get('.volume .volume__bar')
           .should( $div => {
-            expect($div[0].style.height).to.greaterThan('75%');
+            expect(Number.parseFloat($div[0].style.height)).to.greaterThan(75);
           });
       });
 
@@ -251,7 +251,7 @@ describe('player', () => {
           .trigger('mousemove', 10, 40, { buttons: 1 });
         cy.get('.volume .volume__bar')
           .should( $div => {
-            expect($div[0].style.height).to.greaterThan('75%');
+            expect(Number.parseFloat($div[0].style.height)).to.greaterThan(75);
           });
       });
     });
