@@ -1,7 +1,6 @@
 # Client for new Tilos Radio website
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/rudywaltz/tilos-client.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.com/rudywaltz/tilos-client.svg?branch=master)](https://travis-ci.com/rudywaltz/tilos-client)
 
 The application based on [Sapper](https://github.com/sveltejs/sapper).
 
