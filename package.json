@@ -14,7 +14,8 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "lint": "eslint src/** --ignore-path .gitignore"
+    "lint": "eslint src/** --ignore-path .gitignore",
+    "prettier": "prettier --write 'src/**' 'cypress/**'"
   },
   "dependencies": {
     "compression": "1.7.4",
@@ -48,6 +49,6 @@
     }
   },
   "lint-staged": {
-    "*": "eslint --cache --fix"
+    "*": "prettier"
   }
 }
