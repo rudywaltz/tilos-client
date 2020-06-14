@@ -1,15 +1,6 @@
-
-<script>
-  import { format } from 'date-fns';
-
-  const archiveLink = `archive/${format(new Date(), 'yyyy-MM-dd')}`;
-
-export let segment;
-</script>
-
 <style>
- nav {
-    border-bottom: 1px solid rgba(170,30,30,0.1);
+  nav {
+    border-bottom: 1px solid rgba(170, 30, 30, 0.1);
     font-weight: 300;
     padding: 0 1em;
   }
@@ -41,7 +32,7 @@ export let segment;
     content: '';
     width: calc(100% - 1em);
     height: 2px;
-    background-color: rgb(170,30,30);
+    background-color: rgb(170, 30, 30);
     display: block;
     bottom: -1px;
   }
@@ -53,10 +44,36 @@ export let segment;
   }
 </style>
 
+<script>
+  import { format } from 'date-fns';
+
+  const archiveLink = `archive/${format(new Date(), 'yyyy-MM-dd')}`;
+
+  export let segment;
+</script>
+
 <nav>
-	<ul>
-		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-		<li><a class='{segment === "archive" ? "selected" : ""}' href={archiveLink} rel=prefetch>Archívum</a></li>
-		<li><a class='{segment === "shows" ? "selected" : ""}' href='shows' rel=prefetch>Műsorok</a></li>
-	</ul>
+  <ul>
+    <li>
+      <a class="{segment === undefined ? 'selected' : ''}" href=".">home</a>
+    </li>
+    <li>
+      <a
+        class="{segment === 'archive' ? 'selected' : ''}"
+        href="{archiveLink}"
+        rel="prefetch"
+      >
+        Archívum
+      </a>
+    </li>
+    <li>
+      <a
+        class="{segment === 'shows' ? 'selected' : ''}"
+        href="shows"
+        rel="prefetch"
+      >
+        Műsorok
+      </a>
+    </li>
+  </ul>
 </nav>

@@ -4,19 +4,21 @@
     try {
       const res = await this.fetch('/api/v1/show?status=all');
       shows = await res.json();
-    } catch(e) {
+    } catch (e) {
       console.log('error in Fetch', e);
     }
     return { shows };
   }
 </script>
+
 <script>
   import Showlist from '../../components/Showlist.svelte';
   import { normailezeString } from '../../helpers';
   export let shows;
 
   let searchTerm = '';
-  let condition = (show) => normailezeString(show.name).indexOf(normailezeString(searchTerm)) != -1;
+  let condition = (show) =>
+    normailezeString(show.name).indexOf(normailezeString(searchTerm)) != -1;
   $: filteredShows = searchTerm.length ? shows.filter(condition) : shows;
 </script>
 
@@ -25,9 +27,9 @@
 </svelte:head>
 
 <h1>Műsorok</h1>
-<hr>
-<input type="serach" bind:value={searchTerm}>
-<br>
+<hr />
+<input type="serach" bind:value="{searchTerm}" />
+<br />
 {#each filteredShows as show}
-  <Showlist { ...show } ></Showlist>
+  <Showlist {...show} />
 {/each}

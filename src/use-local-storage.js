@@ -6,7 +6,7 @@ export const loadFromLocalStorage = (store, key) => {
 };
 
 export const saveToLocalStorage = (store, key) => {
-  store.subscribe(value => {
+  store.subscribe((value) => {
     if (value && value.length) {
       localStorage.setItem(key, JSON.stringify(value));
     } else {

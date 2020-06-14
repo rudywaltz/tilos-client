@@ -1,12 +1,3 @@
-
-<script>
-  import Nav from '../components/Nav.svelte';
-  import Player from '../components/Player.svelte';
-  import Playlist from '../components/Playlist.svelte';
-
-  export let segment;
-</script>
-
 <style>
   *,
   *:before,
@@ -20,10 +11,18 @@
   }
 </style>
 
-<Nav {segment}/>
+<script>
+  import Nav from '../components/Nav.svelte';
+  import Player from '../components/Player.svelte';
+  import Playlist from '../components/Playlist.svelte';
+
+  export let segment;
+</script>
+
+<Nav {segment} />
 
 <main>
-	<slot></slot>
+  <slot />
 </main>
 <Player>
   <Playlist />

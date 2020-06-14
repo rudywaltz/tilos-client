@@ -11,7 +11,7 @@
     isSameQuarter,
     isAfter,
     endOfDay,
-    getTime
+    getTime,
   } from 'date-fns';
 
   export let year;
@@ -82,25 +82,25 @@
     archiveShows = await load();
   };
 
-
   const load = async () => {
     const { firstDayOfQuarter, lastDayOfQuarter } = calculateQuarter();
-    const response =  await fetch(`/api/v1/show/${id}/episodes?start=${getTime(firstDayOfQuarter)}&end=${getTime(lastDayOfQuarter)}`);
-    const res =  await response.json();
+    const response = await fetch(
+      `/api/v1/show/${id}/episodes?start=${getTime(
+        firstDayOfQuarter
+      )}&end=${getTime(lastDayOfQuarter)}`
+    );
+    const res = await response.json();
     return res;
   };
 
   onMount(async () => {
     archiveShows = await load();
   });
-
-
 </script>
+
 <h2>Archívum:</h2>
-<button type="button" on:click={prev}>Prev</button>
-<button type="button" on:click={next}>next</button>
-  {#each episodes as episode}
-    <Episode {...episode}></Episode>
-  {:else}
-    Nincs elérhető adás
-  {/each}
+<button type="button" on:click="{prev}">Prev</button>
+<button type="button" on:click="{next}">next</button>
+{#each episodes as episode}
+  <Episode {...episode} />
+{:else}Nincs elérhető adás{/each}

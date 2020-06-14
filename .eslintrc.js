@@ -1,29 +1,34 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es6': true,
-    'node': true
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
   },
-  'extends': ['eslint:recommended', 'plugin:cypress/recommended'],
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly'
+  extends: ['prettier'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
-  'plugins': ['svelte3', 'cypress'],
-  'overrides': [
+  plugins: ['prettier', 'svelte3'],
+  overrides: [
     {
-      'files': ['**/*.svelte', '**/*.html'],
-      'processor': 'svelte3/svelte3'
-    }
+      files: ['**/*.svelte'],
+      processor: 'svelte3/svelte3',
+    },
+    {
+      files: 'cypress/**/**',
+      plugins: ['cypress'],
+    },
   ],
-  'parserOptions': {
-    'ecmaVersion': 2019,
-    'sourceType': 'module'
+  parserOptions: {
+    ecmaVersion: 2019,
+    sourceType: 'module',
   },
-  'rules': {
-    'indent': ['error', 2],
-    'linebreak-style': ['error','unix'],
-    'quotes': ['error','single'],
-    'semi': ['error','always']
-  }
+  rules: {
+    // 'prettier/prettier': 'error',
+    // indent: ['error', 2],
+    // 'linebreak-style': ['error', 'unix'],
+    // quotes: ['error', 'single'],
+    // semi: ['error', 'always'],
+  },
 };

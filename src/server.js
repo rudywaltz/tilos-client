@@ -8,21 +8,22 @@ const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 const proxy = (req, response, next) => {
-  if(req.method === 'GET' && (req.url.startsWith('/api/'))) {
-    https.get(`https://tilos.hu${req.url}`, (res) => {
-      let data = '';
+  if (req.method === 'GET' && req.url.startsWith('/api/')) {
+    https
+      .get(`https://tilos.hu${req.url}`, (res) => {
+        let data = '';
 
-      res.on('data', (chunk) => {
-        data += chunk;
+        res.on('data', (chunk) => {
+          data += chunk;
+        });
+
+        res.on('end', () => {
+          response.end(data);
+        });
+      })
+      .on('socket', (socket) => {
+        socket.emit('agentRemove');
       });
-
-      res.on('end', () => {
-        response.end(data);
-      });
-
-    }).on('socket', (socket) => {
-      socket.emit('agentRemove');
-    });
   } else {
     next();
   }
@@ -36,14 +37,12 @@ polka()
     sapper.middleware({
       session: () => ({
         development: dev,
-      })
-    }))
-  .listen(PORT, err => {
+      }),
+    })
+  )
+  .listen(PORT, (err) => {
     if (err) console.log('error', err);
   });
-
-
-
 
 // // src: ['https://archive.tilos.hu/mp3/tilos-20130820-150000-163000.mp3'],
 // // src: ['http://stream.tilos.hu:8000/tilos_128.mp3'],

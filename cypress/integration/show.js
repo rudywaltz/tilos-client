@@ -3,7 +3,7 @@ describe('show', () => {
     cy.visit('/shows', {
       onBeforeLoad: (contentWindow) => {
         contentWindow.localStorage.clear();
-      }
+      },
     });
   });
 

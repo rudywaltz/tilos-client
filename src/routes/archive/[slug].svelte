@@ -1,3 +1,14 @@
+<style>
+  .archive {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+    list-style-type: none;
+    padding: 0;
+  }
+</style>
+
 <script context="module">
   const { findTimeZone, setTimeZone } = require('timezone-support');
 
@@ -5,8 +16,14 @@
     const { slug } = page.params;
     const date = slug.split('-');
     const budapest = findTimeZone('Europe/Budapest');
-    const dayStart  = setTimeZone({ year: date[0], month: date[1], day: date[2], hours: 0, minutes: 0 }, budapest).epoch;
-    const dayEnd = setTimeZone({ year: date[0], month: date[1], day: date[2], hours: 24, minutes: 0 }, budapest).epoch;
+    const dayStart = setTimeZone(
+      { year: date[0], month: date[1], day: date[2], hours: 0, minutes: 0 },
+      budapest
+    ).epoch;
+    const dayEnd = setTimeZone(
+      { year: date[0], month: date[1], day: date[2], hours: 24, minutes: 0 },
+      budapest
+    ).epoch;
     let episodes = [];
 
     try {
@@ -14,9 +31,11 @@
         return { episodes, slug };
       }
 
-      const res = await this.fetch(`/api/v1/episode?start=${dayStart}&end=${dayEnd}`);
+      const res = await this.fetch(
+        `/api/v1/episode?start=${dayStart}&end=${dayEnd}`
+      );
       episodes = await res.json();
-    } catch(e) {
+    } catch (e) {
       console.log('error in Fetch', e);
     }
     return { episodes, slug };
@@ -31,22 +50,13 @@
   export let slug;
 
   $: episodes = episodeMapper(episodes);
-  $: prevDay = isValid(parseISO(slug)) ? `/archive/${format(addDays(parseISO(slug), -1), 'yyyy-MM-dd')}` : '';
-  $: nextDay = isValid(parseISO(slug))? `/archive/${format(addDays(parseISO(slug), 1), 'yyyy-MM-dd')}`: '';
+  $: prevDay = isValid(parseISO(slug))
+    ? `/archive/${format(addDays(parseISO(slug), -1), 'yyyy-MM-dd')}`
+    : '';
+  $: nextDay = isValid(parseISO(slug))
+    ? `/archive/${format(addDays(parseISO(slug), 1), 'yyyy-MM-dd')}`
+    : '';
 </script>
-
-<style>
-  .archive {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 0 -1rem;
-    list-style-type: none;
-    padding: 0;
-  }
-</style>
-
-
 
 <svelte:head>
   <title>Archívum</title>
@@ -54,14 +64,12 @@
 
 <h1>Archívum</h1>
 <div>
-  <a href="{ prevDay }" rel=prefetch>Előző Nap</a>
-  { slug }
-  <a href="{ nextDay }" rel=prefetch>Következő Nap</a>
+  <a href="{prevDay}" rel="prefetch">Előző Nap</a>
+  {slug}
+  <a href="{nextDay}" rel="prefetch">Következő Nap</a>
 </div>
 <div class="archive">
   {#each episodes as episode}
-    <Episode {...episode}></Episode>
-  {:else}
-    Nincs elérhető adás
-  {/each}
+    <Episode {...episode} />
+  {:else}Nincs elérhető adás{/each}
 </div>
