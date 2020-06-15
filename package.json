@@ -14,8 +14,8 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "lint": "eslint 'src/**/*.svelte' --ignore-path .gitignore",
-    "prettier": "prettier --write 'src/**' 'cypress/**'"
+    "lint": "TIMING=1 eslint 'src/**/*.{svelte,js,html}' --ignore-path .gitignore",
+    "prettier": "prettier --write 'src/**/*.{svelte,js,html}' 'cypress/**/*.js'"
   },
   "dependencies": {
     "compression": "1.7.4",
@@ -32,7 +32,6 @@
     "eslint": "7.2.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-cypress": "2.11.1",
-    "eslint-plugin-html": "6.0.2",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-svelte3": "2.7.3",
     "husky": "4.2.5",

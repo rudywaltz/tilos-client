@@ -4,19 +4,15 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['prettier'],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
-  plugins: ['prettier', 'svelte3'],
+  extends: [],
+  // globals: {
+  //   Atomics: 'readonly',
+  //   SharedArrayBuffer: 'readonly',
+  // },
+  plugins: ['svelte3'],
   overrides: [
     {
-      files: ['**/*.html'],
-      plugins: ['html']
-    },
-    {
-      files: ['**/*.svelte'],
+      files: ['**/*.svelte', '**/*.html'],
       processor: 'svelte3/svelte3',
     },
     {
@@ -29,7 +25,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // 'prettier/prettier': 'error',
     // indent: ['error', 2],
     // 'linebreak-style': ['error', 'unix'],
     // quotes: ['error', 'single'],

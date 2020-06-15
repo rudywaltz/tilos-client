@@ -22,16 +22,11 @@
 <Nav {segment} />
 
 <main>
+
+
   <slot />
 </main>
+
 <Player>
-
-
-
-
-
-
-
-
   <Playlist />
 </Player>
