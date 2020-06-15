@@ -1,3 +1,7 @@
+/* eslint-disable @getify/proper-arrows/name */
+/* eslint-disable @getify/proper-arrows/where */
+/* eslint-disable @getify/proper-arrows/this */
+
 import { timestamp, files, shell } from '@sapper/service-worker';
 
 const ASSETS = `cache${timestamp}`;

@@ -17,8 +17,11 @@
   export let shows;
 
   let searchTerm = '';
-  let condition = (show) =>
-    normailezeString(show.name).indexOf(normailezeString(searchTerm)) != -1;
+
+  function condition(show) {
+    return normailezeString(show.name).indexOf(normailezeString(searchTerm)) != -1;
+  }
+
   $: filteredShows = searchTerm.length ? shows.filter(condition) : shows;
 </script>
 

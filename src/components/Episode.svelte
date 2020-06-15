@@ -30,16 +30,20 @@
   export let inThePast;
 
   $: isInPlaylist =
-    !!$playlist.find((song) => song.url === mp3) || $song.url === mp3;
+    !!$playlist.find(function inPlaylist(song) {
+      return song.url === mp3;
+    }) || $song.url === mp3;
   $: hide = $hiddenShows.indexOf(showId) > -1;
 
-  const playlistToggle = () => {
+  function playlistToggle() {
     if (isInPlaylist) {
       if ($song.url === mp3) {
         $song = {};
       }
 
-      $playlist = $playlist.filter((song) => song.url !== mp3);
+      $playlist = $playlist.filter(function (song) {
+        return song.url !== mp3;
+      });
       return;
     }
 
@@ -51,11 +55,11 @@
         duration: duration,
       },
     ];
-  };
+  }
 
-  const hideArtist = () => {
+  function hideArtist() {
     $hiddenShows = [...$hiddenShows, showId];
-  };
+  }
 </script>
 
 {#if !hide}

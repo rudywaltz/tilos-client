@@ -1,3 +1,6 @@
+/* eslint-disable @getify/proper-arrows/name */
+/* eslint-disable @getify/proper-arrows/where */
+/* eslint-disable @getify/proper-arrows/this */
 /* eslint-disable no-unused-vars */
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins

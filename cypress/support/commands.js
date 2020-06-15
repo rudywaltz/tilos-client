@@ -8,6 +8,10 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 
-Cypress.Commands.add('setStorage', (contentWindow, key, value) => {
+Cypress.Commands.add('setStorage', function setStorage(
+  contentWindow,
+  key,
+  value
+) {
   contentWindow.localStorage.setItem(key, JSON.stringify(value));
 });

@@ -3,5 +3,16 @@
     "javascript",
     "javascriptreact",
     "html"
-  ]
+  ],
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true,
+    "source.fixAll.prettier": true,
+    // For TSLint
+    "source.fixAll.tslint": false,
+    // For Stylelint
+    "source.fixAll.stylelint": true
+  },
 }

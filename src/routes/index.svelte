@@ -9,7 +9,7 @@
 <script>
   import { playlist, song } from '../components/stores';
 
-  const clearAll = () => {
+  function clearAll() {
     $song = {};
     $playlist = [];
     localStorage.clear();

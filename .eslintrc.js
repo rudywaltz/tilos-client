@@ -4,11 +4,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [],
-  // globals: {
-  //   Atomics: 'readonly',
-  //   SharedArrayBuffer: 'readonly',
-  // },
+  extends: ['plugin:@getify/proper-arrows/getify-says'],
   plugins: ['svelte3'],
   overrides: [
     {
@@ -24,10 +20,5 @@ module.exports = {
     ecmaVersion: 2019,
     sourceType: 'module',
   },
-  rules: {
-    // indent: ['error', 2],
-    // 'linebreak-style': ['error', 'unix'],
-    // quotes: ['error', 'single'],
-    // semi: ['error', 'always'],
-  },
+  rules: {},
 };

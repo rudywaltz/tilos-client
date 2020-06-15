@@ -26,7 +26,7 @@
   quarter = Number(quarter) || getQuarter(new Date());
   $: episodes = episodeMapper(archiveShows);
 
-  const calculateQuarter = () => {
+  function calculateQuarter() {
     let firstDayOfQuarter = setQuarter(new Date(year, 0, 1), quarter);
     if (isAfter(firstShowDate, firstDayOfQuarter)) {
       if (!isSameQuarter(firstDayOfQuarter, firstShowDate)) {
@@ -50,39 +50,39 @@
     }
 
     return { firstDayOfQuarter, lastDayOfQuarter };
-  };
+  }
 
-  const quarterDecrase = () => {
+  function quarterDecrase() {
     if (quarter === 1) {
       quarter = 4;
       year--;
     } else {
       quarter--;
     }
-  };
+  }
 
-  const quarterIncrase = () => {
+  function quarterIncrase() {
     if (quarter === 4) {
       quarter = 1;
       year = year + 1;
     } else {
       quarter++;
     }
-  };
+  }
 
-  const prev = async (event) => {
+  async function prev(event) {
     event.preventDefault();
     quarterDecrase();
     archiveShows = await load();
-  };
+  }
 
-  const next = async (event) => {
+  async function next(event) {
     event.preventDefault();
     quarterIncrase();
     archiveShows = await load();
-  };
+  }
 
-  const load = async () => {
+  async function load() {
     const { firstDayOfQuarter, lastDayOfQuarter } = calculateQuarter();
     const response = await fetch(
       `/api/v1/show/${id}/episodes?start=${getTime(
@@ -91,9 +91,9 @@
     );
     const res = await response.json();
     return res;
-  };
+  }
 
-  onMount(async () => {
+  onMount(async function intialArchiveShows() {
     archiveShows = await load();
   });
 </script>

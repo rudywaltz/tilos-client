@@ -1,23 +1,26 @@
-const pad = (num) => (num < 10 ? '0' + num : num);
+function pad(num) {
+  return String(num).padStart(2, '0');
+}
 
-export const format = (time) => {
+export function format(time) {
   if (isNaN(time)) return '--:--:--';
   const hours = Math.floor(time / (60 * 60));
   const minutes = Math.floor((time / 60) % 60);
   const seconds = Math.ceil(time % 60);
   return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-};
+}
 
-export const normailezeString = (str) =>
-  str.length
+export function normailezeString(str) {
+  return str.length
     ? str
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .toLowerCase()
     : str;
+}
 
-export const episodeMapper = (archiveShows) =>
-  archiveShows.map((episode) => {
+export function episodeMapper(archiveShows) {
+  return archiveShows.map(function mapEpisode(episode) {
     return {
       alias: episode.show.alias,
       duration: (episode.realTo - episode.realFrom) / 1000,
@@ -28,3 +31,4 @@ export const episodeMapper = (archiveShows) =>
       text: episode.text ? episode.text.title : '------',
     };
   });
+}

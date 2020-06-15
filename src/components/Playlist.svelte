@@ -20,22 +20,24 @@
   import { format } from '../helpers';
   import { playlist } from './stores';
 
-  const removeAllSongs = () => {
+  function removeAllSongs() {
     $playlist = [];
-  };
+  }
 
-  const removeSong = (songUrl) => {
-    $playlist = $playlist.filter((song) => song.url !== songUrl);
-  };
+  function removeSong(songUrl) {
+    $playlist = $playlist.filter(function (song) {
+      return song.url !== songUrl;
+    });
+  }
 
-  const setCurrentData = () => {
+  function setCurrentData() {
     // TODO: tests
     if (!$playlist.length) {
       localStorage.removeItem('tilosStorePlaylist');
       return;
     }
     localStorage.setItem('tilosStorePlaylist', JSON.stringify($playlist));
-  };
+  }
 </script>
 
 <button type="button" class="playlist__clear" on:click="{removeAllSongs}">
@@ -50,7 +52,9 @@
       <button
         type="button"
         class="song__clear"
-        on:click="{() => removeSong(song.url)}"
+        on:click="{function () {
+          removeSong(song.url);
+        }}"
       >
         Clear
       </button>

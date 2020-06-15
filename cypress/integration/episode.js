@@ -1,3 +1,7 @@
+/* eslint-disable @getify/proper-arrows/name */
+/* eslint-disable @getify/proper-arrows/where */
+/* eslint-disable @getify/proper-arrows/this */
+
 describe('episode', () => {
   beforeEach(() => {
     cy.visit('/archive/2018-05-10', {

@@ -16,13 +16,15 @@
 
   $: isHidden = $hiddenShows.indexOf(id) > -1;
 
-  const toggleHiddenShow = () => {
+  function toggleHiddenShow() {
     if (isHidden) {
-      $hiddenShows = $hiddenShows.filter((showId) => showId !== id);
+      $hiddenShows = $hiddenShows.filter(function (showId) {
+        return showId !== id;
+      });
     } else {
       $hiddenShows = [...$hiddenShows, id];
     }
-  };
+  }
 </script>
 
 <div class:unwanted="{isHidden}">

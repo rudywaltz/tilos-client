@@ -102,8 +102,8 @@
 
   $: percent = ((time / duration) * 100).toFixed(2) || 0;
 
-  onMount(() => {
-    unsubscribe = playlist.subscribe((value) => {
+  onMount(function initPlayer() {
+    unsubscribe = playlist.subscribe(function (value) {
       if (Object.keys($song).length || !value.length) return;
 
       $song = value.shift();
@@ -118,7 +118,7 @@
 
   onDestroy(unsubscribe);
 
-  const createCurrentSong = () => {
+  function createCurrentSong() {
     const playing1 = playing;
     return new Howl({
       src: [$song.url],
@@ -126,7 +126,7 @@
       preload: true,
       html5: false,
       pool: 0,
-      onload: () => {
+      onload: function setupSong() {
         duration = currentSound.duration();
         time = $song.time;
 
@@ -138,7 +138,7 @@
           playSound();
         }
       },
-      onend: () => {
+      onend: function cleanupSong() {
         $song = {};
         if ($playlist.length) {
           loadNewSong();
@@ -147,25 +147,25 @@
         }
       },
     });
-  };
+  }
 
-  const resetSongStatus = () => {
+  function resetSongStatus() {
     $song = {};
     currentSound = null;
     duration = 0;
     time = 0;
     playing = false;
-  };
+  }
 
-  const loadNewSong = () => {
+  function loadNewSong() {
     if (Object.keys($song).length || !$playlist.length) {
       return;
     }
 
     nextFromPlaylist();
-  };
+  }
 
-  const nextSong = () => {
+  function nextSong() {
     currentSound.unload();
 
     if (!$playlist.length) {
@@ -174,20 +174,23 @@
     }
 
     nextFromPlaylist();
-  };
+  }
 
-  const nextFromPlaylist = () => {
+  function nextFromPlaylist() {
     $song = $playlist.shift();
     $playlist = $playlist; //TODO: nicer solution
     currentSound = createCurrentSong();
-  };
-  const toggleSound = () => (playing ? pauseSound() : playSound());
+  }
 
-  const playSound = () => {
+  function toggleSound() {
+    return playing ? pauseSound() : playSound();
+  }
+
+  function playSound() {
     currentSound.play();
     playing = true;
 
-    const pollingSongData = setInterval(() => {
+    const pollingSongData = setInterval(function updateTimer() {
       if (!playing) {
         time = 0;
         clearInterval(pollingSongData);
@@ -196,9 +199,9 @@
 
       time = currentSound.seek();
     }, 200);
-  };
+  }
 
-  const toggleLive = () => {
+  function toggleLive() {
     if (isLiveStream && playing) {
       playing = false;
       currentSound.unload();
@@ -216,21 +219,23 @@
     };
     playing = true;
     currentSound = createCurrentSong();
-  };
+  }
 
-  const pauseSound = () => {
+  function pauseSound() {
     currentSound.pause();
     playing = false;
-  };
+  }
 
-  const fastForward = () => currentSound.seek(currentSound.seek() + 30);
-  const backward = () => {
+  function fastForward() {
+    return currentSound.seek(currentSound.seek() + 30);
+  }
+  function backward() {
     const currentPosition = currentSound.seek();
     const newPostition = currentPosition - 10 > 0 ? currentPosition - 10 : 0;
     currentSound.seek(newPostition);
-  };
+  }
 
-  const setVolume = (event) => {
+  function setVolume(event) {
     if (event.type === 'mousemove' && event.buttons !== 1) {
       return;
     }
@@ -239,9 +244,9 @@
     const position = target.bottom - event.clientY;
     volume = position / target.height;
     Howler.volume(volume);
-  };
+  }
 
-  const seekWithBar = (event) => {
+  function seekWithBar(event) {
     if ((event.type === 'mousemove' && event.buttons !== 1) || !playing) {
       return;
     }
@@ -251,9 +256,9 @@
 
     const rate = position / target.width;
     currentSound.seek(rate * duration);
-  };
+  }
 
-  const setCurrentData = () => {
+  function setCurrentData() {
     if (!Object.keys($song).length) {
       localStorage.removeItem('tilosStoreSong');
       return;
@@ -261,9 +266,11 @@
 
     const fullSong = Object.assign({}, $song, { time });
     localStorage.setItem('tilosStoreSong', JSON.stringify(fullSong));
-  };
+  }
 
-  const togglePlaylist = () => (isPlaylistVisible = !isPlaylistVisible);
+  function togglePlaylist() {
+    isPlaylistVisible = !isPlaylistVisible;
+  }
 </script>
 
 <div id="player">
@@ -325,7 +332,7 @@
     </div>
     <div
       class="player__song_control mobile-hidden"
-      on:mouseenter="{() => {
+      on:mouseenter="{function () {
         showVolumeBar = true;
       }}"
     >
@@ -333,7 +340,9 @@
       <div
         class="volume__ghost"
         class:volume__ghost--visible="{showVolumeBar}"
-        on:mouseleave="{() => (showVolumeBar = false)}"
+        on:mouseleave="{function () {
+          showVolumeBar = false;
+        }}"
       >
         <div
           class="volume"

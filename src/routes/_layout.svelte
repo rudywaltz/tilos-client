@@ -22,8 +22,6 @@
 <Nav {segment} />
 
 <main>
-
-
   <slot />
 </main>
 
