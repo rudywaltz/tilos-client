@@ -12,6 +12,10 @@ module.exports = {
   plugins: ['prettier', 'svelte3'],
   overrides: [
     {
+      files: ['**/*.html'],
+      plugins: ['html']
+    },
+    {
       files: ['**/*.svelte'],
       processor: 'svelte3/svelte3',
     },

@@ -21,9 +21,6 @@
   export let quarter;
 </script>
 
-
-
-
 {#if show.name}
   <h1>{show.name}</h1>
   <h2>{show.definition}</h2>
