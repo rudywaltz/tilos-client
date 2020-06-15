@@ -25,5 +25,13 @@
   <slot />
 </main>
 <Player>
+
+
+
+
+
+
+
+
   <Playlist />
 </Player>
