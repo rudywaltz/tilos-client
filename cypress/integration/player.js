@@ -14,11 +14,11 @@ describe('player', () => {
     });
 
     it('default title', () => {
-      cy.get('.player__title').contains('No sound selected');
+      cy.get('.player__title').should('contain', 'No sound selected');
     });
 
     it('default duration', () => {
-      cy.get('#player .player__duration').contains('--:--:--');
+      cy.get('#player .player__duration').should('contain', '--:--:--');
     });
 
     it('buttons disabled', () => {
@@ -58,26 +58,29 @@ describe('player', () => {
     });
 
     it('render song title', () => {
-      cy.get('#player .player__title').contains('Jézus és a jelzőrakéta');
+      cy.get('#player .player__title').should(
+        'contain',
+        'Jézus és a jelzőrakéta'
+      );
     });
 
     it('render song duration', () => {
-      cy.get('#player .player__duration').contains('00:05:46');
+      cy.get('#player .player__duration').should('contain', '00:05:46');
     });
 
     it('render current time', () => {
       cy.get('#player .player__play').click();
-      cy.get('#player .player__current').contains('00:00:01');
+      cy.get('#player .player__current').should('contain', '00:00:01');
     });
 
     it('play sound', () => {
       cy.get('#player .player__play').click();
-      cy.get('#player .player__play').contains('Pause');
+      cy.get('#player .player__play').should('contain', 'Pause');
     });
 
     it('pause sound', () => {
       cy.get('#player .player__play').click().click();
-      cy.get('#player .player__play').contains('Play');
+      cy.get('#player .player__play').should('contain', 'Play');
     });
 
     it('should remove the last sound after end', () => {
@@ -95,8 +98,8 @@ describe('player', () => {
       cy.get('#player .player__play').click();
       cy.get('#player .player__fast_forward').click();
 
-      cy.get('.player__title').contains('No sound selected');
-      cy.get('#player .player__duration').contains('--:--:--');
+      cy.get('.player__title').should('contain', 'No sound selected');
+      cy.get('#player .player__duration').should('contain', '--:--:--');
     });
 
     it('should save current time to localstorage', () => {
@@ -142,7 +145,7 @@ describe('player', () => {
     it('progressbar display current position', () => {
       cy.get('#player .player__play').click();
       cy.get('#player .player__fast_forward').click();
-      cy.get('#player .player__current').contains('00:00:32');
+      cy.get('#player .player__current').should('contain', '00:00:32');
       cy.get('.progress__bar').should(($div) => {
         expect(Number.parseFloat($div[0].style.width)).to.be.greaterThan(5);
       });
@@ -152,7 +155,7 @@ describe('player', () => {
       cy.get('#player .player__play').click();
       cy.get('#player .player__fast_forward').click();
       cy.get('#player .player__backward').click();
-      cy.get('#player .player__current').contains('00:00:22');
+      cy.get('#player .player__current').should('contain', '00:00:22');
     });
 
     it('should change the track position base cursor position', () => {
@@ -249,8 +252,8 @@ describe('player', () => {
       cy.get('#player .player__fast_forward').click();
 
       cy.get('.player__title').contains('Jézus és a jelzőrakéta');
-      cy.get('#player .player__play').contains('Pause');
-      cy.get('#player .player__current').contains('00:00:01');
+      cy.get('#player .player__play').should('contain', 'Pause');
+      cy.get('#player .player__current').should('contain', '00:00:01');
     });
   });
 });

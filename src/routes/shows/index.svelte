@@ -19,7 +19,9 @@
   let searchTerm = '';
 
   function condition(show) {
-    return normailezeString(show.name).indexOf(normailezeString(searchTerm)) !== -1;
+    return (
+      normailezeString(show.name).indexOf(normailezeString(searchTerm)) !== -1
+    );
   }
 
   $: filteredShows = searchTerm.length ? shows.filter(condition) : shows;

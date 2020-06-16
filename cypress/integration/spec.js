@@ -20,7 +20,10 @@ describe('Tilos-client-app', () => {
         },
       });
       cy.get('a').contains('Előző Nap').click();
-      cy.get('.archive > :nth-child(1) .episode__title').contains('Real Sitt');
+      cy.get('.archive > :nth-child(1) .episode__title').should(
+        'contain',
+        'Real Sitt'
+      );
     });
 
     it('should load next day', () => {
@@ -30,7 +33,10 @@ describe('Tilos-client-app', () => {
         },
       });
       cy.get('a').contains('Következő Nap').click();
-      cy.get('.archive > :nth-child(1) .episode__title').contains('Optimal');
+      cy.get('.archive > :nth-child(1) .episode__title').should(
+        'contain',
+        'Optimal'
+      );
     });
   });
 });

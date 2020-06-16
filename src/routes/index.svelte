@@ -14,7 +14,7 @@
     $playlist = [];
     localStorage.clear();
     console.log('cleared', $song, $playlist);
-  };
+  }
 </script>
 
 <svelte:head>

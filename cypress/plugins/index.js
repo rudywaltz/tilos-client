@@ -1,3 +1,4 @@
+/* eslint-disable @getify/proper-arrows/params */
 /* eslint-disable @getify/proper-arrows/name */
 /* eslint-disable @getify/proper-arrows/where */
 /* eslint-disable @getify/proper-arrows/this */

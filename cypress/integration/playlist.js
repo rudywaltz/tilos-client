@@ -15,7 +15,7 @@ describe('playlist', () => {
         },
       });
       cy.get('.player__toggle_playlist').click();
-      cy.get('.playlist').contains('Choose one song');
+      cy.get('.playlist').should('contain', 'Choose one song');
     });
   });
 
@@ -49,17 +49,20 @@ describe('playlist', () => {
     });
 
     it('title', () => {
-      cy.get('.playlist .song__title').contains('Jézus és a jelzőrakéta');
+      cy.get('.playlist .song__title').should(
+        'contain',
+        'Jézus és a jelzőrakéta'
+      );
     });
 
     it('duration', () => {
-      cy.get('.playlist .song__duration').contains('01:15:13');
+      cy.get('.playlist .song__duration').should('contain', '01:15:13');
     });
 
     it('clear playlist', () => {
       cy.get('.playlist__clear').click();
 
-      cy.get('.playlist').contains('Choose one song');
+      cy.get('.playlist').should('contain', 'Choose one song');
     });
   });
 
@@ -98,7 +101,7 @@ describe('playlist', () => {
     });
 
     it('render data', () => {
-      cy.get('ul .song__title:nth-child(1)').contains('Lorem ipsum');
+      cy.get('ul .song__title:nth-child(1)').should('contain', 'Lorem ipsum');
     });
 
     it('remove one song', () => {
@@ -120,7 +123,7 @@ describe('playlist', () => {
     it('removing song button working multiple time', () => {
       cy.get(':nth-child(1) > .song__clear').click();
       cy.get(':nth-child(1) > .song__clear').click();
-      cy.get('.playlist').contains('Choose one song');
+      cy.get('.playlist').should('contain', 'Choose one song');
     });
   });
 });

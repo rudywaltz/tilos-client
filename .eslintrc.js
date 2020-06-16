@@ -13,7 +13,10 @@ module.exports = {
     },
     {
       files: 'cypress/**/**',
-      plugins: ['cypress'],
+      extends: ['plugin:cypress/recommended'],
+      rules: {
+        'cypress/no-force': 'warn',
+      },
     },
   ],
   parserOptions: {
