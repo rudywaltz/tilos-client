@@ -27,14 +27,21 @@ export function episodeMapper(archiveShows) {
       realFrom,
       inThePast,
       m3uUrl,
-      text: { title = '-------', formatted = '' } = {},
+      text,
     } = episode;
+
+    let formatted = '';
+    let title = '-------';
+
+    if (text !== null) {
+      title = text.title;
+      formatted = text.formatted;
+    }
 
     return {
       alias,
       name,
       showId: id,
-      text: title,
       inThePast,
       duration: (realTo - realFrom) / 1000,
       mp3: m3uUrl ? m3uUrl.slice(0, -3) + 'mp3' : '',
