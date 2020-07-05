@@ -5,21 +5,24 @@
     padding: 0 1em;
   }
 
-  ul {
+  .menu {
+    display: flex;
     margin: 0;
     padding: 0;
   }
 
-  /* clearfix */
-  ul::after {
-    content: '';
-    display: block;
-    clear: both;
+  .menu > li {
+    padding: 0 10px;
   }
 
   li {
+    list-style-type: none;
+  }
+
+  .menu-sub {
     display: block;
-    float: left;
+    margin: 0;
+    padding: 0;
   }
 
   .selected {
@@ -39,7 +42,7 @@
 
   a {
     text-decoration: none;
-    padding: 1em 0.5em;
+    padding: 5px;
     display: block;
   }
 </style>
@@ -53,18 +56,95 @@
 </script>
 
 <nav>
-  <ul>
+  <ul class="menu">
     <li>
       <a class="{segment === undefined ? 'selected' : ''}" href=".">home</a>
+      <ul class="menu-sub">
+        <li>
+          <a
+            class="{segment === 'archive' ? 'selected' : ''}"
+            href="{archiveLink}"
+            rel="prefetch"
+            data-testid="navigation-archive"
+          >
+            Napi Bontásban
+          </a>
+        </li>
+        <li>
+          <a
+            class="{segment === 'shows?type=speech' ? 'selected' : ''}"
+            href="shows?type=speech"
+            rel="prefetch"
+          >
+            Beszélgetős
+          </a>
+        </li>
+        <li>
+          <a
+            class="{segment === 'shows?type=music' ? 'selected' : ''}"
+            href="shows?type=music"
+          >
+            Zenei
+          </a>
+        </li>
+        <li>
+          <a href="#0">Régi Műsorok</a>
+        </li>
+      </ul>
     </li>
     <li>
-      <a
-        class="{segment === 'archive' ? 'selected' : ''}"
-        href="{archiveLink}"
-        rel="prefetch"
-      >
-        Archívum
-      </a>
+      <a href="#0">Magazín</a>
+      <ul class="menu-sub">
+        <li>
+          <a href="">Cikkek</a>
+        </li>
+        <li>
+          <a href="">Interjúk</a>
+        </li>
+        <li>
+          <a href="">Ajánlók</a>
+        </li>
+        <li>
+          <a href="">Maraton</a>
+        </li>
+        <li>
+          <a href="">Tematikus napok</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#0">Mi</a>
+      <ul class="menu-sub">
+        <li>
+          <a href="">Műsorkészítők</a>
+        </li>
+        <li>
+          <a href="">Eddigi vendégeink</a>
+        </li>
+        <li>
+          <a href="">Sajtó</a>
+        </li>
+        <li>
+          <a href="">Mementó</a>
+        </li>
+        <li>
+          <a href="">Kapcsolat</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#0">Támogatás</a>
+      <ul class="menu-sub">
+        <li>
+          <a href="">Rendszeres átutalás</a>
+        </li>
+        <li>
+          <a href="">Adó 1%</a>
+        </li>
+        <li>
+          <a href="">Tilos Támogatói Tagkártya Beváltóhelyek</a>
+        </li>
+      </ul>
     </li>
     <li>
       <a

@@ -9,7 +9,7 @@ describe('Tilos-client-app', () => {
     });
 
     it('navigates to /archive', () => {
-      cy.get('nav a').contains('Archívum').click();
+      cy.get('[data-testid="navigation-archive"]').click();
       cy.url().should('include', '/archive');
     });
 

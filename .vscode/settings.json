@@ -2,17 +2,17 @@
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    "html"
+    "html",
   ],
   "editor.formatOnSave": true,
-  "eslint.format.enable": true,
+  "eslint.format.enable": false,
   "editor.codeActionsOnSave": {
     // For ESLint
-    "source.fixAll.eslint": true,
-    "source.fixAll.prettier": true,
+    "source.fixAll.eslint": false,
     // For TSLint
     "source.fixAll.tslint": false,
     // For Stylelint
-    "source.fixAll.stylelint": true
+    "source.fixAll.stylelint": false,
+    "source.fixAll.prettier": false
   },
 }

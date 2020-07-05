@@ -1,5 +1,10 @@
 <script context="module">
-  export async function preload() {
+  export async function preload({
+    query: {
+      type,
+      status = 'active'
+    }
+  }) {
     let shows = [];
     try {
       const res = await this.fetch('/api/v1/show?status=all');
@@ -7,13 +12,28 @@
     } catch (e) {
       console.log('error in Fetch', e);
     }
-    return { shows };
+
+    shows = shows.filter(function filterByParams(show) {
+      // TODO: status can be legend
+      return (
+        show.status.toLowerCase() === status.toLocaleLowerCase() &&
+        (type !== undefined ?
+          show.type.toLowerCase() === type.toLowerCase() :
+          true)
+      );
+    });
+
+    return {
+      shows,
+    };
   }
 </script>
 
 <script>
   import Showlist from '../../components/Showlist.svelte';
-  import { normailezeString } from '../../helpers';
+  import {
+    normailezeString
+  } from '../../helpers';
   export let shows;
 
   let searchTerm = '';

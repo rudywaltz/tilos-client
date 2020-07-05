@@ -13,21 +13,21 @@ function proxy(req, response, next) {
       .get(`https://tilos.hu${req.url}`, function callback(res) {
         let data = '';
 
-        res.on('data', function(chunk) {
+        res.on('data', function (chunk) {
           data += chunk;
         });
 
-        res.on('end', function() {
+        res.on('end', function () {
           response.end(data);
         });
       })
-      .on('socket', function(socket) {
+      .on('socket', function (socket) {
         socket.emit('agentRemove');
       });
   } else {
     next();
   }
-};
+}
 
 polka()
   .use(
@@ -35,9 +35,11 @@ polka()
     sirv('static', { dev }),
     proxy,
     sapper.middleware({
-      session: function() { return {
-        development: dev,
-      }},
+      session: function () {
+        return {
+          development: dev,
+        };
+      },
     })
   )
   .listen(PORT, function (err) {

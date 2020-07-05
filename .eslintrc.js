@@ -24,6 +24,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    eqeqeq: ['error', 'smart'], //https://github.com/getify/You-Dont-Know-JS/blob/b008e0e91ceab2e2759a40feb4ae2b99aaee9372/types-grammar/ch4.md#loose-equals-vs-strict-equals
+    eqeqeq: ['error', 'smart'], // https://github.com/getify/You-Dont-Know-JS/blob/b008e0e91ceab2e2759a40feb4ae2b99aaee9372/types-grammar/ch4.md#loose-equals-vs-strict-equals
   },
 };
