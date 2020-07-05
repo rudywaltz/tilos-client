@@ -4,6 +4,7 @@
   *:after {
     box-sizing: border-box;
   }
+
   main {
     position: relative;
     background-color: white;

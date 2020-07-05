@@ -24,8 +24,13 @@
 </script>
 
 <script>
-  import { playlist, song } from '../components/stores';
-  import { episodeMapper } from '../helpers';
+  import {
+    playlist,
+    song
+  } from '../components/stores';
+  import {
+    episodeMapper
+  } from '../helpers';
   import Episode from '../components/Episode.svelte';
 
   export let recommendedList;
