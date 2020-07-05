@@ -1,10 +1,5 @@
 <script context="module">
-  export async function preload({
-    query: {
-      type,
-      status = 'active'
-    }
-  }) {
+  export async function preload({ query: { type, status = 'active' } }) {
     let shows = [];
     try {
       const res = await this.fetch('/api/v1/show?status=all');
@@ -17,9 +12,9 @@
       // TODO: status can be legend
       return (
         show.status.toLowerCase() === status.toLocaleLowerCase() &&
-        (type !== undefined ?
-          show.type.toLowerCase() === type.toLowerCase() :
-          true)
+        (type !== undefined
+          ? show.type.toLowerCase() === type.toLowerCase()
+          : true)
       );
     });
 
@@ -31,9 +26,7 @@
 
 <script>
   import Showlist from '../../components/Showlist.svelte';
-  import {
-    normailezeString
-  } from '../../helpers';
+  import { normailezeString } from '../../helpers';
   export let shows;
 
   let searchTerm = '';

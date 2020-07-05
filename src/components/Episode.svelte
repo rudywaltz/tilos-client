@@ -28,6 +28,7 @@
   export let text;
   export let showId;
   export let inThePast;
+  export let formatted;
 
   $: isInPlaylist =
     !!$playlist.find(function inPlaylist(song) {
@@ -68,7 +69,10 @@
       <a rel="prefetch" href="shows/{alias}">{name}</a>
     </h2>
     <time class="episode__duration">{format(duration)}</time>
-    <p class="episode__diary">{text}</p>
+    <h3 class="episode__diary">{text}</h3>
+    <p class="episode__formatted">
+      {@html formatted}
+    </p>
     <code class="episode__link">{mp3}</code>
     <br />
     <button
