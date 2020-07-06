@@ -70,9 +70,9 @@
     </h2>
     <time class="episode__duration">{format(duration)}</time>
     <h3 class="episode__diary">{text}</h3>
-    <p class="episode__formatted">
+    <!-- <p class="episode__formatted">
       {@html formatted}
-    </p>
+    </p> -->
     <code class="episode__link">{mp3}</code>
     <br />
     <button

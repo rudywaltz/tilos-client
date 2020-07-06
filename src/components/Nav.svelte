@@ -11,7 +11,7 @@
     padding: 0;
   }
 
-  .menu>li {
+  .menu > li {
     padding: 0 10px;
   }
 
@@ -48,9 +48,7 @@
 </style>
 
 <script>
-  import {
-    format
-  } from 'date-fns';
+  import { format } from 'date-fns';
 
   const archiveLink = `archive/${format(new Date(), 'yyyy-MM-dd')}`;
 
@@ -63,23 +61,31 @@
       <a class="{segment === undefined ? 'selected' : ''}" href=".">home</a>
       <ul class="menu-sub">
         <li>
-          <a class="{segment === 'archive' ? 'selected' : ''}" href="{archiveLink}" rel="prefetch"
-            data-testid="navigation-archive">
-            Napi Bontásban
-          </a>
-        </li>
-        <li>
-          <a class="{segment === 'shows?type=speech' ? 'selected' : ''}" href="shows?type=speech" rel="prefetch">
+          <a
+            class="{segment === 'shows?type=speech' ? 'selected' : ''}"
+            href="shows?type=speech"
+            rel="prefetch"
+          >
             Beszélgetős
           </a>
         </li>
         <li>
-          <a class="{segment === 'shows?type=music' ? 'selected' : ''}" href="shows?type=music">
+          <a
+            class="{segment === 'shows?type=music' ? 'selected' : ''}"
+            href="shows?type=music"
+          >
             Zenei
           </a>
         </li>
         <li>
-          <a href="shows?status=old">Régi Műsorok</a>
+          <a
+            class="{segment === 'archive' ? 'selected' : ''}"
+            href="{archiveLink}"
+            rel="prefetch"
+            data-testid="navigation-archive"
+          >
+            Archívum
+          </a>
         </li>
       </ul>
     </li>
@@ -138,7 +144,11 @@
       </ul>
     </li>
     <li>
-      <a class="{segment === 'shows' ? 'selected' : ''}" href="shows" rel="prefetch">
+      <a
+        class="{segment === 'shows' ? 'selected' : ''}"
+        href="shows"
+        rel="prefetch"
+      >
         Műsorok
       </a>
     </li>

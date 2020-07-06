@@ -1,5 +1,5 @@
 <script context="module">
-  export async function preload({ query: { type, status = 'active' } }) {
+  export async function preload({ query: { type } }) {
     let shows = [];
     try {
       const res = await this.fetch('/api/v1/show?status=all');
@@ -8,15 +8,11 @@
       console.log('error in Fetch', e);
     }
 
-    shows = shows.filter(function filterByParams(show) {
-      // TODO: status can be legend
-      return (
-        show.status.toLowerCase() === status.toLocaleLowerCase() &&
-        (type !== undefined
-          ? show.type.toLowerCase() === type.toLowerCase()
-          : true)
-      );
-    });
+    if (type !== undefined) {
+      shows = shows.filter(function filterByParams(show) {
+        return show.type.toLowerCase() === type.toLowerCase();
+      });
+    }
 
     return {
       shows,
