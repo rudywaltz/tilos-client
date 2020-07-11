@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@getify/eslint-plugin-proper-arrows": "9.1.1",
-    "cypress": "4.9.0",
+    "cypress": "4.10.0",
     "eslint": "7.4.0",
     "eslint-plugin-cypress": "2.11.1",
     "eslint-plugin-svelte3": "2.7.3",
