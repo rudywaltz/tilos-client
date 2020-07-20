@@ -27,7 +27,7 @@
     "timezone-support": "2.0.2"
   },
   "devDependencies": {
-    "@getify/eslint-plugin-proper-arrows": "9.1.1",
+    "@getify/eslint-plugin-proper-arrows": "10.0.0",
     "cypress": "4.10.0",
     "eslint": "7.5.0",
     "eslint-plugin-cypress": "2.11.1",
