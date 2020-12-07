@@ -23,7 +23,7 @@
     "encoding": "0.1.13",
     "howler": "2.2.1",
     "polka": "0.5.2",
-    "sirv": "1.0.7",
+    "sirv": "1.0.9",
     "timezone-support": "2.0.2"
   },
   "devDependencies": {
