@@ -40,7 +40,7 @@
     "sapper": "0.28.10",
     "svelte": "3.31.0",
     "svelte-loader": "2.13.6",
-    "webpack": "4.44.2"
+    "webpack": "5.10.1"
   },
   "husky": {
     "hooks": {
