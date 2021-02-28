@@ -11,24 +11,20 @@
   export async function preload() {
     let recommendedList = [];
     let latestNews = [];
-    let collectedEpisodesList = [];
     try {
-      const [recommended, news, collectedEpisodes] = await Promise.all([
+      const [recommended, news] = await Promise.all([
         this.fetch('/api/v1/episode/lastWeek'),
-        this.fetch('/api/v1/text/news/current'),
-        this.fetch('/api/v1/tag/tematikusnap'),
+        this.fetch('/api/v1/text/news/current')
       ]);
       recommendedList = await recommended.json();
       latestNews = await news.json();
-      collectedEpisodesList = await collectedEpisodes.json();
     } catch (e) {
       console.log('error in Fetch', e);
     }
 
     return {
       recommendedList,
-      latestNews,
-      collectedEpisodesList,
+      latestNews
     };
   }
 </script>
@@ -39,7 +35,6 @@
   import Episode from '../components/Episode.svelte';
 
   export let latestNews;
-  export let collectedEpisodesList;
   export let recommendedList;
   const formattedRecommendedList = episodeMapper(recommendedList);
 
@@ -73,16 +68,4 @@
       {@html news.leadFormatted}
     </li>
   {:else}Nincs elérhető adás{/each}
-</ul>
-
-<h2>Összeszedtük neked</h2>
-<ul>
-  {#each collectedEpisodesList.tagged as episode}
-    <li>
-      <b>{episode.showName}:</b>
-      {episode.title}
-    </li>
-  {:else}
-    <li>Nincs elérhető ajánlás</li>
-  {/each}
 </ul>
