@@ -15,7 +15,8 @@
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
     "lint": "TIMING=1 eslint 'src/**/*.{svelte,js,html}' 'cypress/**/*.js' --fix --ignore-path .gitignore",
-    "prettier": "prettier --write 'src/**/*.{svelte,js,html}' 'cypress/**/*.js'"
+    "prettier": "prettier --write 'src/**/*.{svelte,js,html}' 'cypress/**/*.js'",
+    "prettier:check": "prettier --check 'src/**/*.{svelte,js,html}' 'cypress/**/*.js'"
   },
   "dependencies": {
     "compression": "1.7.4",
