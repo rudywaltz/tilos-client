@@ -1,26 +1,26 @@
 <style>
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
-  main {
-    position: relative;
-    background-color: white;
-    margin: 0 auto;
-  }
+main {
+  position: relative;
+  background-color: white;
+  margin: 0 auto;
+}
 </style>
 
 <script>
-  import Nav from '../components/Nav.svelte';
-  import Player from '../components/Player.svelte';
-  import Playlist from '../components/Playlist.svelte';
+import Nav from '../components/Nav.svelte';
+import Player from '../components/Player.svelte';
+import Playlist from '../components/Playlist.svelte';
 
-  export let segment;
+export let segment;
 </script>
 
-<Nav {segment} />
+<Nav segment="{segment}" />
 
 <main>
   <slot />

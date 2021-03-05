@@ -5,8 +5,9 @@
   "semi": true,
   "trailingComma": "es5",
   "singleQuote": true,
-  "svelteSortOrder": "styles-scripts-markup",
+  "svelteSortOrder": "options-styles-scripts-markup",
   "svelteStrictMode": true,
-  "svelteBracketNewLine": true,
-  "svelteAllowShorthand": true
+  "svelteBracketNewLine": false,
+  "svelteAllowShorthand": false,
+  "svelteIndentScriptAndStyle": false
 }

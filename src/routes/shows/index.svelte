@@ -1,39 +1,39 @@
 <script context="module">
-  export async function preload({ query: { type } }) {
-    let shows = [];
-    try {
-      const res = await this.fetch('/api/v1/show?status=all');
-      shows = await res.json();
-    } catch (e) {
-      console.log('error in Fetch', e);
-    }
-
-    if (type !== undefined) {
-      shows = shows.filter(function filterByParams(show) {
-        return show.type.toLowerCase() === type.toLowerCase();
-      });
-    }
-
-    return {
-      shows,
-    };
+export async function preload({ query: { type } }) {
+  let shows = [];
+  try {
+    const res = await this.fetch('/api/v1/show?status=all');
+    shows = await res.json();
+  } catch (e) {
+    console.log('error in Fetch', e);
   }
+
+  if (type !== undefined) {
+    shows = shows.filter(function filterByParams(show) {
+      return show.type.toLowerCase() === type.toLowerCase();
+    });
+  }
+
+  return {
+    shows,
+  };
+}
 </script>
 
 <script>
-  import Showlist from '../../components/Showlist.svelte';
-  import { normailezeString } from '../../helpers';
-  export let shows;
+import Showlist from '../../components/Showlist.svelte';
+import { normailezeString } from '../../helpers';
+export let shows;
 
-  let searchTerm = '';
+let searchTerm = '';
 
-  function condition(show) {
-    return (
-      normailezeString(show.name).indexOf(normailezeString(searchTerm)) !== -1
-    );
-  }
+function condition(show) {
+  return (
+    normailezeString(show.name).indexOf(normailezeString(searchTerm)) !== -1
+  );
+}
 
-  $: filteredShows = searchTerm.length ? shows.filter(condition) : shows;
+$: filteredShows = searchTerm.length ? shows.filter(condition) : shows;
 </script>
 
 <svelte:head>

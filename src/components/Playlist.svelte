@@ -1,43 +1,43 @@
 <style>
-  .playlist {
-    border-top: 1px solid #dedede;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.playlist {
+  border-top: 1px solid #dedede;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .song {
-    display: inline-block;
-    padding: 0 16px;
-  }
+.song {
+  display: inline-block;
+  padding: 0 16px;
+}
 
-  .song__title {
-    margin: 0;
-  }
+.song__title {
+  margin: 0;
+}
 </style>
 
 <script>
-  import { format } from '../helpers';
-  import { playlist } from './stores';
+import { format } from '../helpers';
+import { playlist } from './stores';
 
-  function removeAllSongs() {
-    $playlist = [];
-  }
+function removeAllSongs() {
+  $playlist = [];
+}
 
-  function removeSong(songUrl) {
-    $playlist = $playlist.filter(function (song) {
-      return song.url !== songUrl;
-    });
-  }
+function removeSong(songUrl) {
+  $playlist = $playlist.filter(function (song) {
+    return song.url !== songUrl;
+  });
+}
 
-  function setCurrentData() {
-    // TODO: tests
-    if (!$playlist.length) {
-      localStorage.removeItem('tilosStorePlaylist');
-      return;
-    }
-    localStorage.setItem('tilosStorePlaylist', JSON.stringify($playlist));
+function setCurrentData() {
+  // TODO: tests
+  if (!$playlist.length) {
+    localStorage.removeItem('tilosStorePlaylist');
+    return;
   }
+  localStorage.setItem('tilosStorePlaylist', JSON.stringify($playlist));
+}
 </script>
 
 <button type="button" class="playlist__clear" on:click="{removeAllSongs}">
@@ -54,8 +54,7 @@
         class="song__clear"
         on:click="{function () {
           removeSong(song.url);
-        }}"
-      >
+        }}">
         Clear
       </button>
     </li>

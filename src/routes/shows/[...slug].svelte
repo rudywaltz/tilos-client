@@ -1,24 +1,24 @@
 <script context="module">
-  export async function preload({ params }) {
-    let [showSlug, year, quarter] = params.slug;
-    let show = {};
-    try {
-      const res = await this.fetch(`/api/v1/show/${showSlug}`);
-      show = await res.json();
-    } catch (e) {
-      console.log('error in Fetch', e);
-    }
-
-    return { show, showSlug, year, quarter };
+export async function preload({ params }) {
+  let [showSlug, year, quarter] = params.slug;
+  let show = {};
+  try {
+    const res = await this.fetch(`/api/v1/show/${showSlug}`);
+    show = await res.json();
+  } catch (e) {
+    console.log('error in Fetch', e);
   }
+
+  return { show, showSlug, year, quarter };
+}
 </script>
 
 <script>
-  import Archivelist from '../../components/Archivelist.svelte';
-  export let showSlug;
-  export let show;
-  export let year;
-  export let quarter;
+import Archivelist from '../../components/Archivelist.svelte';
+export let showSlug;
+export let show;
+export let year;
+export let quarter;
 </script>
 
 {#if show.name}
@@ -28,7 +28,7 @@
     {@html show.description}
   </div>
 
-  <Archivelist {year} {quarter} {...show} />
+  <Archivelist year="{year}" quarter="{quarter}" {...show} />
 {:else}
   <h1>{showSlug} nevű műsor nem létezik</h1>
 {/if}
