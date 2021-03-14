@@ -10,7 +10,7 @@ const dev = NODE_ENV === 'development';
 function proxy(req, response, next) {
   if (req.method === 'GET' && req.url.startsWith('/api/')) {
     https
-      .get(`https://tilos.hu${req.url}`, function callback(res) {
+      .get(`https://test.tilos.hu${req.url}`, function callback(res) {
         let data = '';
 
         res.on('data', function (chunk) {
