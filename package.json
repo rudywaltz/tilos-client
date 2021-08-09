@@ -39,7 +39,7 @@
     "prettier": "2.2.1",
     "prettier-plugin-svelte": "2.1.6",
     "sapper": "0.28.10",
-    "svelte": "3.34.0",
+    "svelte": "3.42.1",
     "svelte-loader": "2.13.6",
     "webpack": "4.44.2"
   },
