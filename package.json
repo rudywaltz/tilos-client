@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "compression": "1.7.4",
-    "date-fns": "2.18.0",
+    "date-fns": "2.24.0",
     "encoding": "0.1.13",
     "howler": "2.2.1",
     "polka": "0.5.2",
