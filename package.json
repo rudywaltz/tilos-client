@@ -25,7 +25,7 @@
     "howler": "2.2.1",
     "polka": "0.5.2",
     "sirv": "1.0.11",
-    "timezone-support": "2.0.2"
+    "timezone-support": "2.1.1"
   },
   "devDependencies": {
     "@getify/eslint-plugin-proper-arrows": "10.0.0",
